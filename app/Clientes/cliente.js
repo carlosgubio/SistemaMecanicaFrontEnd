@@ -41,8 +41,7 @@ async function CapturarDadosPessoa(){
     enderecoCliente,
     veiculoCliente,
     placaVeiculoCliente,
-    corVeiculoCliente 
-    
+    corVeiculoCliente     
   };
 
   console.log(CadastrarClienteViewModel);
