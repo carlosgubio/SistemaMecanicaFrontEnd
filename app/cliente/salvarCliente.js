@@ -9,6 +9,11 @@ async function CarregarTemplate(nome){
   return template;
 }
 
+async function AdicionarVeiculo(){  
+  let veiculo =  document.querySelector('#dadosVeiculo');    
+  let templateVeiculo = await CarregarTemplate('../../module/veiculo.html');    
+  veiculo.innerHTML = templateVeiculo;
+}
 //convertendo o texto e adicionando em tela;
 function converterParaDomElement(str) {
   let parser = new DOMParser();
@@ -16,20 +21,8 @@ function converterParaDomElement(str) {
   return doc.body;
 };
 
-async function AdicionarVeiculo(){
-  //1o passo: pegar a divisória que irá guardar os telefones;
-  let veiculo = document.querySelector('#dadosVeiculo');
-  
-  //2o passo: carregar o template que desejamos:
-  let templateVeiculo = await CarregarTemplate('../../module/cliente/.html');
-
-  //3o preencher com o html carregado, convertendo o texto para um elemento html.
-  veiculo.appendChild(converterParaDomElement(templateVeiculo));          
-}
-
-
 //pegando os dados do formulário
-async function CapturarDadosCliente(){
+async function salvarCliente(){
   let nomeCliente = document.querySelector('#nomeCliente').value;  
   console.log(nomeCliente);
   let cpfCliente = document.querySelector('#cpfCliente').value;  
@@ -39,16 +32,45 @@ async function CapturarDadosCliente(){
   let enderecoCliente = document.querySelector('#enderecoCliente').value;  
   console.log(enderecoCliente);
     
-  let CadastrarClienteViewModel = {
+  let cliente = {
     nomeCliente,
     cpfCliente,
     telefoneCliente,
     enderecoCliente        
   };
 
-  console.log(CadastrarClienteViewModel);
+  let divVeiculo = document.querySelector('#areaVeiculo');
 
-  let response = await EnviarApi(CadastrarClienteViewModel);
+  if(!divVeiculo)
+  {
+    alert("Veículo não preenchido");
+    return;
+  }
+
+  let veiculoClienteInput = divVeiculo.querySelector('#veiculoCliente').value;
+  console.log(veiculoClienteInput);
+  let plavaVeiculoClienteInput = divVeiculo.querySelector('#plavaVeiculoCliente').value;
+  console.log(veiculoClienteInput);
+  let corVeiculoClienteInput = divVeiculo.querySelector('#corVeiculoCliente').value;
+  console.log(veiculoClienteInput);
+
+  let veiculo = {
+    veiculoCliente : veiculoClienteInput,
+    plavaVeiculoCliente : plavaVeiculoClienteInput,
+    corVeiculoCliente : corVeiculoClienteInput
+  };
+
+  let CadastrarClienteViewModel = {
+    cliente
+  };
+  console.log(CadastrarClienteViewModel);
+  
+  let CadastrarVeiculoViewModel = {
+    veiculo
+  };
+  console.log(CadastrarVeiculoViewModel);
+
+  let response = await EnviarApi(CadastrarClienteViewModel, CadastrarVeiculoViewModel);
   console.log(response);
 }
 
@@ -79,6 +101,26 @@ async function EnviarApi(viewmodel){
         console.log(erro);
         return erro;
     });
-
     return req;
+
+    const request =  await fetch('https://localhost:44363/veiculos/cadastrar', options )
+  //caso a request dê certo, retornará a resposta;
+  .then(response => { 
+    response.text()
+    .then(data=> {
+        console.log(data);
+        return data;
+        });
+    }) 
+  //caso dê erro, irá retornar o erro e mostrar no console
+    .catch(erro => {
+        console.log(erro);
+        return erro;
+    });
+
+    return request;
+    
+}
+function Voltar(){
+  window.location = "../../index.html";
 }

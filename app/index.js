@@ -1,5 +1,5 @@
 function CarregarTelaCadastroCliente(){  
-    window.location = "./module/cliente/criarPessoa.html";
+    window.location = "./module/salvarCliente.html";
   }
   function CarregarTelaListagemCliente(){
     window.location = "./module/pessoa/listarPessoa.html";
