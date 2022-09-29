@@ -17,18 +17,18 @@ function converterParaDomElement(str) {
 function Voltar(){
     window.location = "../../index.html";
 }
-async function getClienteNome(){
+async function getVeiculoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
-    let res = await ConsultaCliente(urlParams.get('nome'));
+    let res = await ConsultaVeiculo(urlParams.get('nome'));
     PreencherFormulario(res);
 }
 
-async function ConsultaCliente(nome){      
+async function ConsultaVeiculo(nome){      
     const options = {
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44363/clientes/consultarNome?nome={nome}', options )
+    const req =  await fetch('https://localhost:44363/Veiculos/veiculos?nome={nome}', options )
         .then(response => {      
             return response.json();
         })     
@@ -40,15 +40,16 @@ async function ConsultaCliente(nome){
 }
 async function PreencherFormulario(json){
     let dadosForm = document.querySelector('#form');
-    let nomeCliente = dadosForm.querySelector('#nomeCliente');
-    let cpfCliente = dadosForm.querySelector('#cpfCliente');
-    let telefoneCliente = dadosForm.querySelector('#telefoneCliente');
-    let enderecoCliente = dadosForm.querySelector('#enderecoCliente');
+    let veiculoCliente = dadosForm.querySelector('#veiculoCliente');
+    let placaVeiculoCliente = dadosForm.querySelector('#placaVeiculoCliente');
+    let corVeiculoCliente = dadosForm.querySelector('#corVeiculoCliente');
+    let idCliente = dadosForm.querySelector('#idCliente');
 
     console.log(json);
-    nomeCliente.value = json.nomeCliente;
+    veiculoCliente.value = json.veiculoCliente;
     cpfCliente.value = json.cpfCliente;
-    telefoneCliente.value = json.telefoneCliente;
-    enderecoCliente.value = json.enderecoCliente;
+    placaVeiculoCliente.value = json.placaVeiculoCliente;
+    corVeiculoCliente.value = json.corVeiculoCliente;
+    idCliente.value = json.idCliente;
 }
-getClienteNome();
+getVeiculoNome();

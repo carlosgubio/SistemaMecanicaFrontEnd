@@ -1,6 +1,48 @@
 function CarregarTelaCadastroCliente(){  
-    window.location = "./module/salvarCliente.html";
+    window.location = "./module/moduleCliente/salvarCliente.html";
   }
   function CarregarTelaListagemCliente(){
-    window.location = "./module/pessoa/listarPessoa.html";
+    window.location = "./module/moduleCliente/listarCliente.html";
+  }
+
+  function CarregarTelaCadastroProfissional(){  
+    window.location = "./module/moduleProfissional/salvarProfissional.html";
+  }
+  function CarregarTelaListagemProfissional(){
+    window.location = "./module/moduleProfissional/listarProfissional.html";
+  }
+
+  function CarregarTelaCadastroProduto(){  
+    window.location = "./module/moduleProduto/salvarProduto.html";
+  }
+  function CarregarTelaListagemProduto(){
+    window.location = "./module/moduleProduto/listarProduto.html";
+  }
+
+  function CarregarTelaCadastroServico(){  
+    window.location = "./module/moduleServico/salvarServico.html";
+  }
+  function CarregarTelaListagemServico(){
+    window.location = "./module/moduleServico/listarServico.html";
+  }
+
+  function CarregarTelaCadastroVeiculo(){  
+    window.location = "./module/moduleVeiculo/salvarVeiculo.html";
+  }
+  function CarregarTelaListagemVeiculo(){
+    window.location = "./module/moduleVeiculo/listarVeiculo.html";
+  }
+
+  function CarregarTelaCadastroOrdemServico(){  
+    window.location = "./module/moduleServico/salvarServico.html";
+  }
+  function CarregarTelaListagemOrdemServico(){
+    window.location = "./module/moduleOrdemServico/listarOrdemServico.html";
+  }
+
+  function CarregarTelaCadastroLogin(){  
+    window.location = "./module/moduleLogin/salvarLogin.html";
+  }
+  function CarregarTelaListagemLogin(){
+    window.location = "./module/moduleLogin/listarLogin.html";
   }

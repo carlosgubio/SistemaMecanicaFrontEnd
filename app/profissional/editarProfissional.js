@@ -17,18 +17,18 @@ function converterParaDomElement(str) {
 function Voltar(){
     window.location = "../../index.html";
 }
-async function getClienteNome(){
+async function getProfissionalNome(){
     const urlParams = new URLSearchParams(window.location.search);    
-    let res = await ConsultaCliente(urlParams.get('nome'));
+    let res = await ConsultaProfissional(urlParams.get('nome'));
     PreencherFormulario(res);
 }
 
-async function ConsultaCliente(nome){      
+async function ConsultaProfissional(nome){      
     const options = {
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44363/clientes/consultarNome?nome={nome}', options )
+    const req =  await fetch('https://localhost:44363/profissionais/consultaNome?nome={nome}', options )
         .then(response => {      
             return response.json();
         })     
@@ -40,15 +40,11 @@ async function ConsultaCliente(nome){
 }
 async function PreencherFormulario(json){
     let dadosForm = document.querySelector('#form');
-    let nomeCliente = dadosForm.querySelector('#nomeCliente');
-    let cpfCliente = dadosForm.querySelector('#cpfCliente');
-    let telefoneCliente = dadosForm.querySelector('#telefoneCliente');
-    let enderecoCliente = dadosForm.querySelector('#enderecoCliente');
-
+    let nomeProfissional = dadosForm.querySelector('#nomeProfissional');
+    let cargoProfissional = dadosForm.querySelector('#cargoProfissional');
+ 
     console.log(json);
-    nomeCliente.value = json.nomeCliente;
-    cpfCliente.value = json.cpfCliente;
-    telefoneCliente.value = json.telefoneCliente;
-    enderecoCliente.value = json.enderecoCliente;
-}
-getClienteNome();
+    nomeProfissional.value = json.nomeProfissional;
+    cargoProfissional.value = json.cargoProfissional;
+ }
+ getProfissionalNome();

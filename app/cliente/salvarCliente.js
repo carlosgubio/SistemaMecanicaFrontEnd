@@ -11,7 +11,7 @@ async function CarregarTemplate(nome){
 
 async function AdicionarVeiculo(){  
   let veiculo =  document.querySelector('#dadosVeiculo');    
-  let templateVeiculo = await CarregarTemplate('../../module/veiculo.html');    
+  let templateVeiculo = await CarregarTemplate('../..module/moduleVeiculo/veiculo.html');    
   veiculo.innerHTML = templateVeiculo;
 }
 //convertendo o texto e adicionando em tela;
@@ -96,31 +96,4 @@ async function EnviarApi(viewmodel){
         return data;
         });
     }) 
-  //caso dê erro, irá retornar o erro e mostrar no console
-    .catch(erro => {
-        console.log(erro);
-        return erro;
-    });
-    return req;
-
-    const request =  await fetch('https://localhost:44363/veiculos/cadastrar', options )
-  //caso a request dê certo, retornará a resposta;
-  .then(response => { 
-    response.text()
-    .then(data=> {
-        console.log(data);
-        return data;
-        });
-    }) 
-  //caso dê erro, irá retornar o erro e mostrar no console
-    .catch(erro => {
-        console.log(erro);
-        return erro;
-    });
-
-    return request;
-    
-}
-function Voltar(){
-  window.location = "../../index.html";
 }
