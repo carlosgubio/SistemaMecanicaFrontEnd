@@ -16,8 +16,20 @@ function converterParaDomElement(str) {
   return doc.body;
 };
 
+async function AdicionarVeiculo(){
+  //1o passo: pegar a divisória que irá guardar os telefones;
+  let veiculo = document.querySelector('#dadosVeiculo');
+  
+  //2o passo: carregar o template que desejamos:
+  let templateVeiculo = await CarregarTemplate('../../module/cliente/.html');
+
+  //3o preencher com o html carregado, convertendo o texto para um elemento html.
+  veiculo.appendChild(converterParaDomElement(templateVeiculo));          
+}
+
+
 //pegando os dados do formulário
-async function CapturarDadosPessoa(){
+async function CapturarDadosCliente(){
   let nomeCliente = document.querySelector('#nomeCliente').value;  
   console.log(nomeCliente);
   let cpfCliente = document.querySelector('#cpfCliente').value;  
@@ -26,22 +38,12 @@ async function CapturarDadosPessoa(){
   console.log(telefoneCliente);
   let enderecoCliente = document.querySelector('#enderecoCliente').value;  
   console.log(enderecoCliente);
-  let veiculoCliente = document.querySelector('#veiculoCliente').value;  
-  console.log(veiculoCliente);
-  let placaVeiculoCliente = document.querySelector('#plavaVeiculoCliente').value;  
-  console.log(plavaVeiculoCliente);
-  let corVeiculoCliente = document.querySelector('#corVeiculoCliente').value;  
-  console.log(corVeiculoCliente);
- 
-  
+    
   let CadastrarClienteViewModel = {
     nomeCliente,
     cpfCliente,
     telefoneCliente,
-    enderecoCliente,
-    veiculoCliente,
-    placaVeiculoCliente,
-    corVeiculoCliente     
+    enderecoCliente        
   };
 
   console.log(CadastrarClienteViewModel);

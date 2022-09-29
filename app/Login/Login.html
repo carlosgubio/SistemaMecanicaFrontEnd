@@ -5,22 +5,35 @@
     <title>OrdemServico</title>
     <script src="login.js"></script>
 </head>
-<body>
+<body class="centralize">
     <form action="login.html">
         <label>Área do Cliente</label><br>
-        <label>Usuário</label><br>
-        <input type="text" name="nomeCliente" placeholder="Digite seu primeiro nome."/><br>
-        <label>Senha</label><br>
-        <input type="number" name="cpfCliente" placeholder="Digite seu CPF."/><br>
-        <button type="submit" class="clear">Entrar</button><br>
-        <form action="login.html">
-            <label>Usuário do Sistema</label><br>
-            <label>Usuário</label><br>
-            <input type="text" name="nomeProfissional" placeholder="Digite seu primeiro nome."/><br>
-            <label>Senha</label><br>
-            <input type="number" name="cargoProfissional" placeholder="Digite seu cargo."/><br>
-            <button type="submit" class="clear">Entrar</button>
-        </form>    
+        <div class="form-field">
+            <input type="nome" name="nome" id="nome" placeholder="Seu primeiro nome" onchange="onChangeEmail()"/>
+            <div class="error" id="nome-required-error">Nome obrigatório</div>
+            <div class="error" id="nome-invalid-error">Nome inválido</div>
+        </div>
+        <div class="form-field">
+            <input type="senha" name="senha" id="senha" placeholder="Seu CPF" onchange="onChangePassword()"/>
+            <div class="error" id="password-required-error">Senha obrigatória</div>
+        </div>
+        <div>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
+        </div>
+
+        <label>Área do Admin</label><br>
+        <div class="form-field">
+            <input type="nome" name="nome" id="nome" placeholder="Seu primeiro nome" onchange="onChangeEmail()"/>
+            <div class="error" id="nome-required-error">Nome obrigatório</div>
+            <div class="error" id="nome-invalid-error">Nome inválido</div>
+        </div>
+        <div class="form-field">
+            <input type="senha" name="senha" id="senha" placeholder="Seu Cargo" onchange="onChangePassword()"/>
+            <div class="error" id="password-required-error">Senha obrigatória</div>
+        </div>
+        <div>
+            <button type="button" class="solid" id="login-button" disabled="true" onclick="login()">Entrar</button>
+        </div>
     </form>       
 </body>
 <link rel="stylesheet" href="index.css"/>  

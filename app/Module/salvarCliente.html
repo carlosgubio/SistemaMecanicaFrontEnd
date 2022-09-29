@@ -11,10 +11,13 @@
         <input id="cpfCliente" placeholder="CPF"/>
         <input id="telefoneCliente" placeholder="Telefone"/>
         <input id="enderecoCliente" placeholder="Endereço" />
-        <input id="veiculoCliente" placeholder="Marca e modelo do veículo" /> 
-        <input id="plavaVeiculoCliente" placeholder="Plava do Veículo"/>
-        <input id="corVeiculoCliente" placeholder="Cor do Veículo"/>       
     </div>
-    <input type="button" value="Salvar" onclick="CapturarDadosPessoa()"/>        
+    <div id="Veiculo">                                
+        <input type="button" value="Adicionar Veículo" onclick="AdicionarVeiculo()"/>        
+        <div id="dadosContato">
+    </div>
+<input type="button" value="Salvar" onclick="Salvar()"/>    
+<input type="button" value="Voltar" onclick="Voltar()"/>
 </body>
+<script src="../../app/pessoa/criarPessoa.js"></script>
 </html>
