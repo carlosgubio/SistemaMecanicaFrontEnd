@@ -11,7 +11,7 @@ async function CarregarTemplate(nome){
 
 async function AdicionarVeiculo(){  
   let veiculo =  document.querySelector('#dadosVeiculo');    
-  let templateVeiculo = await CarregarTemplate('../..module/moduleVeiculo/veiculo.html');    
+  let templateVeiculo = await CarregarTemplate('../..module/moduleCliente/veiculo.html'); 
   veiculo.innerHTML = templateVeiculo;
 }
 //convertendo o texto e adicionando em tela;
@@ -49,14 +49,14 @@ async function salvarCliente(){
 
   let veiculoClienteInput = divVeiculo.querySelector('#veiculoCliente').value;
   console.log(veiculoClienteInput);
-  let plavaVeiculoClienteInput = divVeiculo.querySelector('#plavaVeiculoCliente').value;
-  console.log(veiculoClienteInput);
+  let placaVeiculoClienteInput = divVeiculo.querySelector('#placaVeiculoCliente').value;
+  console.log(placaVeiculoClienteInput);
   let corVeiculoClienteInput = divVeiculo.querySelector('#corVeiculoCliente').value;
   console.log(veiculoClienteInput);
 
   let veiculo = {
     veiculoCliente : veiculoClienteInput,
-    plavaVeiculoCliente : plavaVeiculoClienteInput,
+    placaVeiculoCliente : placaVeiculoClienteInput,
     corVeiculoCliente : corVeiculoClienteInput
   };
 

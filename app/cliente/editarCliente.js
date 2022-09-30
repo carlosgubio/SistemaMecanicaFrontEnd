@@ -7,6 +7,11 @@ async function CarregarTemplate(enderecoTela){
       });    
     return template;
 }
+async function AdicionarVeiculo(){  
+    let endereco =  document.querySelector('#dadosVeiculo');    
+    let templateEndereco = await CarregarTemplate('../../module/pessoa/endereco.html');    
+    endereco.innerHTML = templateEndereco;
+}
 
 function converterParaDomElement(str) {
     let parser = new DOMParser();
