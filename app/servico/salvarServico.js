@@ -17,7 +17,7 @@ async function CarregarTemplate(nome){
   };
   
   //pegando os dados do formulário
-  async function CapturarDadosServico(){
+  async function SalvarServico(){
     let descricaoServico = document.querySelector('#descricaoServico').value;  
     console.log(descricaoServico);
     let valorServico = parseFloat(document.querySelector('#valorServico').value);  

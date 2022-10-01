@@ -3,6 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <title>Registro de Cliente</title>
+</head>
 <body>        
     <div name="formulario-cliente" id="form" class="formularios">
         <input type="text" id="nomeCliente" placeholder="Nome do Cliente" value=""/>
@@ -12,9 +13,9 @@
     </div>
     <div id="dadosAdicionais">                                
         <input type="button" value="Adicionar Veículo" onclick="AdicionarVeiculo()"/>        
-        <div id="dadosVeiculo">
+        <div id="dadosVeiculo"></div>
     </div>
-    <input type="button" value="Salvar" onclick="Salvar()"/>    
+    <input type="button" value="Salvar" onclick="salvarCliente()"/>    
     <input type="button" value="Voltar" onclick="Voltar()"/>
 </body>
 <script src="../../app/cliente/salvarCliente.js"></script>

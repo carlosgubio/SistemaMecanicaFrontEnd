@@ -17,7 +17,7 @@ async function CarregarTemplate(nome){
   };
   
   //pegando os dados do formulário
-  async function CapturarDadosVeiculo(){
+  async function SalvarVeiculo(){
     let veiculoCliente = document.querySelector('#veiculoCliente').value;  
     console.log(veiculoCliente);
     let placaVeiculoCliente = document.querySelector('#plavaVeiculoCliente').value;  

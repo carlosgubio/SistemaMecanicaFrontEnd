@@ -17,7 +17,7 @@ async function CarregarTemplate(nome){
   };
   
   //pegando os dados do formulário
-  async function CapturarDadosProfissional(){
+  async function SalvarProfissional(){
     let nomeProfissional = document.querySelector('#nomeProfissional').value;  
     console.log(nomeProfissional);
     let cargoProfissional = document.querySelector('#cargoProfissional').value;  

@@ -17,13 +17,19 @@ function converterParaDomElement(str) {
 };
   
 //pegando os dados do formulário
-async function CapturarDadosOrdemServico(){
-  let idProfissional = parseInt(document.querySelector('#idProfissional').value);  
-  console.log(idProfissional);
-  let idCliente = parseInt(document.querySelector('#idCliente').value);  
-  console.log(idCliente);
-  let idServico = parseInt(document.querySelector('#idServico').value);  
-  console.log(idServico);
+async function SalvarOrdemServico(){
+  // let idProfissional = parseInt(document.querySelector('#idProfissional').value);  
+  // console.log(idProfissional);
+  // let idCliente = parseInt(document.querySelector('#idCliente').value);  
+  // console.log(idCliente);
+  // let idServico = parseInt(document.querySelector('#idServico').value);  
+  // console.log(idServico);
+  let entradaprofissionais = document.querySelectorAll('.')
+
+
+
+
+
   let entradaItens = document.querySelectorAll('.itens');  
   console.log(entradaItens);
   let idItens = [];
