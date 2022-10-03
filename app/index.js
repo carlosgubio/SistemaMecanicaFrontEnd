@@ -49,7 +49,7 @@ function CarregarTelaCadastroCliente(){
   }
 
   function CarregarTelaCadastroOrdemServico(){  
-    window.location = "./module/moduleServico/salvarServico.html";
+    window.location = "./module/moduleOrdemServico/salvarOrdemServico.html";
   }
   function CarregarTelaListagemOrdemServico(){
     window.location = "./module/moduleOrdemServico/listarOrdemServico.html";

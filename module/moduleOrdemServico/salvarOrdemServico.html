@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Registro Ordem de Servico</title>
+</head>
+<body>        
+    <div name="formulario-ordemServico" id="form" class="formularios">
+        <input type="number" id="idCliente" placeholder="Id do Cliente"/>
+        <input type="number" id="idProfissional" placeholder="Id do Profissional"/>
+        <input type="number" id="idServico" placeholder="Id do Serviço">
+        <input type="number" id="idPeca" placeholder="Id da Peça" /> 
+        
+     </div>
+     <div id="dadosAdicionais">                                
+        <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/>        
+        <div id="dadosProfissional"></div>
+        </div>
+        <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/>        
+        <div id="dadosServico"></div>
+        </div>
+        <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/>        
+        <div id="dadosProduto"></div>
+        </div>
+    </div>
+    <input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
+    <input type="button" value="Voltar" onclick="Voltar()"/>  
+    <div id="dadosSalvos">                
+    </div>      
+</body>
+<script src="../../app/ordemServico/salvarOrdemServico.js"></script>
+</html>

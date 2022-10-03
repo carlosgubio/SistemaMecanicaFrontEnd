@@ -17,7 +17,7 @@ async function CarregarTemplate(nome){
   };
   
   //pegando os dados do formulário
-  async function CapturarDadosProduto(){
+  async function SalvarProduto(){
     let descricaoPeca = document.querySelector('#descricaoPeca').value;  
     console.log(descricaoPeca);
     let valorPeca = parseFloat(document.querySelector('#valorPeca').value);  
