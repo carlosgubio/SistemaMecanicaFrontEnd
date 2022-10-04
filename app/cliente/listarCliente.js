@@ -1,6 +1,6 @@
 async function PreencherTabelaCliente(){
     
-    let tabela = document.querySelector('#listagem-Clientes');    
+    let tabela = document.querySelector('#listagem-clientes');    
     
     console.log(tabela);
 

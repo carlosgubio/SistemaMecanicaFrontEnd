@@ -8,7 +8,14 @@ async function CarregarTemplate(nome){
     });    
   return template;
 }
-  
+async function AdicionarVeiculo(){
+
+  let veiculos = document.querySelector('#dadosVeiculo');
+
+  let templateVeiculo = await CarregarTemplate('../../module/moduleOrdemServico/veiculo.html');
+
+  veiculos.appendChild(converterParaDomElement(templateVeiculo)); 
+}
 async function AdicionarProfissional(){
 
   let profissionais = document.querySelector('#dadosProfissional');
@@ -61,9 +68,26 @@ async function SalvarOrdemServico(){
     idServico,
     idPeca
   };
-  let CadastrarOrdemServicoViewModel = {
-    ordemServico
-  };
+  
+  let divVeiculo = document.querySelector('#areaVeiculo');  
+
+  if(!divVeiculo)
+  {
+      alert("Veículo não preenchido");  
+      return;
+  }
+  let veiculoClienteInput = divVeiculo.querySelector('#veiculoCliente').value;
+    console.log(veiculoClienteInput);
+    let placaVeiculoClienteInput = divVeiculo.querySelector('#placaVeiculoCliente').value;
+    console.log(placaVeiculoClienteInput);
+    let corVeiculoClienteInput = divVeiculo.querySelector('#corVeiculoCliente').value;
+    console.log(corVeiculoClienteInput);    
+
+    let veiculos = {
+      veiculoCliente : veiculoClienteInput,
+      placaVeiculoCliente : placaVeiculoClienteInput,
+      corVeiculoCliente : corVeiculoClienteInput        
+    };
 
   var divProfissionais = document.querySelectorAll('.areaProfissional');
   let profissionais = [];   
@@ -75,7 +99,8 @@ async function SalvarOrdemServico(){
         cargoProfisional : cargoProfisional.value 
       };
       profissionais.push(objetoProfissional);      
-  }); 
+  });
+  
   var divServicos = document.querySelectorAll('.areaServico');
   let servicos = [];   
   divServicos.forEach(function(e){
@@ -87,6 +112,7 @@ async function SalvarOrdemServico(){
       };
       servicos.push(objetoServico);      
   });
+
   var divProdutos = document.querySelectorAll('.areaProduto');
   let produtos = [];   
   divProdutos.forEach(function(e){
@@ -98,6 +124,14 @@ async function SalvarOrdemServico(){
       };
       produtos.push(objetoProduto);      
   });  
+
+  let CadastrarOrdemServicoViewModel = {
+    ordemServico, 
+    veiculos,
+    profissionais,
+    servicos,
+    produtos  
+};
         
   console.log(CadastrarOrdemServicoViewModel);
 

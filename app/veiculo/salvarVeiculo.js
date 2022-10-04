@@ -20,18 +20,18 @@ async function CarregarTemplate(nome){
   async function SalvarVeiculo(){
     let veiculoCliente = document.querySelector('#veiculoCliente').value;  
     console.log(veiculoCliente);
-    let placaVeiculoCliente = document.querySelector('#plavaVeiculoCliente').value;  
-    console.log(plavaVeiculoCliente);
+    let placaVeiculoCliente = document.querySelector('#placaVeiculoCliente').value;  
+    console.log(placaVeiculoCliente);
     let corVeiculoCliente = document.querySelector('#corVeiculoCliente').value;  
     console.log(corVeiculoCliente);
-    let nomeCliente = document.querySelector('#nomeCliente').value;  
-    console.log(nomeCliente);
+    let idCliente = document.querySelector('#idCliente').value;  
+    console.log(idCliente);
        
     let CadastrarVeiculoViewModel = {
       veiculoCliente,
       placaVeiculoCliente,
       corVeiculoCliente,
-      nomeCliente    
+      idCliente    
     };
   
     console.log(CadastrarVeiculoViewModel);
