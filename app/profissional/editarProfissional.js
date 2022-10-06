@@ -48,3 +48,7 @@ async function PreencherFormulario(json){
     cargoProfissional.value = json.cargoProfissional;
  }
  getProfissionalNome();
+
+ function Voltar(){
+    window.location = "../../index.html";
+  }

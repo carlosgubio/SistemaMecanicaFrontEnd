@@ -1,10 +1,10 @@
 async function PreencherTabelaVeiculo(){
     
-    let tabela = document.querySelector('#listagem-Veiculos');    
+    let tabela = document.querySelector('#listagem-veiculo');    
     
     console.log(tabela);
 
-    let clientes = await ListarVeiculos();  
+    let veiculos = await ListarVeiculos();  
     
     console.log(veiculos);
 
@@ -15,15 +15,15 @@ async function PreencherTabelaVeiculo(){
         });
         
         let idClienteTd = document.createElement('td');        
-        idClienteTd.classList.add('row-idCliente-cliente');        
+        idClienteTd.classList.add('row-idCliente-veiculo');        
         let idVeiculoTd = document.createElement('td');
-        nomeClienteTd.classList.add('row-idVeiculo-cliente');
+        idVeiculoTd.classList.add('row-idVeiculo-veiculo');
         let veiculoClienteTd = document.createElement('td');
-        cpfClienteTd.classList.add('row-veiculoCliente-cliente');
+        veiculoClienteTd.classList.add('row-veiculoCliente-veiculo');
         let placaVeiculoClienteTd = document.createElement('td');
-        telefoneClienteTd.classList.add('row-placaVeiculoCliente-cliente');
+        placaVeiculoClienteTd.classList.add('row-placaVeiculoCliente-veiculo');
         let corVeiculoClientTd = document.createElement('td');
-        enderecoClienteTd.classList.add('row-corVeiculoCliente-cliente');
+        corVeiculoClientTd.classList.add('row-corVeiculoCliente-veiculo');
         
         idClienteTd.innerHTML = e.idCliente;
         idVeiculoTd.innerHTML = e.idVeiculo;
@@ -32,10 +32,10 @@ async function PreencherTabelaVeiculo(){
         corVeiculoClientTd.innerHTML = e.corVeiculoCliente;
 
         linha.appendChild(idClienteTd);
-        linha.appendChild(idVeiculo);
-        linha.appendChild(veiculoCliente);
-        linha.appendChild(placaVeiculoCliente);
-        linha.appendChild(corVeiculoCliente);
+        linha.appendChild(idVeiculoTd);
+        linha.appendChild(veiculoClienteTd);
+        linha.appendChild(placaVeiculoClienteTd);
+        linha.appendChild(corVeiculoClientTd);
 
         tabela.appendChild(linha);
     });
@@ -59,8 +59,8 @@ async function ListarVeiculos(){
     return req;
 }
 
+PreencherTabelaVeiculo();
+
 function Voltar(){
     window.location = "../../index.html";
-}
-
-PreencherTabelaVeiculo();
+  }

@@ -1,30 +1,30 @@
 async function PreencherTabelaServico(){
     
-    let tabela = document.querySelector('#listagem-Servicos');    
+    let tabela = document.querySelector('#listagem-servicos');    
     
     console.log(tabela);
 
     let servicos = await ListarServicos();  
     
-    console.log(profissionais);
+    console.log(servicos);
 
     servicos.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../..module/moduleServico/editarServico.html?nome=";
+            window.location.href = "../..module/moduleServico/listarServico.html?nome=";
         });
         
         let IdServicoTd = document.createElement('td');        
-        IdServicoTd.classList.add('row-IdServico-servico');        
-        let DescricaoServicolTd = document.createElement('td');
-        DescricaoServicoTd.classList.add('row-DescricaoServico-servico');
+        IdServicoTd.classList.add('row-idServico-servico');        
+        let DescricaoServicoTd = document.createElement('td');
+        DescricaoServicoTd.classList.add('row-descricaoServico-servico');
         let ValorServicoTd = document.createElement('td');
-        ValorServicoTd.classList.add('row-ValorServico-servico');
+        ValorServicoTd.classList.add('row-valorServico-servico');
         
         
-        IdServicoTd.innerHTML = e.IdServico;
-        DescricaoServicoTd.innerHTML = e.DescricaoServico;
-        ValorServicoTd.innerHTML = e.ValorServico;
+        IdServicoTd.innerHTML = e.idServico;
+        DescricaoServicoTd.innerHTML = e.descricaoServico;
+        ValorServicoTd.innerHTML = e.valorServico;
  
         linha.appendChild(IdServicoTd);
         linha.appendChild(DescricaoServicoTd);
@@ -52,8 +52,8 @@ async function ListarServicos(){
     return req;
 }
 
+PreencherTabelaServico();
+
 function Voltar(){
     window.location = "../../index.html";
-}
-
-PreencherTabelaServico();
+  }

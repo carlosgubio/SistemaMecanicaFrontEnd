@@ -71,32 +71,25 @@ async function salvarCliente(){
       veiculoCliente : veiculoClienteInput,
       placaVeiculoCliente : placaVeiculoClienteInput,
       corVeiculoCliente : corVeiculoClienteInput
-    };
-    
-    veiculos.push(veiculo)
-
+    };    
+    veiculos.push(veiculo);
   });
 
+  let response = await SalvarCliente(CadastrarClienteViewModel);
+  if(response > 0){
+    let IdCliente = response;
+
+    let cadastrarVeiculoViewModel = {
+      IdCliente,
+      veiculos
+    };
+
+     let res = await SalvarVeiculo(cadastrarVeiculoViewModel);
+  }
  
-  
-  // console.log(response);
-  
-  // let IdCliente = response;
-  let IdCliente = 0;
-  let cadastrarVeiculoViewModel = {
-    IdCliente,
-    veiculos
-  };
-
-  let response = await SalvarCliente(CadastrarClienteViewModel, cadastrarVeiculoViewModel);
-
-  //await SalvarVeiculo (cadastrarVeiculoViewModel);
-
-  console.log(cadastrarVeiculoViewModel);
-
 }
 //função para fazer uma request na api;
-async function SalvarCliente(viewModelCliente, cadastrarVeiculoViewModel ){
+async function SalvarCliente(cadastrarClienteViewModel){
   
   //opções/dados para fazer a request;
   const options = {
@@ -104,21 +97,22 @@ async function SalvarCliente(viewModelCliente, cadastrarVeiculoViewModel ){
     method: 'POST',  
     headers:{'content-type': 'application/json'},  
     //converte o objeto em um Json real;
-    body: viewModelCliente 
+    body: JSON.stringify(cadastrarClienteViewModel) 
   };
 
   //TODO: mudar a url para o seu localhost.
   const req =  await fetch('https://localhost:44363/clientes/cadastrar', options )
   //caso a request dê certo, retornará a resposta;
-  .then(async response =>  {
-    cadastrarVeiculoViewModel.IdCliente = response;
-    alert(cadastrarVeiculoViewModel) 
-    await SalvarVeiculo(cadastrarVeiculoViewModel);
-    return response; 
+  .then(response =>  {    
+    let res = response.json();    
+    return res; 
     }) 
     .catch(erro=> {
       alert(erro);
+      return erro;
     })
+
+    return req;
 }
 async function SalvarVeiculo(viewModelVeiculo){
   
@@ -141,4 +135,7 @@ async function SalvarVeiculo(viewModelVeiculo){
         return data;
         });
     }); 
+}
+function Voltar(){
+  window.location = "../../index.html";
 }

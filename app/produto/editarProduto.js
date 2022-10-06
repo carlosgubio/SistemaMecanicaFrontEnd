@@ -48,3 +48,7 @@ async function PreencherFormulario(json){
     valorPeca.value = json.valorPeca;
  }
 getProdutoNome();
+
+function Voltar(){
+    window.location = "../../index.html";
+  }

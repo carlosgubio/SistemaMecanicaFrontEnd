@@ -53,3 +53,7 @@ async function PreencherFormulario(json){
     idCliente.value = json.idCliente;
 }
 getVeiculoNome();
+
+function Voltar(){
+    window.location = "../../index.html";
+  }

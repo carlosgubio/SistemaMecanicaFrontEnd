@@ -11,7 +11,7 @@ async function PreencherTabelaCliente(){
     clientes.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../..module/moduleCliente/listarCliente.html?nome=";
+            window.location.href = "../../module/moduleCliente/editarCliente.html?id="+e.idCliente;
         });
         
         let idClienteTd = document.createElement('td');        
@@ -59,8 +59,8 @@ async function ListarClientes(){
     return req;
 }
 
+PreencherTabelaCliente();
+
 function Voltar(){
     window.location = "../../index.html";
-}
-
-PreencherTabelaCliente();
+  }

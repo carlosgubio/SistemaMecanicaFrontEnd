@@ -173,3 +173,7 @@ async function SalvarOrdemServico(){
   function Voltar(){
     window.location = "../../index.html";
 }
+
+function Voltar(){
+  window.location = "../../index.html";
+}

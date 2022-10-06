@@ -48,3 +48,7 @@ async function PreencherFormulario(json){
     valorServico.value = json.valorServico;
  }
  getServicoNome();
+
+ function Voltar(){
+    window.location = "../../index.html";
+  }

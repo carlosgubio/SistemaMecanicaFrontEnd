@@ -1,6 +1,6 @@
 async function PreencherTabelaProfissional(){
     
-    let tabela = document.querySelector('#listagem-Profissionais');    
+    let tabela = document.querySelector('#listagem-profissionais');    
     
     console.log(tabela);
 
@@ -11,7 +11,7 @@ async function PreencherTabelaProfissional(){
     profissionais.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../..module/moduleProfissional/editarProfissional.html?nome=";
+            window.location.href = "../..module/moduleProfissional/listarProfissional.html?nome=";
         });
         
         let idProfissionalTd = document.createElement('td');        
@@ -57,3 +57,7 @@ function Voltar(){
 }
 
 PreencherTabelaProfissional();
+
+function Voltar(){
+    window.location = "../../index.html";
+  }

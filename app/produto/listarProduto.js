@@ -1,6 +1,6 @@
 async function PreencherTabelaProduto(){
     
-    let tabela = document.querySelector('#listagem-Produtos');    
+    let tabela = document.querySelector('#listagem-produtos');    
     
     console.log(tabela);
 
@@ -11,7 +11,7 @@ async function PreencherTabelaProduto(){
     produtos.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../..module/moduleProduto/editarCliente.html?nome=";
+            window.location.href = "../..module/moduleProduto/listarProduto.html?nome=";
         });
         
         let idProdutoTd = document.createElement('td');        
@@ -40,7 +40,7 @@ async function ListarProdutos(){
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44363/clientes/buscarTodos', options )
+    const req =  await fetch('https://localhost:44363/produtos/buscarTodos', options )
         .then(response => {      
             return response.json();
         })     
@@ -52,8 +52,8 @@ async function ListarProdutos(){
     return req;
 }
 
+PreencherTabelaProduto();
+
 function Voltar(){
     window.location = "../../index.html";
 }
-
-PreencherTabelaProduto();
