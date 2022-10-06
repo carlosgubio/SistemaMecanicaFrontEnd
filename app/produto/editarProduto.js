@@ -19,16 +19,16 @@ function Voltar(){
 }
 async function getProdutoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
-    let res = await ConsultaProduto(urlParams.get('nome'));
+    let res = await ConsultaProduto(urlParams.get('id'));
     PreencherFormulario(res);
 }
 
-async function ConsultaProduto(nome){      
+async function ConsultaProduto(id){      
     const options = {
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44363/produtos/consultaNome?nome={nome}', options )
+    const req =  await fetch('https://localhost:44363/produtos/Confirmar?id=' +id, options )
         .then(response => {      
             return response.json();
         })     
@@ -47,7 +47,62 @@ async function PreencherFormulario(json){
     descricaoPeca.value = json.descricaoPeca;
     valorPeca.value = json.valorPeca;
  }
-getProdutoNome();
+
+async function EnviarApi(viewmodel){
+    
+    //opções/dados para fazer a request;
+    const options = {
+    //método, se é um post, get etc..
+    method: 'PUT', 
+    headers:{'content-type': 'application/json'},       
+    body: JSON.stringify(viewmodel) 
+    };
+
+    //TODO: mudar a url para o seu localhost.
+    const req =  await fetch('https://localhost:44317/produtos/atualizar', options )
+    //caso a request dê certo, retornará a resposta;
+    .then(response => {      
+        response.text()
+        .then(data=>  {
+            alert(data);
+            return data;
+        });
+    }) 
+    //caso dê erro, irá retornar o erro e mostrar no console
+    .catch(erro => {
+        console.log(erro);
+        return erro;
+    });
+
+    return req;
+}
+
+async function Atualizar(){
+    
+    let id = parseInt(document.querySelector('#id-produto').value);    
+     console.log(id);
+     let descricaoPeca = document.querySelector('#descricaoPeca').value;  
+     console.log(descricaoPeca);
+     let valorPeca = document.querySelector('#valorPeca').value;  
+     console.log(valorPeca);
+          
+     let produto = {
+         id,
+         descricaoPeca,
+         valorPeca
+        };
+ 
+     let salvarProdutoViewModel = {
+        produto        
+     };
+ 
+     console.log(salvarProdutoViewModel);
+ 
+     let response = await EnviarApi(salvarProdutoViewModel);
+     console.log(response);
+ }
+
+ getProdutoNome();
 
 function Voltar(){
     window.location = "../../index.html";

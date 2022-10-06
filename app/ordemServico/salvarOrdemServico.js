@@ -8,14 +8,22 @@ async function CarregarTemplate(nome){
     });    
   return template;
 }
-async function AdicionarVeiculo(){
+// async function AdicionarCliente(){
 
-  let veiculos = document.querySelector('#dadosVeiculo');
+//   let veiculos = document.querySelector('#dadosCliente');
 
-  let templateVeiculo = await CarregarTemplate('../../module/moduleOrdemServico/veiculo.html');
+//   let templateCliente = await CarregarTemplate('../../module/moduleOrdemServico/cliente.html');
 
-  veiculos.appendChild(converterParaDomElement(templateVeiculo)); 
-}
+//   veiculos.appendChild(converterParaDomElement(templateCliente));
+// }
+// async function AdicionarVeiculo(){
+
+//   let veiculos = document.querySelector('#dadosVeiculo');
+
+//   let templateVeiculo = await CarregarTemplate('../../module/moduleOrdemServico/veiculo.html');
+
+//   veiculos.appendChild(converterParaDomElement(templateVeiculo)); 
+// }
 async function AdicionarProfissional(){
 
   let profissionais = document.querySelector('#dadosProfissional');
@@ -69,6 +77,22 @@ async function SalvarOrdemServico(){
     idPeca
   };
   
+  let nomeClienteInput = divVeiculo.querySelector('#nomeCliente').value;
+  console.log(nomeClienteInput);
+  let cpfClienteInput = divVeiculo.querySelector('#cpfCliente').value;
+  console.log(cpfClienteInput);
+  let telefoneClienteInput = divVeiculo.querySelector('#telefoneCliente').value;
+  console.log(telefoneClienteInput);    
+  let enderecoClienteInput = divVeiculo.querySelector('#enderecoCliente').value;
+  console.log(enderecoClienteInput);  
+
+  let clientes = {
+    nomeCliente : nomeClienteInput,
+    cpfCliente : cpfClienteInput,
+    telefoneCliente : telefoneClienteInput,  
+    enderecoCliente : enderecoClienteInput      
+  };
+
   let divVeiculo = document.querySelector('#areaVeiculo');  
 
   if(!divVeiculo)
@@ -89,7 +113,7 @@ async function SalvarOrdemServico(){
       corVeiculoCliente : corVeiculoClienteInput        
     };
 
-  var divProfissionais = document.querySelectorAll('.areaProfissional');
+  var divProfissionais = document.querySelectorAll('#areaProfissional');
   let profissionais = [];   
   divProfissionais.forEach(function(e){
       let nomeProfissional = e.querySelector('#nomeProfissional');
@@ -101,7 +125,7 @@ async function SalvarOrdemServico(){
       profissionais.push(objetoProfissional);      
   });
   
-  var divServicos = document.querySelectorAll('.areaServico');
+  var divServicos = document.querySelectorAll('#areaServico');
   let servicos = [];   
   divServicos.forEach(function(e){
       let descricaoServico = e.querySelector('#descricaoServico');
@@ -113,7 +137,7 @@ async function SalvarOrdemServico(){
       servicos.push(objetoServico);      
   });
 
-  var divProdutos = document.querySelectorAll('.areaProduto');
+  var divProdutos = document.querySelectorAll('#areaProduto');
   let produtos = [];   
   divProdutos.forEach(function(e){
       let descricaoPeca = e.querySelector('#descricaoPeca');
@@ -126,7 +150,7 @@ async function SalvarOrdemServico(){
   });  
 
   let CadastrarOrdemServicoViewModel = {
-    ordemServico, 
+    clientes,
     veiculos,
     profissionais,
     servicos,
@@ -172,8 +196,4 @@ async function SalvarOrdemServico(){
   }
   function Voltar(){
     window.location = "../../index.html";
-}
-
-function Voltar(){
-  window.location = "../../index.html";
 }

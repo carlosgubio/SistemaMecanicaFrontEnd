@@ -43,7 +43,7 @@ async function ConsultaCliente(id){
         });
     return req;
 }
-async function PreencherFormulario(json){
+async function PreencherFormularioCliente(json){
     let dadosForm = document.querySelector('#form');
     let nomeCliente = dadosForm.querySelector('#nomeCliente');
     let cpfCliente = dadosForm.querySelector('#cpfCliente');
@@ -56,24 +56,24 @@ async function PreencherFormulario(json){
     telefoneCliente.value = json.telefoneCliente;
     enderecoCliente.value = json.enderecoCliente;
 }
-// async function PreencherFormulario(json){
+async function PreencherFormularioVeiculo(json){
 
-//     let veiculo = document.querySelector('#dadosVeiculo');
+    let veiculo = document.querySelector('#dadosVeiculo');
     
-//     let templateVeiculo = converterParaDomElement(await CarregarTemplate('../../module/moduloVeiculo/veiculo.html'));
+    let templateVeiculo = converterParaDomElement(await CarregarTemplate('../../module/moduloVeiculo/veiculo.html'));
 
-//     let idVeiculoInput = templateVeiculo.querySelector('#id-veiculo');
-//     let veiculoClienteInput = templateVeiculo.querySelector('#veiculoCliente');    
-//     let placaVeiculoClienteInput= templateVeiculo.querySelector('#placaVeiculoCliente');
-//     let corVeiculoClienteInput = templateVeiculo.querySelector('#corVeiculoCliente');
+    let idVeiculoInput = templateVeiculo.querySelector('#id-veiculo');
+    let veiculoClienteInput = templateVeiculo.querySelector('#veiculoCliente');    
+    let placaVeiculoClienteInput= templateVeiculo.querySelector('#placaVeiculoCliente');
+    let corVeiculoClienteInput = templateVeiculo.querySelector('#corVeiculoCliente');
     
-//     idVeiculoInput.value = json.veiculo.id-veiculo;
-//     veiculoClienteInput.value = json.veiculo.veiculoCliente;    
-//     placaVeiculoClienteInput.value = json.veiculo.placaVeiculoCliente;
-//     corVeiculoClienteInput.value = json.veiculo.corVeiculoCliente;
+    idVeiculoInput.value = json.veiculo.id-veiculo;
+    veiculoClienteInput.value = json.veiculo.veiculoCliente;    
+    placaVeiculoClienteInput.value = json.veiculo.placaVeiculoCliente;
+    corVeiculoClienteInput.value = json.veiculo.corVeiculoCliente;
   
-//     veiculo.appendChild(templateVeiculo);
-// }
+    veiculo.appendChild(templateVeiculo);
+}
 
 async function EnviarApi(viewmodel){
     
@@ -122,7 +122,7 @@ async function Atualizar(){
     let corVeiculoCliente = divVeiculo.querySelector('#corVeiculoCliente').value;
     console.log(corVeiculoCliente);    
 
-    let endereco = {
+    let veiculo = {
         id : parseInt(idVeiculo),
         veiculo : veiculoCliente,
         placa : placaVeiculoCliente,
@@ -140,7 +140,7 @@ async function Atualizar(){
     let enderecoCliente = document.querySelector('#enderecoCliente').value;  
     console.log(dataNascimento);
     
-    let pessoa = {
+    let cliente = {
         id,
         nomeCliente,
         cpfCliente,
@@ -149,7 +149,7 @@ async function Atualizar(){
     };
 
     let salvarClienteViewModel = {
-        pessoa        
+        cliente        
     };
 
     console.log(salvarClienteViewModel);

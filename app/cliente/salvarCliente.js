@@ -39,32 +39,19 @@ async function salvarCliente(){
     enderecoCliente        
   };
 
-  let CadastrarClienteViewModel = {
-    cliente
-  };
-
-  console.log(CadastrarClienteViewModel);
-  
   let divVeiculo = document.querySelector('#areaVeiculo');
-
-  console.log(divVeiculo); 
 
   if(!divVeiculo)
   {
-    alert("Veículo não preenchido");
-    return;
+      alert('Veículo não preenchido');
+      return;
   }
 
-  let divVeiculos = document.querySelectorAll('#dadosVeiculo')
-    
-  let veiculos = [];
-
-  divVeiculos.forEach(element => {
-    let veiculoClienteInput = element.querySelector('#veiculoCliente').value;
+  let veiculoClienteInput = divVeiculo.querySelector('#veiculoCliente').value;
     console.log(veiculoClienteInput);
-    let placaVeiculoClienteInput = element.querySelector('#placaVeiculoCliente').value;
+    let placaVeiculoClienteInput = divVeiculo.querySelector('#placaVeiculoCliente').value;
     console.log(placaVeiculoClienteInput);
-    let corVeiculoClienteInput = element.querySelector('#corVeiculoCliente').value;
+    let corVeiculoClienteInput = divVeiculo.querySelector('#corVeiculoCliente').value;
     console.log(veiculoClienteInput);
 
     let veiculo = {
@@ -72,61 +59,110 @@ async function salvarCliente(){
       placaVeiculoCliente : placaVeiculoClienteInput,
       corVeiculoCliente : corVeiculoClienteInput
     };    
-    veiculos.push(veiculo);
-  });
 
-  let response = await SalvarCliente(CadastrarClienteViewModel);
-  if(response > 0){
-    let IdCliente = response;
-
-    let cadastrarVeiculoViewModel = {
-      IdCliente,
-      veiculos
-    };
-
-     let res = await SalvarVeiculo(cadastrarVeiculoViewModel);
-  }
- 
-}
-//função para fazer uma request na api;
-async function SalvarCliente(cadastrarClienteViewModel){
-  
-  //opções/dados para fazer a request;
-  const options = {
-    //método, se é um post, get etc..
-    method: 'POST',  
-    headers:{'content-type': 'application/json'},  
-    //converte o objeto em um Json real;
-    body: JSON.stringify(cadastrarClienteViewModel) 
+  let CadastrarClienteViewModel = {
+    cliente,
+    veiculo
   };
 
+  console.log(CadastrarClienteViewModel);
+
+  let response = await EnviarApi(CadastrarClienteViewModel);
+  console.log(response);
+}
+  
+//   let divVeiculo = document.querySelector('#areaVeiculo');
+
+//   console.log(divVeiculo); 
+
+//   if(!divVeiculo)
+//   {
+//     alert("Veículo não preenchido");
+//     return;
+//   }
+
+//   let divVeiculos = document.querySelectorAll('#dadosVeiculo')
+    
+//   let veiculos = [];
+
+//   divVeiculos.forEach(element => {
+//     let veiculoClienteInput = element.querySelector('#veiculoCliente').value;
+//     console.log(veiculoClienteInput);
+//     let placaVeiculoClienteInput = element.querySelector('#placaVeiculoCliente').value;
+//     console.log(placaVeiculoClienteInput);
+//     let corVeiculoClienteInput = element.querySelector('#corVeiculoCliente').value;
+//     console.log(veiculoClienteInput);
+
+//     let veiculo = {
+//       veiculoCliente : veiculoClienteInput,
+//       placaVeiculoCliente : placaVeiculoClienteInput,
+//       corVeiculoCliente : corVeiculoClienteInput
+//     };    
+//     veiculos.push(veiculo);
+//   });
+
+//   let response = await SalvarCliente(CadastrarClienteViewModel);
+//   if(response > 0){
+//     let IdCliente = response;
+
+//     let cadastrarVeiculoViewModel = {
+//       IdCliente,
+//       veiculos
+//     };
+
+//      let res = await SalvarVeiculo(cadastrarVeiculoViewModel);
+//   }
+ 
+// }
+// //função para fazer uma request na api;
+// async function SalvarCliente(cadastrarClienteViewModel){
+  
+//   //opções/dados para fazer a request;
+//   const options = {
+//     //método, se é um post, get etc..
+//     method: 'POST',  
+//     headers:{'content-type': 'application/json'},  
+//     //converte o objeto em um Json real;
+//     body: JSON.stringify(cadastrarClienteViewModel) 
+//   };
+
+//   //TODO: mudar a url para o seu localhost.
+//   const req =  await fetch('https://localhost:44363/clientes/cadastrar', options )
+//   //caso a request dê certo, retornará a resposta;
+//   .then(response =>  {    
+//     let res = response.json();    
+//     return res; 
+//     }) 
+//     .catch(erro=> {
+//       alert(erro);
+//       return erro;
+//     })
+
+//     return req;
+// }
+// async function SalvarVeiculo(viewModelVeiculo){
+  
+//   //opções/dados para fazer a request;
+//   const options = {
+//     //método, se é um post, get etc..
+//     method: 'POST',  
+//     headers:{'content-type': 'application/json'},  
+//     //converte o objeto em um Json real;
+//     body: JSON.stringify(viewModelVeiculo) 
+//   };
+
+//função para fazer uma request na api;
+async function EnviarApi(viewmodel){
+    
+  //opções/dados para fazer a request;
+  const options = {
+  //método, se é um post, get etc..
+  method: 'POST', 
+  headers:{'content-type': 'application/json'},       
+  body: JSON.stringify(viewmodel) 
+  };
   //TODO: mudar a url para o seu localhost.
   const req =  await fetch('https://localhost:44363/clientes/cadastrar', options )
-  //caso a request dê certo, retornará a resposta;
-  .then(response =>  {    
-    let res = response.json();    
-    return res; 
-    }) 
-    .catch(erro=> {
-      alert(erro);
-      return erro;
-    })
-
-    return req;
-}
-async function SalvarVeiculo(viewModelVeiculo){
-  
-  //opções/dados para fazer a request;
-  const options = {
-    //método, se é um post, get etc..
-    method: 'POST',  
-    headers:{'content-type': 'application/json'},  
-    //converte o objeto em um Json real;
-    body: JSON.stringify(viewModelVeiculo) 
-  };
-
-  //TODO: mudar a url para o seu localhost.
-  const req =  await fetch('https://localhost:44363/veiculos/cadastrar', options )
   //caso a request dê certo, retornará a resposta;
   .then(response => { 
     response.text()
