@@ -64,7 +64,7 @@ async function EnviarApi(viewmodel){
     };
 
     //TODO: mudar a url para o seu localhost.
-    const req =  await fetch('https://localhost:44317/produtos/atualizar', options )
+    const req =  await fetch('https://localhost:44363/produtos/atualizar', options )
     //caso a request dê certo, retornará a resposta;
     .then(response => {      
         response.text()

@@ -11,7 +11,7 @@ async function PreencherTabelaProduto(){
     produtos.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../..module/moduleProduto/listarProduto.html?nome=";
+            window.location.href = "../../module/moduleProduto/editarProduto.html?id="+e.idProduto;
         });
         
         let idProdutoTd = document.createElement('td');        

@@ -20,7 +20,7 @@ function Voltar(){
 async function getProdutoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
     let res = await ConsultaProduto(urlParams.get('id'));
-    PreencherFormulario(res);
+    PreencherFormularioProduto(res);
 }
 
 async function ConsultaProduto(id){      
@@ -28,7 +28,7 @@ async function ConsultaProduto(id){
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44363/produtos/Confirmar?id=' +id, options )
+    const req =  await fetch('https://localhost:44363/produtos/confirmar?id=' +id, options )
         .then(response => {      
             return response.json();
         })     
@@ -38,12 +38,14 @@ async function ConsultaProduto(id){
         });
     return req;
 }
-async function PreencherFormulario(json){
+async function PreencherFormularioProduto(json){
     let dadosForm = document.querySelector('#form');
+    let idProduto = dadosForm.querySelector('#id-produto');
     let descricaoPeca = dadosForm.querySelector('#descricaoPeca');
     let valorPeca = dadosForm.querySelector('#valorPeca');
  
     console.log(json);
+    idProduto.value = json.idProduto
     descricaoPeca.value = json.descricaoPeca;
     valorPeca.value = json.valorPeca;
  }
@@ -59,7 +61,7 @@ async function EnviarApi(viewmodel){
     };
 
     //TODO: mudar a url para o seu localhost.
-    const req =  await fetch('https://localhost:44317/produtos/atualizar', options )
+    const req =  await fetch('https://localhost:44363/produtos/atualizar', options )
     //caso a request dê certo, retornará a resposta;
     .then(response => {      
         response.text()
@@ -79,21 +81,21 @@ async function EnviarApi(viewmodel){
 
 async function Atualizar(){
     
-    let id = parseInt(document.querySelector('#id-produto').value);    
-     console.log(id);
+    let idProduto = parseInt(document.querySelector('#id-produto').value);    
+     console.log(idProduto);
      let descricaoPeca = document.querySelector('#descricaoPeca').value;  
      console.log(descricaoPeca);
      let valorPeca = document.querySelector('#valorPeca').value;  
      console.log(valorPeca);
           
      let produto = {
-         id,
-         descricaoPeca,
-         valorPeca
+        idProduto,
+        descricaoPeca,
+        valorPeca : parseFloat(valorPeca)
         };
  
      let salvarProdutoViewModel = {
-        produto        
+        atualizar : produto       
      };
  
      console.log(salvarProdutoViewModel);

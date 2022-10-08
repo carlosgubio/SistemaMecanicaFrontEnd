@@ -9,7 +9,7 @@ async function CarregarTemplate(enderecoTela){
 }
 async function AdicionarVeiculo(){  
     let veiculo =  document.querySelector('#dadosVeiculo');    
-    let templateVeiculo = await CarregarTemplate('../../module/moduleVeiculo/veiculo.html');    
+    let templateVeiculo = await CarregarTemplate('../../module/moduleCliente/veiculo.html');    
     veiculo.innerHTML = templateVeiculo;
 }
 
@@ -25,7 +25,7 @@ function Voltar(){
 async function getClienteNome(){
     const urlParams = new URLSearchParams(window.location.search);    
     let res = await ConsultaCliente(urlParams.get('id'));
-    PreencherFormulario(res);   
+    PreencherFormularioCliente(res);   
 }
 
 async function ConsultaCliente(id){      
@@ -43,8 +43,25 @@ async function ConsultaCliente(id){
         });
     return req;
 }
+async function ConsultaVeiculo(id){      
+    const options = {
+        method: 'GET',  
+        headers:{'content-type': 'application/json'}                     
+    };    
+    const req =  await fetch('https://localhost:44363/veiculos/Confirmar?id=' +id, options )
+        .then(response => {      
+            return response.json();
+        })     
+        .catch(erro => {
+            console.log(erro);
+            return erro;
+        });
+    return req;
+}
+
 async function PreencherFormularioCliente(json){
-    let dadosForm = document.querySelector('#form');
+    let dadosForm = document.querySelector('#form');    
+    let idCliente = dadosForm.querySelector('#id-cliente');
     let nomeCliente = dadosForm.querySelector('#nomeCliente');
     let cpfCliente = dadosForm.querySelector('#cpfCliente');
     let telefoneCliente = dadosForm.querySelector('#telefoneCliente');
@@ -52,25 +69,31 @@ async function PreencherFormularioCliente(json){
 
     console.log(json);
     nomeCliente.value = json.nomeCliente;
+    idCliente.value = json.idCliente;
     cpfCliente.value = json.cpfCliente;
     telefoneCliente.value = json.telefoneCliente;
     enderecoCliente.value = json.enderecoCliente;
+    PreencherFormularioVeiculo(json.veiculosDto);
 }
 async function PreencherFormularioVeiculo(json){
 
     let veiculo = document.querySelector('#dadosVeiculo');
     
-    let templateVeiculo = converterParaDomElement(await CarregarTemplate('../../module/moduloVeiculo/veiculo.html'));
+    let templateVeiculo = converterParaDomElement(await CarregarTemplate('../../module/moduleCliente/veiculo.html'));
+
+    console.log(templateVeiculo);
 
     let idVeiculoInput = templateVeiculo.querySelector('#id-veiculo');
     let veiculoClienteInput = templateVeiculo.querySelector('#veiculoCliente');    
     let placaVeiculoClienteInput= templateVeiculo.querySelector('#placaVeiculoCliente');
     let corVeiculoClienteInput = templateVeiculo.querySelector('#corVeiculoCliente');
     
-    idVeiculoInput.value = json.veiculo.id-veiculo;
-    veiculoClienteInput.value = json.veiculo.veiculoCliente;    
-    placaVeiculoClienteInput.value = json.veiculo.placaVeiculoCliente;
-    corVeiculoClienteInput.value = json.veiculo.corVeiculoCliente;
+    console.log(json);
+
+    idVeiculoInput.value = json.idVeiculo;
+    veiculoClienteInput.value = json.veiculoCliente;    
+    placaVeiculoClienteInput.value = json.placaVeiculoCliente;
+    corVeiculoClienteInput.value = json.corVeiculoCliente;
   
     veiculo.appendChild(templateVeiculo);
 }
@@ -86,7 +109,7 @@ async function EnviarApi(viewmodel){
     };
 
     //TODO: mudar a url para o seu localhost.
-    const req =  await fetch('https://localhost:44317/clientes/atualizar', options )
+    const req =  await fetch('https://localhost:44363/clientes/atualizar', options )
     //caso a request dê certo, retornará a resposta;
     .then(response => {      
         response.text()
@@ -129,27 +152,28 @@ async function Atualizar(){
         cor : corVeiculoCliente        
     };
 
-    let id = parseInt(document.querySelector('#id-cliente').value);    
-    console.log(id);
+    let idCliente = parseInt(document.querySelector('#id-cliente').value);    
+    console.log(idCliente);
     let nomeCliente = document.querySelector('#nomeCliente').value;  
-    console.log(nome);
+    console.log(nomeCliente);
     let cpfCliente = document.querySelector('#cpfCliente').value;  
-    console.log(cpf);
+    console.log(cpfCliente);
     let telefoneCliente = document.querySelector('#telefoneCliente').value;  
-    console.log(dataNascimento);
+    console.log(telefoneCliente);
     let enderecoCliente = document.querySelector('#enderecoCliente').value;  
-    console.log(dataNascimento);
+    console.log(enderecoCliente);
     
     let cliente = {
-        id,
+        idCliente,
         nomeCliente,
         cpfCliente,
         telefoneCliente,
-        enderecoCliente
+        enderecoCliente,
+        veiculo
     };
 
     let salvarClienteViewModel = {
-        cliente        
+        atualizar : cliente,     
     };
 
     console.log(salvarClienteViewModel);
@@ -157,6 +181,7 @@ async function Atualizar(){
     let response = await EnviarApi(salvarClienteViewModel);
     console.log(response);
 }
+
 
 getClienteNome();
 

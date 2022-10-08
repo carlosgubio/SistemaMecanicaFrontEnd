@@ -11,7 +11,7 @@ async function PreencherTabelaVeiculo(){
     veiculos.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../..module/moduleVeiculo/ListarVeiculos.html?nome=";
+            window.location.href = "../../module/moduleVeiculo/ListarVeiculos.html?nome=";
         });
         
         let idClienteTd = document.createElement('td');        
