@@ -11,7 +11,7 @@ async function PreencherTabelaServico(){
     servicos.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../../module/moduleServico/listarServico.html?id="+e.idCliente;
+            window.location.href = "../../module/moduleServico/editarServico.html?id="+e.idServico;
         });
         
         let IdServicoTd = document.createElement('td');        

@@ -126,6 +126,36 @@ async function EnviarApi(viewmodel){
 
     return req;
 }
+
+async function EnviarApiVeiculo(viewmodel){
+    
+    //opções/dados para fazer a request;
+    const options = {
+    //método, se é um post, get etc..
+    method: 'PUT', 
+    headers:{'content-type': 'application/json'},       
+    body: JSON.stringify(viewmodel) 
+    };
+
+    //TODO: mudar a url para o seu localhost.
+    const req =  await fetch('https://localhost:44363/Veiculos/atualizar', options )
+    //caso a request dê certo, retornará a resposta;
+    .then(response => {      
+        response.text()
+        .then(data=>  {
+            alert(data);
+            return data;
+        });
+    }) 
+    //caso dê erro, irá retornar o erro e mostrar no console
+    .catch(erro => {
+        console.log(erro);
+        return erro;
+    });
+
+    return req;
+}
+
 async function Atualizar(){
     
    let divVeiculo = document.querySelector('#areaVeiculo');  
@@ -146,10 +176,10 @@ async function Atualizar(){
     console.log(corVeiculoCliente);    
 
     let veiculo = {
-        id : parseInt(idVeiculo),
-        veiculo : veiculoCliente,
-        placa : placaVeiculoCliente,
-        cor : corVeiculoCliente        
+        idVeiculo : parseInt(idVeiculo),
+        veiculoCliente,
+        placaVeiculoCliente,
+        corVeiculoCliente        
     };
 
     let idCliente = parseInt(document.querySelector('#id-cliente').value);    
@@ -168,18 +198,21 @@ async function Atualizar(){
         nomeCliente,
         cpfCliente,
         telefoneCliente,
-        enderecoCliente,
-        veiculo
+        enderecoCliente        
     };
 
+    let model = {
+        atualizar : veiculo
+    };
     let salvarClienteViewModel = {
         atualizar : cliente,     
     };
 
     console.log(salvarClienteViewModel);
 
-    let response = await EnviarApi(salvarClienteViewModel);
-    console.log(response);
+    let responseCliente = await EnviarApi(salvarClienteViewModel);
+    let responseVeiculo = await EnviarApiVeiculo(model);_
+    console.log(responseCliente);
 }
 
 

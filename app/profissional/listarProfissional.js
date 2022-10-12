@@ -11,7 +11,7 @@ async function PreencherTabelaProfissional(){
     profissionais.forEach(function(e) {
         let linha = document.createElement('tr');
         linha.addEventListener('click', ()=> {            
-            window.location.href = "../../module/moduleProfissional/listarProfissional.html?id="+e.idCliente;
+            window.location.href = "../../module/moduleProfissional/editarProfissional.html?id="+e.idProfissional;
         });
         
         let idProfissionalTd = document.createElement('td');        

@@ -20,7 +20,7 @@ function Voltar(){
 async function getServicoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
     let res = await ConsultaServico(urlParams.get('id'));
-    PreencherFormulario(res);
+    PreencherFormularioServico(res);
 }
 
 async function ConsultaServico(id){      
@@ -28,7 +28,7 @@ async function ConsultaServico(id){
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44363/servicos/Confirmar?id=' +id, options )
+    const req =  await fetch('https://localhost:44363/servicos/confirmar?id=' +id, options )
         .then(response => {      
             return response.json();
         })     
@@ -38,12 +38,14 @@ async function ConsultaServico(id){
         });
     return req;
 }
-async function PreencherFormulario(json){
+async function PreencherFormularioServico(json){
     let dadosForm = document.querySelector('#form');
+    let idServico = dadosForm.querySelector('#id-servico');
     let descricaoServico = dadosForm.querySelector('#descricaoServico');
     let valorServico = dadosForm.querySelector('#valorServico');
  
     console.log(json);
+    idServico.value = json.idServico;
     descricaoServico.value = json.descricaoServico;
     valorServico.value = json.valorServico;
  }
@@ -59,7 +61,7 @@ async function PreencherFormulario(json){
     };
 
     //TODO: mudar a url para o seu localhost.
-    const req =  await fetch('https://localhost:44317/produtos/atualizar', options )
+    const req =  await fetch('https://localhost:44363/servicos/atualizar', options )
     //caso a request dê certo, retornará a resposta;
     .then(response => {      
         response.text()
@@ -79,21 +81,21 @@ async function PreencherFormulario(json){
 
 async function Atualizar(){
     
-    let id = parseInt(document.querySelector('#id-servico').value);    
-     console.log(id);
-     let descricaoServico = document.querySelector('#descricaoServico').value;  
-     console.log(descricaoServico);
-     let valorServico = document.querySelector('#valorServico').value;  
-     console.log(valorServico);
+    let idservico = parseInt(document.querySelector('#id-servico').value);    
+        console.log(idservico);
+        let descricaoServico = document.querySelector('#descricaoServico').value;  
+        console.log(descricaoServico);
+        let valorServico = document.querySelector('#valorServico').value;  
+        console.log(valorServico);
           
      let servico = {
-         id,
-         descricaoServico,
-         valorServico
+        idservico,
+        descricaoServico,
+        valorServico : parseFloat(valorServico)
         };
  
      let salvarServicoViewModel = {
-        servico        
+        atualizar : servico        
      };
  
      console.log(salvarServicoViewModel);

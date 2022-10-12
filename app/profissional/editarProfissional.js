@@ -40,15 +40,17 @@ async function ConsultaProfissional(id){
 }
 async function PreencherFormularioProfissional(json){
     let dadosForm = document.querySelector('#form');
+    let idProfissional = dadosForm.querySelector('#id-profissional');
     let nomeProfissional = dadosForm.querySelector('#nomeProfissional');
     let cargoProfissional = dadosForm.querySelector('#cargoProfissional');
  
     console.log(json);
+    idProfissional.value = json.idProfissional;
     nomeProfissional.value = json.nomeProfissional;
     cargoProfissional.value = json.cargoProfissional;
  }
 
- async function EnviarApi(viewmodel){
+async function EnviarApi(viewmodel){
     
     //opções/dados para fazer a request;
     const options = {
@@ -79,21 +81,21 @@ async function PreencherFormularioProfissional(json){
 
 async function Atualizar(){
     
-    let id = parseInt(document.querySelector('#id-profissional').value);    
-     console.log(id);
-     let nomeProfissional = document.querySelector('#nomeProfissional').value;  
-     console.log(nomeProfissional);
-     let cargoProfissional = document.querySelector('#cargoProfissional').value;  
-     console.log(cargoProfissional);
-          
+    let idProfissional = parseInt(document.querySelector('#id-profissional').value);    
+        console.log(idProfissional);
+        let nomeProfissional = document.querySelector('#nomeProfissional').value;  
+        console.log(nomeProfissional);
+        let cargoProfissional = document.querySelector('#cargoProfissional').value;  
+        console.log(cargoProfissional);
+            
      let profissional = {
-         id,
-         nomeProfissional,
-         cargoProfissional
+        idProfissional,
+        nomeProfissional,
+        cargoProfissional
         };
  
      let salvarProfissionalViewModel = {
-        profissional        
+        atualizar : profissional     
      };
  
      console.log(salvarProfissionalViewModel);

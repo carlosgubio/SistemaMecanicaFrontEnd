@@ -82,11 +82,11 @@ async function EnviarApi(viewmodel){
 async function Atualizar(){
     
     let idProduto = parseInt(document.querySelector('#id-produto').value);    
-     console.log(idProduto);
-     let descricaoPeca = document.querySelector('#descricaoPeca').value;  
-     console.log(descricaoPeca);
-     let valorPeca = document.querySelector('#valorPeca').value;  
-     console.log(valorPeca);
+        console.log(idProduto);
+        let descricaoPeca = document.querySelector('#descricaoPeca').value;  
+        console.log(descricaoPeca);
+        let valorPeca = document.querySelector('#valorPeca').value;  
+        console.log(valorPeca);
           
      let produto = {
         idProduto,
