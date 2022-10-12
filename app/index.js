@@ -11,6 +11,7 @@ function CarregarTelaCadastroCliente(){
   function CarregarTelaCadastroProfissional(){  
     window.location = "./module/moduleProfissional/salvarProfissional.html";
   }
+  
   function CarregarTelaListagemProfissional(){
     window.location = "./module/moduleProfissional/listarProfissional.html";
   }
