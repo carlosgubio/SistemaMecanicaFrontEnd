@@ -8,46 +8,31 @@ async function CarregarTemplate(nome){
     });    
   return template;
 }
-// async function AdicionarCliente(){
 
-//   let veiculos = document.querySelector('#dadosCliente');
+async function AdicionarProfissional(){
 
-//   let templateCliente = await CarregarTemplate('../../module/moduleOrdemServico/cliente.html');
+  let profissionais = document.querySelector('#dadosProfissional');
 
-//   veiculos.appendChild(converterParaDomElement(templateCliente));
-// }
-// async function AdicionarVeiculo(){
+  let templateProfissional = await CarregarTemplate('../../module/moduleOrdemServico/profissional.html');
 
-//   let veiculos = document.querySelector('#dadosVeiculo');
+  profissionais.appendChild(converterParaDomElement(templateProfissional));          
+}
+async function AdicionarServico(){
 
-//   let templateVeiculo = await CarregarTemplate('../../module/moduleOrdemServico/veiculo.html');
+  let servicos = document.querySelector('#dadosServico');
 
-//   veiculos.appendChild(converterParaDomElement(templateVeiculo)); 
-// }
-// async function AdicionarProfissional(){
+  let templateServico = await CarregarTemplate('../../module/moduleOrdemServico/servico.html');
 
-//   let profissionais = document.querySelector('#dadosProfissional');
+  servicos.appendChild(converterParaDomElement(templateServico));         
+}
+async function AdicionarProduto(){
 
-//   let templateProfissional = await CarregarTemplate('../../module/moduleOrdemServico/profissional.html');
+  let produtos = document.querySelector('#dadosProduto');
 
-//   profissionais.appendChild(converterParaDomElement(templateProfissional));          
-// }
-// async function AdicionarServico(){
+  let templateProdutos = await CarregarTemplate('../../module/moduleOrdemServico/produto.html');
 
-//   let servicos = document.querySelector('#dadosServico');
-
-//   let templateServico = await CarregarTemplate('../../module/moduleOrdemServico/servico.html');
-
-//   servicos.appendChild(converterParaDomElement(templateServico));         
-// }
-// async function AdicionarProduto(){
-
-//   let produtos = document.querySelector('#dadosProduto');
-
-//   let templateProdutos = await CarregarTemplate('../../module/moduleOrdemServico/produto.html');
-
-//   produtos.appendChild(converterParaDomElement(templateProdutos));         
-// }
+  produtos.appendChild(converterParaDomElement(templateProdutos));         
+}
 
 //convertendo o texto e adicionando em tela;
 function converterParaDomElement(str) {
@@ -58,23 +43,23 @@ function converterParaDomElement(str) {
   
 //pegando os dados do formulário
 async function SalvarOrdemServico(){
-  let idCliente = parseInt(document.querySelector('#idCliente').value);  
+  let idCliente = parseInt(document.querySelector('#idCliente'));  
   console.log(idCliente);
-  let idVeiculo = parseInt(document.querySelector('#idVeiculo').value);  
+  let idVeiculo = parseInt(document.querySelector('#idVeiculo'));  
   console.log(idVeiculo);
-  let idProfissional = parseInt(document.querySelector('#idProfissional').value);  
+  let idProfissional = parseInt(document.querySelector('#idProfissional'));  
   console.log(idProfissional);
-  let idServico = parseInt(document.querySelector('#idServico').value);  
+  let idServico = parseInt(document.querySelector('#idServico'));  
   console.log(idServico);
   let idProduto = document.querySelectorAll('#IdProduto');  
   console.log(idProduto);
 
   let ordemServico = {
-    idCliente,
-    idVeiculo,
-    idProfissional,
-    idServico,
-    idProduto
+    idCliente : parseInt(idCliente),
+    idVeiculo : parseInt(idVeiculo),
+    idProfissional : parseInt(idProfissional),
+    idServico : parseInt(idServico),
+    idProduto : parseInt(idProduto)
   };
   
   let CadastrarOrdemServicoViewModel = {
