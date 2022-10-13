@@ -53,26 +53,33 @@ async function salvarCliente(){
     console.log(placaVeiculoClienteInput);
     let corVeiculoClienteInput = divVeiculo.querySelector('#corVeiculoCliente').value;
     console.log(veiculoClienteInput);
-
-    let veiculo = {
-      veiculoCliente : veiculoClienteInput,
-      placaVeiculoCliente : placaVeiculoClienteInput,
-      corVeiculoCliente : corVeiculoClienteInput
-    };    
-
+    
   let CadastrarClienteViewModel = {
-    cliente,
-    veiculo
+    cliente  
   };
+
+  let veiculo = {
+    veiculoCliente : veiculoClienteInput,
+    placaVeiculoCliente : placaVeiculoClienteInput,
+    corVeiculoCliente : corVeiculoClienteInput
+  }; 
 
   console.log(CadastrarClienteViewModel);
 
-  let response = await EnviarApi(CadastrarClienteViewModel);
-  console.log(response);
+  // let response = await EnviarClienteApi(CadastrarClienteViewModel);
+  await EnviarClienteApi(CadastrarClienteViewModel)
+        .then(async response=>{
+            console.log(response);
+            let cadastrarVeiculoViewModel = {
+              veiculos : veiculo,
+              idcliente : response
+            };
+            await EnviarVeiculoApi(cadastrarVeiculoViewModel);
+        });
 }
   
 //função para fazer uma request na api;
-async function EnviarApi(viewmodel){
+async function EnviarClienteApi(viewmodel){
     
   //opções/dados para fazer a request;
   const options = {
@@ -83,6 +90,23 @@ async function EnviarApi(viewmodel){
   };
   //TODO: mudar a url para o seu localhost.
   const req =  await fetch('https://localhost:44363/clientes/cadastrar', options )
+  //caso a request dê certo, retornará a resposta;
+  .then(response => { 
+      return response.json();
+    });
+    return req; 
+}
+async function EnviarVeiculoApi(viewmodel){
+    
+  //opções/dados para fazer a request;
+  const options = {
+  //método, se é um post, get etc..
+  method: 'POST', 
+  headers:{'content-type': 'application/json'},       
+  body: JSON.stringify(viewmodel) 
+  };
+  //TODO: mudar a url para o seu localhost.
+  const req =  await fetch('https://localhost:44363/veiculos/cadastrar', options )
   //caso a request dê certo, retornará a resposta;
   .then(response => { 
     response.text()

@@ -24,30 +24,30 @@ async function CarregarTemplate(nome){
 
 //   veiculos.appendChild(converterParaDomElement(templateVeiculo)); 
 // }
-async function AdicionarProfissional(){
+// async function AdicionarProfissional(){
 
-  let profissionais = document.querySelector('#dadosProfissional');
+//   let profissionais = document.querySelector('#dadosProfissional');
 
-  let templateProfissional = await CarregarTemplate('../../module/moduleOrdemServico/profissional.html');
+//   let templateProfissional = await CarregarTemplate('../../module/moduleOrdemServico/profissional.html');
 
-  profissionais.appendChild(converterParaDomElement(templateProfissional));          
-}
-async function AdicionarServico(){
+//   profissionais.appendChild(converterParaDomElement(templateProfissional));          
+// }
+// async function AdicionarServico(){
 
-  let servicos = document.querySelector('#dadosServico');
+//   let servicos = document.querySelector('#dadosServico');
 
-  let templateServico = await CarregarTemplate('../../module/moduleOrdemServico/servico.html');
+//   let templateServico = await CarregarTemplate('../../module/moduleOrdemServico/servico.html');
 
-  servicos.appendChild(converterParaDomElement(templateServico));         
-}
-async function AdicionarProduto(){
+//   servicos.appendChild(converterParaDomElement(templateServico));         
+// }
+// async function AdicionarProduto(){
 
-  let produtos = document.querySelector('#dadosProduto');
+//   let produtos = document.querySelector('#dadosProduto');
 
-  let templateProdutos = await CarregarTemplate('../../module/moduleOrdemServico/produto.html');
+//   let templateProdutos = await CarregarTemplate('../../module/moduleOrdemServico/produto.html');
 
-  produtos.appendChild(converterParaDomElement(templateProdutos));         
-}
+//   produtos.appendChild(converterParaDomElement(templateProdutos));         
+// }
 
 //convertendo o texto e adicionando em tela;
 function converterParaDomElement(str) {
@@ -66,96 +66,20 @@ async function SalvarOrdemServico(){
   console.log(idProfissional);
   let idServico = parseInt(document.querySelector('#idServico').value);  
   console.log(idServico);
-  let idPeca = document.querySelectorAll('#IdPeca');  
-  console.log(idPeca);
+  let idProduto = document.querySelectorAll('#IdProduto');  
+  console.log(idProduto);
 
   let ordemServico = {
     idCliente,
     idVeiculo,
     idProfissional,
     idServico,
-    idPeca
+    idProduto
   };
   
-  let nomeClienteInput = divVeiculo.querySelector('#nomeCliente').value;
-  console.log(nomeClienteInput);
-  let cpfClienteInput = divVeiculo.querySelector('#cpfCliente').value;
-  console.log(cpfClienteInput);
-  let telefoneClienteInput = divVeiculo.querySelector('#telefoneCliente').value;
-  console.log(telefoneClienteInput);    
-  let enderecoClienteInput = divVeiculo.querySelector('#enderecoCliente').value;
-  console.log(enderecoClienteInput);  
-
-  let clientes = {
-    nomeCliente : nomeClienteInput,
-    cpfCliente : cpfClienteInput,
-    telefoneCliente : telefoneClienteInput,  
-    enderecoCliente : enderecoClienteInput      
-  };
-
-  let divVeiculo = document.querySelector('#areaVeiculo');  
-
-  if(!divVeiculo)
-  {
-      alert("Veículo não preenchido");  
-      return;
-  }
-  let veiculoClienteInput = divVeiculo.querySelector('#veiculoCliente').value;
-    console.log(veiculoClienteInput);
-    let placaVeiculoClienteInput = divVeiculo.querySelector('#placaVeiculoCliente').value;
-    console.log(placaVeiculoClienteInput);
-    let corVeiculoClienteInput = divVeiculo.querySelector('#corVeiculoCliente').value;
-    console.log(corVeiculoClienteInput);    
-
-    let veiculos = {
-      veiculoCliente : veiculoClienteInput,
-      placaVeiculoCliente : placaVeiculoClienteInput,
-      corVeiculoCliente : corVeiculoClienteInput        
-    };
-
-  var divProfissionais = document.querySelectorAll('#areaProfissional');
-  let profissionais = [];   
-  divProfissionais.forEach(function(e){
-      let nomeProfissional = e.querySelector('#nomeProfissional');
-      let cargoProfisional = e.querySelector('#cargoProfissional');
-      let objetoProfissional = {
-        nomeProfissional : nomeProfissional.value,
-        cargoProfisional : cargoProfisional.value 
-      };
-      profissionais.push(objetoProfissional);      
-  });
-  
-  var divServicos = document.querySelectorAll('#areaServico');
-  let servicos = [];   
-  divServicos.forEach(function(e){
-      let descricaoServico = e.querySelector('#descricaoServico');
-      let valorServico = e.querySelector('#valorServico');
-      let objetoServico = {
-        descricaoServico : descricaoServico.value,
-        valorServico : valorServico.value 
-      };
-      servicos.push(objetoServico);      
-  });
-
-  var divProdutos = document.querySelectorAll('#areaProduto');
-  let produtos = [];   
-  divProdutos.forEach(function(e){
-      let descricaoPeca = e.querySelector('#descricaoPeca');
-      let valorPeca = e.querySelector('#valorPeca');
-      let objetoProduto = {
-        descricaoPeca : descricaoPeca.value,
-        valorPeca : valorPeca.value 
-      };
-      produtos.push(objetoProduto);      
-  });  
-
   let CadastrarOrdemServicoViewModel = {
-    clientes,
-    veiculos,
-    profissionais,
-    servicos,
-    produtos  
-};
+    ordemServico      
+  };
         
   console.log(CadastrarOrdemServicoViewModel);
 
@@ -163,6 +87,135 @@ async function SalvarOrdemServico(){
   console.log(response);
 }
 
+async function ConsultaCliente(){      
+  const options = {
+      method: 'GET',  
+      headers:{'content-type': 'application/json'}                     
+  };    
+  const req =  await fetch('https://localhost:44363/clientes/buscartodos', options )
+      .then(response => {      
+          return response.json();
+      })     
+      .catch(erro => {
+          console.log(erro);
+          return erro;
+      });
+  return req;
+  }
+async function PreencherOpcoesCliente(){
+  let selectCliente = document.querySelector('#listagemClientes')
+  let clientes = await ConsultaCliente()
+  if(clientes){
+    clientes.forEach(element => {
+      let option = new Option(element.nomeCliente, element.idCliente);
+      selectCliente.options[selectCliente.options.length] = option;
+    });
+  }
+}
+
+async function ConsultaVeiculo(){      
+  const options = {
+      method: 'GET',  
+      headers:{'content-type': 'application/json'}                     
+  };    
+  const req =  await fetch('https://localhost:44363/veiculos/buscartodos', options )
+      .then(response => {      
+          return response.json();
+      })     
+      .catch(erro => {
+          console.log(erro);
+          return erro;
+      });
+  return req;
+}
+async function PreencherOpcoesVeiculo(){
+  let selectVeiculo = document.querySelector('#listagemVeiculos')
+  let veiculos = await ConsultaVeiculo()
+  if(veiculos){
+    veiculos.forEach(element => {
+      let option = new Option(element.veiculoCliente, element.idVeiculo);
+      selectVeiculo.options[selectVeiculo.options.length] = option;
+    });
+  }
+}
+
+async function ConsultaProfissional(){      
+  const options = {
+      method: 'GET',  
+      headers:{'content-type': 'application/json'}                     
+  };    
+  const req =  await fetch('https://localhost:44363/profissionais/buscartodos', options )
+      .then(response => {      
+          return response.json();
+      })     
+      .catch(erro => {
+          console.log(erro);
+          return erro;
+      });
+  return req;
+}
+async function PreencherOpcoesProfissional(){
+  let selectProfissional = document.querySelector('#listagemProfissionais')
+  let profissionais = await ConsultaProfissional()
+  if(profissionais){
+    profissionais.forEach(element => {
+      let option = new Option(element.nomeProfissional, element.idProfissional);
+      selectProfissional.options[selectProfissional.options.length] = option;
+    });
+  }
+}
+
+async function ConsultaServico(){      
+  const options = {
+      method: 'GET',  
+      headers:{'content-type': 'application/json'}                     
+  };    
+  const req =  await fetch('https://localhost:44363/servicos/buscartodos', options )
+      .then(response => {      
+          return response.json();
+      })     
+      .catch(erro => {
+          console.log(erro);
+          return erro;
+      });
+  return req;
+}
+async function PreencherOpcoesServico(){
+  let selectServico = document.querySelector('#listagemServicos')
+  let servicos = await ConsultaServico()
+  if(servicos){
+    servicos.forEach(element => {
+      let option = new Option(element.descricaoServico, element.idServico);
+      selectServico.options[selectServico.options.length] = option;
+    });
+  }
+}
+
+async function ConsultaProduto(){      
+  const options = {
+      method: 'GET',  
+      headers:{'content-type': 'application/json'}                     
+  };    
+  const req =  await fetch('https://localhost:44363/produtos/buscartodos', options )
+      .then(response => {      
+          return response.json();
+      })     
+      .catch(erro => {
+          console.log(erro);
+          return erro;
+      });
+  return req;
+}
+async function PreencherOpcoesProduto(){
+  let selectProduto = document.querySelector('#listagemProdutos')
+  let produtos = await ConsultaProduto()
+  if(produtos){
+    produtos.forEach(element => {
+      let option = new Option(element.descricaoPeca, element.idServico);
+      selectProduto.options[selectProduto.options.length] = option;
+    });
+  }
+}
 
     //função para fazer uma request na api;
   async function EnviarApi(viewmodel){
@@ -197,3 +250,8 @@ async function SalvarOrdemServico(){
   function Voltar(){
     window.location = "../../index.html";
 }
+PreencherOpcoesCliente();
+PreencherOpcoesVeiculo();
+PreencherOpcoesProfissional();
+PreencherOpcoesServico();
+PreencherOpcoesProduto();

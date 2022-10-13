@@ -11,14 +11,12 @@ function CarregarTelaCadastroCliente(){
   function CarregarTelaCadastroProfissional(){  
     window.location = "./module/moduleProfissional/salvarProfissional.html";
   }
-  
   function CarregarTelaListagemProfissional(){
     window.location = "./module/moduleProfissional/listarProfissional.html";
   }
   function CarregarTelaEditarProfissional(){
     window.location = "./module/moduleProfissional/editarProfissional.html";
   }
-  alert("Ola");
   
   function CarregarTelaCadastroProduto(){  
     window.location = "./module/moduleProduto/salvarProduto.html";

@@ -5,22 +5,22 @@
     <title>Registro Ordem de Servico</title>
 </head>
 <body>        
-    <div name="formulario-ordemServico" id="form" class="formularios">
-        <!-- <input type="number" id="idCliente" placeholder="Id do Cliente"/>
-        <input type="number" id="idVeiculo" placeholder="Id do Veiculo"/> -->
+    <!-- <div name="formulario-ordemServico" id="form" class="formularios">
+        <input type="number" id="idCliente" placeholder="Id do Cliente"/>
+        <input type="number" id="idVeiculo" placeholder="Id do Veiculo"/>
         <input type="number" id="idProfissional" placeholder="Id do Profissional"/>
         <input type="number" id="idServico" placeholder="Id do Serviço">
-        <input type="number" id="idPeca" placeholder="Id da Peça" /> 
+        <input type="number" id="idProduto" placeholder="Id da Produto" /> 
         
-     </div>
-     <div id="dadosAdicionais"> 
+     </div> -->
+     <!-- <div id="dadosAdicionais">  -->
         <!-- <input type="button" value="Adicionar Cliente" onclick="AdicionarCliente()"/>        
         <div id="dadosCliente"></div>
         </div>  
         <input type="button" value="Adicionar Veiculo" onclick="AdicionarVeiculo()"/>        
         <div id="dadosVeiculo"></div>
         </div>                            -->
-        <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/>        
+        <!-- <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/>        
         <div id="dadosProfissional"></div>
         </div>
         <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/>        
@@ -28,12 +28,22 @@
         </div>
         <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/>        
         <div id="dadosProduto"></div>
-        </div>
-    </div>
-    <input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
-    <input type="button" value="Voltar" onclick="Voltar()"/>  
-    <div id="dadosSalvos">                
-    </div>      
+        </div> -->
+        <label for="clientes">Selecione o Cliente</label>
+    <select name="clientes" id="listagemClientes"></select>
+    <label for="veiculos">Selecione o Veículo</label>
+    <select name="veiculos" id="listagemVeiculos"></select>
+    <label for="profissionais">Selecione o Profissional</label>
+    <select name="profissionais" id="listagemProfissionais"></select>
+    <label for="servicos">Selecione o Serviço</label>
+    <select name="servicos" id="listagemServicos"></select>
+    <label for="produtos">Selecione o Produto</label>
+    <select name="produtos" id="listagemProdutos"></select>
+</div>
+<input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
+<input type="button" value="Voltar" onclick="Voltar()"/>  
+<div id="dadosSalvos">                
+</div> 
 </body>
 <script src="../../app/ordemServico/salvarOrdemServico.js"></script>
 </html>

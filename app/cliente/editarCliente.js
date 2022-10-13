@@ -211,7 +211,7 @@ async function Atualizar(){
     console.log(salvarClienteViewModel);
 
     let responseCliente = await EnviarApi(salvarClienteViewModel);
-    let responseVeiculo = await EnviarApiVeiculo(model);_
+    let responseVeiculo = await EnviarApiVeiculo(model);
     console.log(responseCliente);
 }
 
