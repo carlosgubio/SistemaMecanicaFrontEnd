@@ -2,15 +2,18 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Registro de Produto</title>
-<body>        
-    <div name="formulario-produto" id="form" class="formularios">
-        <input type="text" id="descricaoPeca" placeholder="Descrição da Peça" value="" />
-        <input type="number" id="valorPeca" placeholder="Valor da Peça:" value="" />
-    </div>
-    
-    <input type="button" value="Salvar" onclick="SalvarProduto()"/>    
-    <input type="button" value="Voltar" onclick="Voltar()"/>
+    <title>Cadastro de Produto</title>
+<body>
+    <main class="container">  
+        <h1 class="title">Cadastro de Produto</h1>      
+        <div name="formulario-produto" id="form" class="formularios">
+            <input type="text" id="descricaoPeca" placeholder="Descrição da Peça" value="" />
+            <input type="number" id="valorPeca" placeholder="Valor da Peça" value="" />
+        </div>
+        
+        <input type="button" value="Salvar" onclick="SalvarProduto()"/>    
+        <input type="button" value="Voltar" onclick="Voltar()"/>
+    </main>
 </body>
 <script src="../../app/produto/salvarProduto.js"></script>
 </html>
