@@ -8,20 +8,17 @@
     <label for="clientes">Selecione o Cliente</label>
     <select name="clientes" id="listagemClientes"></select><br> 
     <label for="veiculos">Selecione o Veículo</label>
-    <select name="veiculos" id="listagemVeiculos"></select><br> 
-    <label for="profissionais">Selecione o Profissional</label>
-    <select name="profissionais" id="listagemProfissionais"></select>
-    <input type="button" value="+" onclick="AdicionarProfissional()"/>        
-    <div id="dadosProfissional"></div> 
-    <label for="servicos">Selecione o Serviço</label>
-    <select name="servicos" id="listagemServicos"></select>
-    <input type="button" value="+" onclick="AdicionarServico()"/>        
-    <div id="dadosServico"></div>
-    <label for="produtos">Selecione o Produto</label>
-    <select name="produtos" id="listagemProdutos"></select>
-    <input type="button" value="+" onclick="AdicionarProduto()"/>        
-    <div id="dadosProduto"></div>
-
+    <select name="veiculos" id="listagemVeiculos"></select><br>     
+    <div id="dadosProfissional">
+    </div>     
+    <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/>
+    <div id="dadosServico">
+    </div>
+    <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/>     
+    <div id="dadosProduto">
+    </div>
+    <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/>
+   
 <input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
 <input type="button" value="Voltar" onclick="Voltar()"/>  
 <div id="dadosSalvos">                

@@ -10,28 +10,31 @@ async function CarregarTemplate(nome){
 }
 
 async function AdicionarProfissional(){
-
   let profissionais = document.querySelector('#dadosProfissional');
-
-  let templateProfissional = await CarregarTemplate('../../module/moduleOrdemServico/profissional.html');
-
-  profissionais.appendChild(converterParaDomElement(templateProfissional));          
+  let selectAddProfissional = document.createElement('select');  
+  selectAddProfissional.classList.add('listagemProfissionais');  
+  selectAddProfissional.name = 'profissionais';
+  profissionais.appendChild(selectAddProfissional);
+  await PreencherOpcoesProfissional(selectAddProfissional);
 }
 async function AdicionarServico(){
 
   let servicos = document.querySelector('#dadosServico');
+  let selectAddServico = document.createElement('select');  
+  selectAddServico.classList.add('listagemServicos');  
+  selectAddServico.name = 'servicos';
+  servicos.appendChild(selectAddServico);
+  await PreencherOpcoesServico(selectAddServico);
+}      
 
-  let templateServico = await CarregarTemplate('../../module/moduleOrdemServico/servico.html');
-
-  servicos.appendChild(converterParaDomElement(templateServico));         
-}
 async function AdicionarProduto(){
 
   let produtos = document.querySelector('#dadosProduto');
-
-  let templateProdutos = await CarregarTemplate('../../module/moduleOrdemServico/produto.html');
-
-  produtos.appendChild(converterParaDomElement(templateProdutos));         
+  let selectAddProduto= document.createElement('select');  
+  selectAddProduto.classList.add('listagemProdutos');  
+  selectAddProduto.name = 'produtos';
+  produtos.appendChild(selectAddProduto);
+  await PreencherOpcoesProduto(selectAddProduto);        
 }
 
 //convertendo o texto e adicionando em tela;
@@ -43,27 +46,40 @@ function converterParaDomElement(str) {
   
 //pegando os dados do formulário
 async function SalvarOrdemServico(){
-  let idCliente = parseInt(document.querySelector('#idCliente'));  
+  let idCliente = parseInt(document.querySelector('#listagemClientes').value);  
   console.log(idCliente);
-  let idVeiculo = parseInt(document.querySelector('#idVeiculo'));  
+  let idVeiculo = parseInt(document.querySelector('#listagemVeiculos').value);  
   console.log(idVeiculo);
-  let idProfissional = parseInt(document.querySelector('#idProfissional'));  
-  console.log(idProfissional);
-  let idServico = parseInt(document.querySelector('#idServico'));  
-  console.log(idServico);
-  let idProduto = document.querySelectorAll('#IdProduto');  
-  console.log(idProduto);
 
-  let ordemServico = {
+  //para cada lista de opções, vamos pegar as opções selecionadas e colocar na viewmodel.
+  let listaProfissionaisSelect = document.querySelectorAll('.listagemProfissionais');  
+  let idProfissionais = [];
+  listaProfissionaisSelect.forEach((element) => {
+    idProfissionais.push(parseInt(element.value));
+  });
+  console.log(idProfissionais);
+
+  let listaServicosSelect = document.querySelectorAll('.listagemServicos');  
+  let idServicosExecutados = [];
+  listaServicosSelect.forEach((element) => {
+    idServicosExecutados.push(parseInt(element.value));
+  });
+
+  console.log(idServicosExecutados);
+
+  let listaProdutosSelect = document.querySelectorAll('.listagemProdutos');  
+  let idItens =[];
+  listaProdutosSelect.forEach(element => {
+    idItens.push(parseInt(element.value));
+  });
+  console.log(idItens);
+
+  let CadastrarOrdemServicoViewModel = {
     idCliente : parseInt(idCliente),
     idVeiculo : parseInt(idVeiculo),
-    idProfissional : parseInt(idProfissional),
-    idServico : parseInt(idServico),
-    idProduto : parseInt(idProduto)
-  };
-  
-  let CadastrarOrdemServicoViewModel = {
-    ordemServico      
+    idProfissionais,
+    idServicosExecutados,
+    idItens
   };
         
   console.log(CadastrarOrdemServicoViewModel);
@@ -139,13 +155,12 @@ async function ConsultaProfissional(){
       });
   return req;
 }
-async function PreencherOpcoesProfissional(){
-  let selectProfissional = document.querySelector('#listagemProfissionais')
+async function PreencherOpcoesProfissional(select){
   let profissionais = await ConsultaProfissional()
   if(profissionais){
     profissionais.forEach(element => {
       let option = new Option(element.nomeProfissional, element.idProfissional);
-      selectProfissional.options[selectProfissional.options.length] = option;
+      select.options[select.options.length] = option;
     });
   }
 }
@@ -165,13 +180,12 @@ async function ConsultaServico(){
       });
   return req;
 }
-async function PreencherOpcoesServico(){
-  let selectServico = document.querySelector('#listagemServicos')
+async function PreencherOpcoesServico(select){
   let servicos = await ConsultaServico()
   if(servicos){
     servicos.forEach(element => {
       let option = new Option(element.descricaoServico, element.idServico);
-      selectServico.options[selectServico.options.length] = option;
+      select.options[select.options.length] = option;
     });
   }
 }
@@ -191,13 +205,12 @@ async function ConsultaProduto(){
       });
   return req;
 }
-async function PreencherOpcoesProduto(){
-  let selectProduto = document.querySelector('#listagemProdutos')
+async function PreencherOpcoesProduto(select){
   let produtos = await ConsultaProduto()
   if(produtos){
     produtos.forEach(element => {
-      let option = new Option(element.descricaoPeca, element.idServico);
-      selectProduto.options[selectProduto.options.length] = option;
+      let option = new Option(element.descricaoPeca, element.idProduto);
+      select.options[select.options.length] = option;
     });
   }
 }
@@ -235,8 +248,8 @@ async function PreencherOpcoesProduto(){
   function Voltar(){
     window.location = "../../index.html";
 }
-PreencherOpcoesCliente();
-PreencherOpcoesVeiculo();
-PreencherOpcoesProfissional();
-PreencherOpcoesServico();
-PreencherOpcoesProduto();
+
+(async() => {
+  await PreencherOpcoesCliente();
+  await PreencherOpcoesVeiculo();
+})();

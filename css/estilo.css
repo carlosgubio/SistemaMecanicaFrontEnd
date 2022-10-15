@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root{
-    --cor-fundo: rgb(18, 17, 22);
+    --cor-fundo: rgb(8, 6, 15);
     --cor-hover: rgb(71, 71, 73);
     --cor-primaria: white;
     --cor-tela: rgb(187, 184, 184);
@@ -36,7 +36,7 @@
     text-align: center;
     font-weight: bold;
     line-height: 50px;
-    font-size: 25px;
+    font-size: 30x;
     border-bottom: 2px solid var(--cor-telaSuperior);
 }
 
@@ -45,15 +45,16 @@
 }
 
 .menu ul li{
-    line-height: 40px;
+    line-height: 60px;
 }
 .menu ul li a{
     color: var(--cor-primaria);
+    padding-left: 30px;
     text-decoration: none;
     font-size: 20px;
-    padding-left: 30px;
     font-weight: bold;
     display: block;
+    transition: background .3s;
 }
 .menu ul li a:hover{
     background-color: var(--cor-hover);
@@ -74,4 +75,22 @@ background-color: #370707;
 
 .menu ul .itensCliente.mostra{
     display: block;
+}
+/*sub menu*/
+.menu ul ul{
+    display: none;
+    left: 0;
+    position: absolute;
+}
+.menu ul li:hover ul{
+    display: block;
+}
+.menu ul ul{
+   width: 150px;
+}
+.menu ul ul li a{
+    display: block;
+}
+.menu ul li a ul{
+    background-color: var(--cor-primaria);
 }
