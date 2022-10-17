@@ -4,6 +4,65 @@
     <meta charset="utf-8" />
     <title>Listagem de Cliente</title>
 <body>
+    <nav class="faixa-superior">
+        <li>
+            <a href="">
+                </a>
+        </li>
+    </nav>
+    <nav class="menu">
+        <div class="cadastro">CADASTRO</div>
+        <ul>
+            <li><a href="#" class="cliente">CLIENTE</a>
+                <ul class="itensCliente">
+                    <li><a href="SistemaMecanicaFrontEnd/module/moduleCliente/salvarCliente.html">Cadastrar</a></li>
+                    <li><a href="SistemaMecanicaFrontEnd/module/moduleCliente/editarCliente.html">Editar</a></li>
+                    <li><a href="SistemaMecanicaFrontEnd/module/moduleCliente/listarCliente.html">listar</a></li>
+                </ul>    
+            </li>
+            <li><a href="#" class="veiculo">VEÍCULO</a>
+                <ul class="itensVeiculo">
+                    <li><a href="SistemaMecanicaFrontEnd/module/moduleVeiculo/salvarVeiculo.html">Cadastrar</a></li>
+                    <li><a href="SistemaMecanicaFrontEnd/module/moduleVeiculo/editarVeiculo.html">Editar</a></li>
+                    <li><a href="SistemaMecanicaFrontEnd/module/moduleVeiculo/listarVeiculo.html">listar</a></li>
+                </ul>
+            </li>
+            <li><a href="#" class="profissional">PROFISSIONAL</a>
+                    <ul class="itensProfissional">
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProfissional/salvarProfissional.html">Cadastrar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProfissional/editarProfissional.html">Editar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProfissional/listarProfissional.html">listar</a></li>
+                    </ul>
+            </li>
+            <li><a href="#" class="servico">SERVIÇO</a>
+                    <ul class="itensServico">
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleServico/salvarServico.html">Cadastrar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleServico/editarServico.html">Editar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleServico/listarServico.html">listar</a></li>
+                    </ul>
+            </li>
+            <li><a href="#" class="produto">PRODUTO</a>
+                    <ul class="itensProduto">
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProduto/salvarProduto.html">Cadastrar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProduto/editarProduto.html">Editar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProduto/listarProduto.html">listar</a></li>
+                    </ul>
+            </li>
+            <li><a href="#" class="ordemDeServico">ORDEM DE SERVIÇO</a>
+                    <ul class="itensOrdemServico">
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleOrdemServico/salvarOrdemServico.html">Cadastrar</a></li>
+                        <li><a href="SistemaMecanicaFrontEnd/module/moduleOrdemServico/editarOrdemServico.html">Editar</a></li>
+                        <li> <a href="SistemaMecanicaFrontEnd/module/moduleOrdemServico/listarOrdemServico.html">listar</a></li>
+                    </ul>
+            </li>
+        </ul>
+    </nav> 
+    <nav class="tela-fundo">
+        <li>
+            <a href="">
+                </a>
+        </li>
+    </nav>
     <div id="listagem-clientes">
         <table border="1">
             <thead>
@@ -25,10 +84,13 @@
                 </td>          
             </th> 
             </thead>       
-            <!--Preenchimento aqui-->    
         </table>    
     </div>
-    <input type="button" value="Voltar" onclick="Voltar()"/>
+    <div class="button">
+        <input type="button" value="Voltar" onclick="Voltar()" class="voltar"/>  
+    </div>
 </body>
 <script src="../../app/cliente/listarCliente.js"></script>
+<link rel="stylesheet" href="/SistemaMecanicaFrontEnd/css/estilo.css"/>
+
 </html>

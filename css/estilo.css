@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
 
 :root{
-    --cor-fundo: rgb(8, 6, 15);
+    --cor-fundo: rgb(12, 15, 53);
     --cor-hover: rgb(71, 71, 73);
     --cor-primaria: white;
     --cor-tela: rgb(187, 184, 184);
@@ -16,10 +16,23 @@
     font-size: 30px;
 }
 
-.faixa-superior li{
-    
-    padding: 60px;
+.header{
+    padding: 50px;
     background-color: var(--cor-telaSuperior);
+    border-top: var(--cor-telaSuperior);
+    list-style: none;
+    display:block;
+    text-align: right;
+}
+.header a{
+    color: var(--cor-primaria); 
+    padding-left: 40px; 
+    text-decoration: none;  
+}
+
+.faixa-superior li{
+    padding: 60px;
+    background-color:var(--cor-telaSuperior);
     text-decoration: none;
     border-top: var(--cor-telaSuperior);
     list-style: none;
@@ -83,7 +96,7 @@ background-color: #370707;
     position: absolute;
 }
 .menu ul li:hover ul{
-    display: block;
+    display: contents;
 }
 .menu ul ul{
    width: 150px;
@@ -94,3 +107,4 @@ background-color: #370707;
 .menu ul li a ul{
     background-color: var(--cor-primaria);
 }
+

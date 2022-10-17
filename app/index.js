@@ -2,6 +2,7 @@ $('.cliente').click(function(){
   $('.menu ul .itensCliente').toggleClass('mostra');
 });
 
+
 function CarregarTelaCadastroCliente(){  
 window.location = "./module/moduleCliente/salvarCliente.html";
 }

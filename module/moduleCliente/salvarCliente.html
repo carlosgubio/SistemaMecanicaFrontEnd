@@ -4,19 +4,45 @@
     <meta charset="utf-8" />
     <title>Registro de Cliente</title>
 </head>
-<body>        
-    <div name="formulario-cliente" id="form" class="formularios">
-        <input type="text" id="nomeCliente" placeholder="Nome do Cliente" value=""/>
-        <input type="text" id="cpfCliente" placeholder="CPF" value=""/>
-        <input type="text" id="telefoneCliente" placeholder="Telefone" value=""/>
-        <input type="text" id="enderecoCliente" placeholder="Endereço" value=""/>
+<body>   
+           
+    <div name="formulario-cliente" id="form" class="form-cliente-salvar">
+        <label>Nome Completo</label>
+        <input type="text" id="nomeCliente" value=""/>
+        <label>CPF</label>
+        <input type="text" id="cpfCliente" value=""/>
+        <label>Telefone</label>
+        <input type="text" id="telefoneCliente" value=""/>
+        <label>Endereço Completo</label>
+        <input type="text" id="enderecoCliente" value=""/>
     </div>
     <div id="dadosAdicionais">                                
-        <input type="button" value="Adicionar Veículo" onclick="AdicionarVeiculo()"/>        
-        <div id="dadosVeiculo">
+        <input type="button" value="Adicionar Veículo" onclick="AdicionarVeiculo()" class="veiculo"/>        
+        <div id="dadosVeiculo"><br>
     </div>
-    <input type="button" value="Salvar" onclick="salvarCliente()"/>    
-    <input type="button" value="Voltar" onclick="Voltar()"/>
+    <div>
+        <table>
+            <tr>
+            <td>
+                <div>
+                    <input type="button" value="Salvar" onclick="salvarCliente()" class="salvar"/> 
+                </div>
+            </td>
+            <td>
+                <div>
+                    <input type="button" value="Voltar" onclick="Voltar()"class="voltar"/>  
+                </div>
+            </td>
+            </tr>
+        </table>
+    </div>
+    
+    
+    
+    
 </body>
 <script src="../../app/cliente/salvarCliente.js"></script>
+
+<link rel="stylesheet" href="/SistemaMecanicaFrontEnd/css/estilo.css"/>
+<link rel="stylesheet" href="/SistemaMecanicaFrontEnd/css/cliente.css"/>
 </html>
