@@ -13,7 +13,6 @@ async function PreencherTabelaCliente(){
         linha.addEventListener('click', ()=> {            
             window.location.href = "../../module/moduleCliente/editarCliente.html?id="+e.idCliente;
         });
-        
         let idClienteTd = document.createElement('td');        
         idClienteTd.classList.add('row-idCliente-cliente');        
         let nomeClienteTd = document.createElement('td');
@@ -24,7 +23,7 @@ async function PreencherTabelaCliente(){
         telefoneClienteTd.classList.add('row-telefoneCliente-cliente');
         let enderecoClienteTd = document.createElement('td');
         enderecoClienteTd.classList.add('row-enderecoCliente-cliente');
-        
+    
         idClienteTd.innerHTML = e.idCliente;
         nomeClienteTd.innerHTML = e.nomeCliente;
         cpfClienteTd.innerHTML = e.cpfCliente;

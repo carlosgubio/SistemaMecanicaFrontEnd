@@ -14,20 +14,7 @@
     box-sizing: border-box;
     font-family: 'Open Sans', sans-serif;
     font-size: 30px;
-}
-
-.header{
-    padding: 50px;
-    background-color: var(--cor-telaSuperior);
-    border-top: var(--cor-telaSuperior);
     list-style: none;
-    display:block;
-    text-align: right;
-}
-.header a{
-    color: var(--cor-primaria); 
-    padding-left: 40px; 
-    text-decoration: none;  
 }
 
 .faixa-superior li{
@@ -107,4 +94,11 @@ background-color: #370707;
 .menu ul li a ul{
     background-color: var(--cor-primaria);
 }
+
+#listagem-clientes{
+    padding-top: 30px;
+    float:none;
+}
+
+
 
