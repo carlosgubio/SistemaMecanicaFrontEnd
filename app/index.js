@@ -1,7 +1,24 @@
-$('.cliente').click(function(){
-  $('.menu ul .itensCliente').toggleClass('mostra');
-});
+// $('.cliente').click(function(){
+//   $('.menu ul .itensCliente').toggleClass('mostra');
+// });
 
+function carregaDocumento(arquivo, target)
+    {
+        var el = document.querySelector(target);
+
+        //Se o elemento não existir então não requisita
+        if (!el) return;
+
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", arquivo, true);
+        xhr.onreadystatechange = function(){
+             if (xhr.readyState == 4 && xhr.status >= 200 && xhr.status < 300){
+                  el.innerHTML = xhr.responseText;
+             }
+        };
+
+        xhr.send(null);
+    }
 
 function CarregarTelaCadastroCliente(){  
 window.location = "./module/moduleCliente/salvarCliente.html";
@@ -62,11 +79,3 @@ window.location = "./module/moduleOrdemServico/listarOrdemServico.html";
 function CarregarTelaEditarOrdemServico(){
 window.location = "./module/moduleOrdemServico/editarOrdemServico.html";
 }
-
-import home from"./index.js";
-
-const main = document.querySelector("#root");
-
-window.addEventListener("load", () => {
-    main.appendChild(home());
-})

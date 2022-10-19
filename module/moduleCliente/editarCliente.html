@@ -1,68 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0">
     <title>Registro de Cliente</title>
+
+    <link rel="stylesheet" hrel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+       $(function () {
+          $("#header").load("../../../header.html");
+          $("#menu").load("../../../menu.html");
+       });
+    </script>
+  
+</head>
 <body>
-    <nav class="faixa-superior">
-        <li>
-            <a href="">
-                </a>
-        </li>
-    </nav>
-    <nav class="menu">
-        <div class="cadastro">CADASTRO</div>
-        <ul>
-            <li><a href="#" class="cliente">CLIENTE</a>
-                <ul class="itensCliente">
-                    <li><a href="SistemaMecanicaFrontEnd/module/moduleCliente/salvarCliente.html">Cadastrar</a></li>
-                    <li><a href="SistemaMecanicaFrontEnd/module/moduleCliente/editarCliente.html">Editar</a></li>
-                    <li><a href="SistemaMecanicaFrontEnd/module/moduleCliente/listarCliente.html">listar</a></li>
-                </ul>    
-            </li>
-            <li><a href="#" class="veiculo">VEÍCULO</a>
-                <ul class="itensVeiculo">
-                    <li><a href="SistemaMecanicaFrontEnd/module/moduleVeiculo/salvarVeiculo.html">Cadastrar</a></li>
-                    <li><a href="SistemaMecanicaFrontEnd/module/moduleVeiculo/editarVeiculo.html">Editar</a></li>
-                    <li><a href="SistemaMecanicaFrontEnd/module/moduleVeiculo/listarVeiculo.html">listar</a></li>
-                </ul>
-            </li>
-            <li><a href="#" class="profissional">PROFISSIONAL</a>
-                    <ul class="itensProfissional">
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProfissional/salvarProfissional.html">Cadastrar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProfissional/editarProfissional.html">Editar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProfissional/listarProfissional.html">listar</a></li>
-                    </ul>
-            </li>
-            <li><a href="#" class="servico">SERVIÇO</a>
-                    <ul class="itensServico">
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleServico/salvarServico.html">Cadastrar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleServico/editarServico.html">Editar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleServico/listarServico.html">listar</a></li>
-                    </ul>
-            </li>
-            <li><a href="#" class="produto">PRODUTO</a>
-                    <ul class="itensProduto">
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProduto/salvarProduto.html">Cadastrar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProduto/editarProduto.html">Editar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleProduto/listarProduto.html">listar</a></li>
-                    </ul>
-            </li>
-            <li><a href="#" class="ordemDeServico">ORDEM DE SERVIÇO</a>
-                    <ul class="itensOrdemServico">
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleOrdemServico/salvarOrdemServico.html">Cadastrar</a></li>
-                        <li><a href="SistemaMecanicaFrontEnd/module/moduleOrdemServico/editarOrdemServico.html">Editar</a></li>
-                        <li> <a href="SistemaMecanicaFrontEnd/module/moduleOrdemServico/listarOrdemServico.html">listar</a></li>
-                    </ul>
-            </li>
-        </ul>
-    </nav> 
-    <nav class="tela-fundo">
-        <li>
-            <a href="">
-                </a>
-        </li>
-    </nav>
+    <div id="header"></div>
+    <div id="menu" class="wrapper"></div>
+    
     <div name="formulario-cliente" id="form" class="form-cliente-editar">
         <input type="hidden" id="id-cliente"/>
         <input type="text" id="nomeCliente" placeholder="Nome do Cliente" value="" />
@@ -78,8 +41,6 @@
     <input type="button" value="Atualizar" onclick="Atualizar()" class="atualizar"/>
     <input type="button" value="Voltar" onclick="Voltar()" class="voltar"/>  
 </body>
-<script src="../../app/cliente/editarCliente.js"></script>
-<link rel="stylesheet" href="/SistemaMecanicaFrontEnd/css/estilo.css"/>
-<link rel="stylesheet" href="/SistemaMecanicaFrontEnd/css/cliente.css"/>
 
+<script src="../../app/cliente/editarCliente.js"></script>
 </html>
