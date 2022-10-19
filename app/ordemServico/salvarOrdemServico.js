@@ -108,7 +108,7 @@ async function PreencherOpcoesCliente(){
   let clientes = await ConsultaCliente()
   if(clientes){
     clientes.forEach(element => {
-      let option = new Option(element.nomeCliente, element.idCliente);
+      let option = new Option(element.nomeCliente, element.idCliente);      
       selectCliente.options[selectCliente.options.length] = option;
     });
   }

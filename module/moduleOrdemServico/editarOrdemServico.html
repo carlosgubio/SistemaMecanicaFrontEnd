@@ -2,20 +2,36 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title>Registro da Ordem de Serviço</title>
-<body>
-    <div name="formulario-ordemServico" id="form" class="formularios">
-        <input type="hidden" id="id-ordemServico"/>
-        <input type="text" id="nomeCliente" placeholder="Nome do Cliente" value="" />
-        <input type="text" id="veiculoCliente" placeholder="Veículo do Cliente" value="" />
-        <input type="text" id="nomeProfissional" placeholder="Nome do Profissional" value="" />
-        <input type="text" id="descricaoServico" placeholder="Descrição do Serviço" value="" /> 
-        <input type="text" id="descricaoPeca" placeholder="Descrição do Produto" value="" />   
-        <input type="text" id="totalGeral" placeholder="Total Geral" value="" />            
-    </div>    
+    <title>Registro Ordem de Servico</title>
+</head>
+<body>        
+    <label for="clientes">Selecione o Cliente</label>
+    <select name="clientes" id="listagemClientes"></select><br>
+
+    <label for="veiculos">Selecione o Veículo</label>
+    <select name="veiculos" id="listagemVeiculos"></select><br>
+    
+    <label for="profissionais">Selecione o Profissional</label>
+    
+    <div id="dadosProfissional">
+    </div>     
+    <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/><br>
+    
+
+    <label for="servicos">Selecione o Serviço</label>
+    <div id="dadosServico">
     </div>
-    <input type="button" value="Atualizar" onclick="Atualizar()"/>
-    <input type="button" value="Voltar" onclick="Voltar()"/>
+    <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/><br>
+
+    <label for="produtos">Selecione o Produto</label>
+    <div id="dadosProduto">
+    </div>
+    <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/><br>
+   
+<input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
+<input type="button" value="Voltar" onclick="Voltar()"/>  
+<div id="dadosSalvos">                
+</div> 
 </body>
 <script src="../../app/ordemServico/editarOrdemServico.js"></script>
 </html>
