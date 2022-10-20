@@ -5,6 +5,7 @@
     <title>Registro Ordem de Servico</title>
 </head>
 <body>        
+    <input type="hidden" id="idOrdemServico">
     <label for="clientes">Selecione o Cliente</label>
     <select name="clientes" id="listagemClientes"></select><br>
 
@@ -12,22 +13,21 @@
     <select name="veiculos" id="listagemVeiculos"></select><br>
     
     <label for="profissionais">Selecione o Profissional</label>
-    
     <div id="dadosProfissional">
-    </div>     
-    <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/><br>
-    
+    </div>   
+    <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/><br>     
 
     <label for="servicos">Selecione o Serviço</label>
     <div id="dadosServico">
     </div>
-    <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/><br>
-
+    <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/><br>  
+    
     <label for="produtos">Selecione o Produto</label>
     <div id="dadosProduto">
     </div>
-    <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/><br>
-   
+    <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/><br>  
+    
+
 <input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
 <input type="button" value="Voltar" onclick="Voltar()"/>  
 <div id="dadosSalvos">                

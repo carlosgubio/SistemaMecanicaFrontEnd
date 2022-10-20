@@ -85,10 +85,17 @@ async function ConsultaVeiculo(){
 
 async function AdicionarProfissional(){
   let profissionais = document.querySelector('#dadosProfissional');
-  let selectAddProfissional = document.createElement('select');  
+  let divProfissionalAdd = document.createElement('div');  
+  let selectAddProfissional = document.createElement('select'); 
+  let botaoRemover = document.createElement('input');
+  botaoRemover.value = 'Remover';
+  divProfissionalAdd.appendChild(selectAddProfissional); 
+  divProfissionalAdd.appendChild(botaoRemover); 
+  botaoRemover.type = 'button';
+
   selectAddProfissional.classList.add('listagemProfissionais');  
   selectAddProfissional.name = 'profissionais';
-  profissionais.appendChild(selectAddProfissional);
+  profissionais.appendChild(divProfissionalAdd);
   await PreencherOpcoesProfissional(selectAddProfissional);
 }
 async function PreencherOpcoesProfissional(select, idProfissional){
@@ -104,6 +111,34 @@ async function PreencherOpcoesProfissional(select, idProfissional){
     });
   }
   divProfissionais.appendChild(select);
+}
+async function PreencherOpcoesServico(select, idServico){
+  let servicos = await ConsultaServico()
+  let divservicos = document.querySelector('#dadosServico');
+  if(servicos){
+    servicos.forEach(element => {
+      let option = new Option(element.descricaoServico, element.idServico);
+      if(element.idServico == idServico){
+        option.selected = true;
+      }   
+      select.options[select.options.length] = option;
+    });
+  }
+  divservicos.appendChild(select);
+}
+async function PreencherOpcoesProduto(select, idproduto){
+  let produtos = await ConsultaProduto()
+  let divprodutos = document.querySelector('#dadosProduto');
+  if(produtos){
+    produtos.forEach(element => {
+      let option = new Option(element.descricaoPeca, element.idProduto);
+      if(element.idProduto == idproduto){
+        option.selected = true;
+      }   
+      select.options[select.options.length] = option;
+    });
+  }
+  divprodutos.appendChild(select);
 }
 async function ConsultaProfissional(){      
   const options = {
@@ -129,18 +164,18 @@ async function AdicionarServico(){
   servicos.appendChild(selectAddServico);
   await PreencherOpcoesServico(selectAddServico);
 }  
-async function PreencherOpcoesServico(select, idServico){
-  let servicos = await ConsultaServico()
-  if(servicos){
-    servicos.forEach(element => {
-      let option = new Option(element.descricaoServico, element.idServico);
-      if(element.idServico == idServico){
-        option.selected = true;
-      }   
-      select.options[select.options.length] = option;
-    });
-  }
-}   
+// async function PreencherOpcoesServico(select, idServico){
+//   let servicos = await ConsultaServico()
+//   if(servicos){
+//     servicos.forEach(element => {
+//       let option = new Option(element.descricaoServico, element.idServico);
+//       if(element.idServico == idServico){
+//         option.selected = true;
+//       }   
+//       select.options[select.options.length] = option;
+//     });
+//   }
+// }   
 async function ConsultaServico(){      
   const options = {
       method: 'GET',  
@@ -165,18 +200,18 @@ async function AdicionarProduto(){
   produtos.appendChild(selectAddProduto);
   await PreencherOpcoesProduto(selectAddProduto); 
 }
-async function PreencherOpcoesProduto(select, idProduto){
-  let produtos = await ConsultaProduto()
-  if(produtos){
-    produtos.forEach(element => {
-      let option = new Option(element.descricaoPeca, element.idProduto);
-      if(element.idProduto == idProduto){
-        option.selected = true;
-      }   
-      select.options[select.options.length] = option;
-    });
-  }
-}
+// async function PreencherOpcoesProduto(select, idProduto){
+//   let produtos = await ConsultaProduto()
+//   if(produtos){
+//     produtos.forEach(element => {
+//       let option = new Option(element.descricaoPeca, element.idProduto);
+//       if(element.idProduto == idProduto){
+//         option.selected = true;
+//       }   
+//       select.options[select.options.length] = option;
+//     });
+//   }
+// }
 async function ConsultaProduto(){      
   const options = {
       method: 'GET',  
@@ -194,6 +229,8 @@ async function ConsultaProduto(){
 }
 
 async function SalvarOrdemServico(){
+
+  let idOrdemServico = parseInt(document.querySelector('#idOrdemServico').value);   
   let idCliente = parseInt(document.querySelector('#listagemClientes').value);  
   console.log(idCliente);
   let idVeiculo = parseInt(document.querySelector('#listagemVeiculos').value);  
@@ -221,13 +258,17 @@ listaProdutosSelect.forEach(element => {
 });
 console.log(idItens);
 
-let CadastrarOrdemServicoViewModel = {
+let atualizar = {
+  idOrdemServico,
   idCliente : parseInt(idCliente),
   idVeiculo : parseInt(idVeiculo),
   idProfissionais,
   idServicosExecutados,
   idItens
 };
+let CadastrarOrdemServicoViewModel ={
+  atualizar
+}
       
 console.log(CadastrarOrdemServicoViewModel);
 
@@ -237,8 +278,11 @@ console.log(response);
 
 async function getOrdemServico(){
   const urlParams = new URLSearchParams(window.location.search);    
+  let idOrdemServico = urlParams.get('id')
   let res = await ConsultaOrdemServico(urlParams.get('id'));
-  PreencherFormulario(res);   
+  PreencherFormulario(res);
+  let idOrdemServicoInput = document.querySelector('#idOrdemServico');   
+  idOrdemServicoInput.value = idOrdemServico;
 }
 async function ConsultaOrdemServico(id){      
   const options = {
@@ -267,7 +311,18 @@ async function PreencherFormulario(json){
   PreencherOpcoesVeiculo(json.idVeiculo)
   json.execucoes.forEach( element => {
     let select = document.createElement('select');
+    select.classList.add('listagemProfissionais');  
     PreencherOpcoesProfissional(select, element.idProfissional);
+  });
+  json.servicosExecutados.forEach( element => {
+    let select = document.createElement('select');
+    select.classList.add('listagemServicos');  
+    PreencherOpcoesServico(select, element.idServico);
+  });
+  json.itens.forEach( element => {
+    let select = document.createElement('select');
+    select.classList.add('listagemProdutos');  
+    PreencherOpcoesProduto(select, element.idProduto);
   });
   // PreencherOpcoesProfissional(json.execucoes)
   
@@ -288,14 +343,14 @@ async function EnviarApi(viewmodel){
   //opções/dados para fazer a request;
   const options = {
     //método, se é um post, get etc..
-    method: 'POST',  
+    method: 'PUT',  
     headers:{'content-type': 'application/json'},  
     //converte o objeto em um Json real;
     body: JSON.stringify(viewmodel) 
   };
 
 //TODO: mudar a url para o seu localhost.
-const req =  await fetch('https://localhost:44363/ordensServico/cadastrar', options )
+const req =  await fetch('https://localhost:44363/ordensServico/atualizar', options )
 //caso a request dê certo, retornará a resposta;
 .then(response => { 
   response.text()
