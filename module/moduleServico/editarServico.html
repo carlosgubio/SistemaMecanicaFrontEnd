@@ -29,12 +29,24 @@
     <main class="container">  
         <h1 class="title">Editar Serviço</h1> 
         <div name="formulario-servico" id="form" class="form-salvar">
-            <label>Descrição do Serviço</label>
-            <input type="text" id="descricaoServico" value="" />
-            <label>Valor</label>
-            <input type="number" id="valorServico" value="" /> 
+            <div class="column-1 column label">
+                <label>Descrição do Serviço</label>
+            </div>
+
+            <div class="column-2 column input">
+                <input type="text" id="descricaoServico" value="" />
+            </div>
+
+            <div class="column-3 column label">
+                <label>Valor do Serviço</label>
+            </div>
+
+            <div class="column-4 column input">
+                <input type="number" id="valorServico" value="" /> 
+            </div>    
         </div>
         <div>
+            <br>
             <input type="button" value="Atualizar" onclick="Atualizar()"/>
         </div>  
     </main>

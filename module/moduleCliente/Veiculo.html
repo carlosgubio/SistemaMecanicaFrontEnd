@@ -1,12 +1,30 @@
 <main class="container">  
     <h1 class="title">Cadastro de Veículo</h1> 
-<div id="areaVeiculo" class="areaVeiculo">
-    <input type="hidden" id="id-veiculo" value=""/>
-    <label>Marca e Modelo</label>
-    <input type="text" id="veiculoCliente" value=""/> 
-    <label>Placa</label>
-    <input type="text" id="placaVeiculoCliente"  value=""/>
-    <label>Cor</label>
-    <input type="text" id="corVeiculoCliente"  value=""/> 
-</div>
+    <div id="areaVeiculo" class="areaVeiculo">
+        <input type="hidden" id="id-veiculo" value=""/>
+        
+        <div class="column-1 column label">
+        <label for="txtMarcaModelo">Marca e Modelo</label>
+        </div>
+
+        <div class="column-2 column input">
+        <input type="text" id="veiculoCliente" value=""/>
+        </div>
+
+        <div class="column-3 column label">
+        <label for="txtPlaca">Placa</label>
+        </div>
+
+        <div class="column-4 column input">
+        <input type="text" id="placaVeiculoCliente" value=""/>
+        </div>
+
+        <div class="column-5 column label">
+        <label for="txtCor">Cor</label>
+        </div>
+        
+        <div class="column-6 column input">
+        <input type="text" id="corVeiculoCliente" value=""/>
+        </div>
+    </div>
 </main>

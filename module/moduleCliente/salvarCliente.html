@@ -29,16 +29,39 @@
     <main class="container">  
         <h1 class="title">Cadastro de Cliente</h1> 
         <div name="formulario-cliente" id="form" class="form-salvar">
-            <label>Nome Completo</label>
-            <input type="text" id="nomeCliente" value=""/>
-            <label>CPF</label>
-            <input type="text" id="cpfCliente" value=""/>
-            <label>Telefone</label>
-            <input type="text" id="telefoneCliente" value=""/>
-            <label>Endereço Completo</label>
-            <input type="text" id="enderecoCliente" value=""/>
+            <div class="column-1 column label">
+                <label for="txtNomeCompleto">Nome</label>
+            </div>
+
+            <div class="column-2 column input">
+                <input type="text" id="nomeCliente" value=""/>
+            </div>
+            <div class="column-3 column label">
+                <label for="txtCpf">CPF</label>
+            </div>
+
+            <div class="column-4 column input">
+                <input type="text" id="cpfCliente" value=""/>
+            </div>
+
+            <div class="column-5 column label">
+                <label for="txtTelefone">Telefone</label>
+            </div>
+
+            <div class="column-6 column input">
+                <input type="text" id="telefoneCliente" value=""/>
+            </div>
+            
+            <div class="column-7 column label">
+                <label for="txtEnderecoCompleto">Endereço</label>
+            </div>
+            
+            <div class="column-8 column input">
+                <input type="text" id="enderecoCliente" value=""/>
+            </div>  
         </div>
-        <div id="dadosAdicionais">                                
+        <div id="dadosAdicionais"> 
+            <br>                               
             <input type="button" value="Adicionar Veículo" onclick="AdicionarVeiculo()" class="veiculo"/>        
             <div id="dadosVeiculo"><br>
         </div>

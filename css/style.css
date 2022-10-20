@@ -11,6 +11,8 @@
     font-family: 'Open Sans', sans-serif;
     list-style: none;
 }
+
+/* header e menu vertical */
  .header{
     display: flex;
     justify-content: space-between;
@@ -22,8 +24,7 @@
     list-style: none;
     color: var(--cor-fonte);
     text-align: right;
- }
-
+}
 .header .logo{
 text-align: left;
 margin-left: 1em;
@@ -32,9 +33,7 @@ margin-left: 1em;
 text-align: right;
 margin-right: 1em;
 }
-
 body{
-    font-family: 'Arial', sans-serif;
     background: var(--cor-fonte);
 }
 h3{
@@ -52,21 +51,18 @@ h2{
     font-weight: bold;
     text-align: center;
 }
-
 a, a:hover, a:focus{
     color: var(--cor-selecao);
     text-decoration: none;
     transition: all 0.3s;
     color: var(--cor-fonte);
 }
-
 .wrapper{
     display: flex;
     width: 10em;
     text-decoration: none;
     transition: all 0.3s;
 }
-
 #sidebar{
     min-width: 20em;
     max-width: 20em;
@@ -79,7 +75,6 @@ a, a:hover, a:focus{
     height: 100%;
 
 }
-
 #sidebar .sidebar-header{
     padding: 1em;
     background:var(--cor-menuVertical);
@@ -88,7 +83,6 @@ a, a:hover, a:focus{
     font-weight: bold;
     
 }
-
 #sidebar ul p{
     color: #fff;
     padding: 0.5em;
@@ -111,7 +105,6 @@ a[aria-expanded="true"]{
 a[data-toggle="collapse"]{
     position: relative;
 }
-
 .dropdown-toggle::after{
     display: block;
     position: absolute;
@@ -124,7 +117,6 @@ ul ul a{
     padding-left: 0.5em !important;
     background: var(--cor-menuVertical);
 }
-
 @media (max-width: 10em){
     #sidebar{
         margin-left: -250em;
@@ -136,8 +128,43 @@ ul ul a{
         display: none;
     }
 }
-.table{
-    display: flex;
-    padding: 1em;
-    justify-content: center;
+
+/* salvar */
+.container{
+    width: 5em;
+    height: 2em;
 }
+.column-1, .column-3, .column-5, .column-7 {    
+    width: 25%;    
+}
+.column-2, .column-4, .column-6, .column-8  {    
+    width: 75%;    
+}
+.container .title{
+    font-weight: bold;
+    color:var(--cor-menuVertical);
+    text-align: center;
+}
+
+/* Listar */
+table {
+    padding: 0;
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+thead {
+    border:0.3em solid rgb(146, 144, 144);
+    border-collapse: collapse;
+}
+th {
+    padding: 0,7em;
+    font-weight: bold;
+    border: 0.2em solid rgb(146, 144, 144);
+}
+td{
+    padding: 0.7em;
+    border:0.2em solid rgb(146, 144, 144);
+    margin:0;
+}
+
+

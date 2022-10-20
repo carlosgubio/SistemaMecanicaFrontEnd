@@ -29,12 +29,24 @@
     <main class="container">  
         <h1 class="title">Cadastro de Profissional</h1>        
         <div name="formulario-profissional" id="form" class="form-salvar">
-            <label>Nome Completo</label>
-            <input type="text" id="nomeProfissional" value=""/>
-            <label>Cargo</label>
-            <input type="text" id="cargoProfissional" value=""/>
+            <div class="column-1 column label">
+                <label>Nome</label>
+            </div>
+
+            <div class="column-2 column input">
+                <input type="text" id="nomeProfissional" value=""/>
+            </div>
+
+            <div class="column-3 column label"></div>
+                <label>Cargo</label>
+            </div>
+
+            <div class="column-4 column input">
+                <input type="text" id="cargoProfissional" value=""/>
+            </div>
         </div>
         <div>
+            <br>
             <input type="button" value="Salvar" onclick="SalvarProfissional()"/>
         </div>  
     </main>
