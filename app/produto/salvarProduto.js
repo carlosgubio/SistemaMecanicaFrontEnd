@@ -66,6 +66,3 @@ async function CarregarTemplate(nome){
       return req;
   }
 
-  function Voltar(){
-    window.location = "../../index.html";
-  }

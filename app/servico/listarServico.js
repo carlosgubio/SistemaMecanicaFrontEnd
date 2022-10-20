@@ -54,6 +54,3 @@ async function ListarServicos(){
 
 PreencherTabelaServico();
 
-function Voltar(){
-    window.location = "../../index.html";
-  }

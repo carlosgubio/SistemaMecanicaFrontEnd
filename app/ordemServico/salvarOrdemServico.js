@@ -245,9 +245,6 @@ async function PreencherOpcoesProduto(select){
   
       return req;
   }
-  function Voltar(){
-    window.location = "../../index.html";
-}
 
 (async() => {
   await PreencherOpcoesCliente();

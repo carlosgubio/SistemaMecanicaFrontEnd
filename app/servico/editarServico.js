@@ -14,9 +14,6 @@ function converterParaDomElement(str) {
     return doc.body;
 }
 
-function Voltar(){
-    window.location = "../../index.html";
-}
 async function getServicoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
     let res = await ConsultaServico(urlParams.get('id'));
@@ -106,6 +103,3 @@ async function Atualizar(){
 
  getServicoNome();
 
- function Voltar(){
-    window.location = "../../index.html";
-  }

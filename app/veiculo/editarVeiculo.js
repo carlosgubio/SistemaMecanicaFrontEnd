@@ -14,9 +14,6 @@ function converterParaDomElement(str) {
     return doc.body;
 }
 
-function Voltar(){
-    window.location = "../../index.html";
-}
 async function getVeiculoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
     let res = await ConsultaVeiculo(urlParams.get('id'));
@@ -115,6 +112,3 @@ async function Atualizar(){
 
 getVeiculoNome();
 
-function Voltar(){
-    window.location = "../../index.html";
-  }

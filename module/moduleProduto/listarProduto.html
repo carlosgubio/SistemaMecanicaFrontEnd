@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, inicial-scale=1.0">
     <title>Listagem de Produto</title>
+
+    <link rel="stylesheet" hrel="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.js"></script>    
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
+    <script scr="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    
+    <script>
+       $(function () {
+          $("#header").load("../../../header.html");
+          $("#menu").load("../../../menu.html");
+       });
+    </script>
+  
+</head>
 <body>
-    <div id="listagem-produtos">
+    <div id="header"></div>
+    <div id="menu" class="wrapper"></div>
+       
+    <main class="container">  
+        <h1 class="title">Lista de produto</h1> 
+        <div id="listagem-produtos">
         <table border="1">
             <th>
                 <td>
-                IdProduto
+                Id Produto
                 </td>
                 <td>
-                DescricaoPeca
+                Descrição Peça
                 </td>
                 <td>
-                ValorPeca
+                Valor
                 </td>  
-            </th>        
-            <!--Preenchimento aqui-->    
+            </th>    
         </table>    
-    </div>
-    <input type="button" value="Voltar" onclick="Voltar()"/>
+        </div>
+    </main>
 </body>
-<script src="../../app/produto/listarProduto.js"></script>
+<script src="../../app/produto/listarProduto.js" class="listarProduto"></script>
 </html>

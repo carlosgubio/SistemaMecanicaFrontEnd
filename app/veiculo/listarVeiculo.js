@@ -61,6 +61,3 @@ async function ListarVeiculos(){
 
 PreencherTabelaVeiculo();
 
-function Voltar(){
-    window.location = "../../index.html";
-  }

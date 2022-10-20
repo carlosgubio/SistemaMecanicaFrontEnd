@@ -54,6 +54,3 @@ async function ListarProfissionais(){
 
 PreencherTabelaProfissional();
 
-function Voltar(){
-    window.location = "../../index.html";
-  }

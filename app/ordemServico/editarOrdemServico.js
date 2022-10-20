@@ -112,6 +112,22 @@ async function PreencherOpcoesProfissional(select, idProfissional){
   }
   divProfissionais.appendChild(select);
 }
+
+async function AdicionarServico(){
+  let servicos = document.querySelector('#dadosServico');
+  let divServicoAdd = document.createElement('div');  
+  let selectAddServico = document.createElement('select'); 
+  let botaoRemover = document.createElement('input');
+  botaoRemover.value = 'Remover';
+  divServicoAdd.appendChild(selectAddServico); 
+  divServicoAdd.appendChild(botaoRemover); 
+  botaoRemover.type = 'button';
+
+  selectAddServico.classList.add('listagemServicos');  
+  selectAddServico.name = 'servicos';
+  servicos.appendChild(divServicoAdd);
+  await PreencherOpcoesServico(selectAddServico);
+}
 async function PreencherOpcoesServico(select, idServico){
   let servicos = await ConsultaServico()
   let divservicos = document.querySelector('#dadosServico');
@@ -125,6 +141,22 @@ async function PreencherOpcoesServico(select, idServico){
     });
   }
   divservicos.appendChild(select);
+}
+
+async function AdicionarProduto(){
+  let produtos = document.querySelector('#dadosProduto');
+  let divProdutoAdd = document.createElement('div');  
+  let selectAddProduto = document.createElement('select'); 
+  let botaoRemover = document.createElement('input');
+  botaoRemover.value = 'Remover';
+  divProdutoAdd.appendChild(selectAddProduto); 
+  divProdutoAdd.appendChild(botaoRemover); 
+  botaoRemover.type = 'button';
+
+  selectAddProduto.classList.add('listagemProdutos');  
+  selectAddProduto.name = 'produtos';
+  produtos.appendChild(divProdutoAdd);
+  await PreencherOpcoesProduto(selectAddProduto);
 }
 async function PreencherOpcoesProduto(select, idproduto){
   let produtos = await ConsultaProduto()
@@ -140,6 +172,7 @@ async function PreencherOpcoesProduto(select, idproduto){
   }
   divprodutos.appendChild(select);
 }
+
 async function ConsultaProfissional(){      
   const options = {
       method: 'GET',  
@@ -156,26 +189,6 @@ async function ConsultaProfissional(){
   return req;
 }
 
-async function AdicionarServico(){
-  let servicos = document.querySelector('#dadosServico');
-  let selectAddServico = document.createElement('select');  
-  selectAddServico.classList.add('listagemServicos');  
-  selectAddServico.name = 'servicos';
-  servicos.appendChild(selectAddServico);
-  await PreencherOpcoesServico(selectAddServico);
-}  
-// async function PreencherOpcoesServico(select, idServico){
-//   let servicos = await ConsultaServico()
-//   if(servicos){
-//     servicos.forEach(element => {
-//       let option = new Option(element.descricaoServico, element.idServico);
-//       if(element.idServico == idServico){
-//         option.selected = true;
-//       }   
-//       select.options[select.options.length] = option;
-//     });
-//   }
-// }   
 async function ConsultaServico(){      
   const options = {
       method: 'GET',  
@@ -192,26 +205,6 @@ async function ConsultaServico(){
   return req;
 }
 
-async function AdicionarProduto(){
-  let produtos = document.querySelector('#dadosProduto');
-  let selectAddProduto= document.createElement('select');  
-  selectAddProduto.classList.add('listagemProdutos');  
-  selectAddProduto.name = 'produtos';
-  produtos.appendChild(selectAddProduto);
-  await PreencherOpcoesProduto(selectAddProduto); 
-}
-// async function PreencherOpcoesProduto(select, idProduto){
-//   let produtos = await ConsultaProduto()
-//   if(produtos){
-//     produtos.forEach(element => {
-//       let option = new Option(element.descricaoPeca, element.idProduto);
-//       if(element.idProduto == idProduto){
-//         option.selected = true;
-//       }   
-//       select.options[select.options.length] = option;
-//     });
-//   }
-// }
 async function ConsultaProduto(){      
   const options = {
       method: 'GET',  
@@ -301,12 +294,6 @@ async function ConsultaOrdemServico(id){
 }
 async function PreencherFormulario(json){
   let dadosForm = document.querySelector('#form');    
-
-  // let nomeProfissional = dadosForm.querySelector('#dadosProfissional');
-  // let descricaoServico = dadosForm.querySelector('#dadosServico');
-  // let descricaoPeca = dadosForm.querySelector('#dadosProduto');
-  // let totalGeral = dadosForm.querySelector('#totalGeral');
-
   PreencherOpcoesCliente(json.idCliente)
   PreencherOpcoesVeiculo(json.idVeiculo)
   json.execucoes.forEach( element => {
@@ -324,18 +311,6 @@ async function PreencherFormulario(json){
     select.classList.add('listagemProdutos');  
     PreencherOpcoesProduto(select, element.idProduto);
   });
-  // PreencherOpcoesProfissional(json.execucoes)
-  
-  // PreencherOpcoesServico(json.servicosExecutados)
-  // PreencherOpcoesProduto(json.itens)
-
-  // console.log(json);
-  // nomeCliente.value = json.nomeCliente;
-  // veiculoCliente.value = json.veiculoCliente;
-  // // nomeProfissional.value = json.nomeProfissional;
-  // // descricaoServico.value = json.descricaoServico;
-  // // descricaoPeca.value = json.descricaoPeca;
-  // totalGeral.value = json.totalGeral;
 }
 
 async function EnviarApi(viewmodel){
@@ -366,10 +341,6 @@ const req =  await fetch('https://localhost:44363/ordensServico/atualizar', opti
   });
 
   return req;
-}
-
-function Voltar(){
-window.location = "../../index.html";
 }
 
 (async() => {

@@ -69,7 +69,3 @@ async function ListarOrdensServico(){
 }
 
 PreencherTabelaOrdemServico();
-
-function Voltar(){
-    window.location = "../../index.html";
-  }

@@ -14,9 +14,6 @@ function converterParaDomElement(str) {
     return doc.body;
 }
 
-function Voltar(){
-    window.location = "../../index.html";
-}
 async function getProdutoNome(){
     const urlParams = new URLSearchParams(window.location.search);    
     let res = await ConsultaProduto(urlParams.get('id'));
@@ -105,7 +102,3 @@ async function Atualizar(){
  }
 
  getProdutoNome();
-
-function Voltar(){
-    window.location = "../../index.html";
-  }

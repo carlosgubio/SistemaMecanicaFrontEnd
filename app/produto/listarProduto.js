@@ -54,6 +54,3 @@ async function ListarProdutos(){
 
 PreencherTabelaProduto();
 
-function Voltar(){
-    window.location = "../../index.html";
-}

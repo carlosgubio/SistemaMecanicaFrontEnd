@@ -59,7 +59,3 @@ async function ListarClientes(){
 }
 
 PreencherTabelaCliente();
-
-function Voltar(){
-    window.location = "../../index.html";
-  }

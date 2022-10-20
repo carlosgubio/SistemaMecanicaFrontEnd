@@ -116,6 +116,3 @@ async function EnviarVeiculoApi(viewmodel){
         });
     }); 
 }
-function Voltar(){
-  window.location = "../../index.html";
-}
