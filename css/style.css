@@ -1,9 +1,12 @@
 :root{
-    --cor-menuVertical: rgb(12, 13, 39);
-    --cor-selecao: rgb(71, 71, 73);
+    --cor-menuVertical: rgba(171, 171, 177, 0.411);
+    --cor-selecao: rgb(178, 178, 226);
     --cor-fonte: white;
+    --cor-fonte-menu:black;
     --cor-telaCentral: rgb(187, 184, 184);
-    --cor-header: rgb(255, 96, 5);
+    --cor-header: rgb(212, 209, 208);
+    --cor-header-faixa: rgb(221, 10, 10);
+
 }
 *{
     padding: 0;
@@ -11,6 +14,7 @@
     font-family: 'Open Sans', sans-serif;
     list-style: none;
 }
+
 
 /* header e menu vertical */
  .header{
@@ -33,13 +37,17 @@ margin-left: 1em;
 text-align: right;
 margin-right: 2em;
 }
+.faixa{
+    height: 1em; 
+    background-color:var(--cor-header-faixa);
+}
 body{
     background: var(--cor-fonte);
 }
+
 h3{
     font-size: 2em;
     font-weight: bold;
-   
 }
 h2{
     color: var(--cor-menuVertical);
@@ -51,10 +59,13 @@ h2{
     font-weight: bold;
     text-align: center;
 }
-a, a:hover, a:focus{
-    color: var(--cor-selecao);
+a:hover, a:focus{
+    background-color:  var(--cor-selecao);
     text-decoration: none;
     transition: all 0.3s;
+    
+}
+.cadastro li a{
     color: var(--cor-fonte);
 }
 .wrapper{
@@ -73,13 +84,12 @@ a, a:hover, a:focus{
     list-style: none;
     position: absolute;
     height: 100%;
-
 }
 #sidebar .sidebar-header{
     padding: 1em;
     background:var(--cor-menuVertical);
     text-align: center;
-    border-bottom: 0.3em solid var(--cor-header);
+    border-bottom: 0.3em solid var(--cor-header-faixa);
     font-weight: bold;
     
 }
@@ -130,22 +140,30 @@ ul ul a{
 }
 
 /* salvar */
-.container{
+/* .container{
     width: 50em;
     height: 10em;
     text-align:center;
-}
+} */
 
 .column-1, .column-3, .column-5, .column-7 {    
-    width:100%;    
+    width:100%;
+    font-size: 2em;
+    text-align: center;    
 }
 .column-2, .column-4, .column-6, .column-8  {    
-    width: 100%;    
+    width: 100%; 
+    font-size: 2em;
+    text-align: center;       
 }
 .container .title{
     font-weight: bold;
     color:var(--cor-menuVertical);
     text-align: center;
+    font-size: 5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 
@@ -170,4 +188,51 @@ td{
     margin:0;
 }
 
+/* Button */
+
+.container .salvar, .atualizar{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #0C7B35 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em; 
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;   
+}
+.container .salvar:hover, .atualizar:hover{
+    background: linear-gradient(to bottom, #086D0C, #0D4705);
+}
+.container .adicionar{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #080E7B 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em;
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;
+}
+.container .adicionar:hover{
+    background: linear-gradient(to bottom, #08086D, #303069);
+}
+button .botaoRemover{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #080E7B 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em;
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;
+}
 

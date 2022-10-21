@@ -155,14 +155,41 @@ async function ConsultaProfissional(){
       });
   return req;
 }
-async function PreencherOpcoesProfissional(select){
+// async function PreencherOpcoesProfissional(select){
+//   let profissionais = await ConsultaProfissional()
+//   if(profissionais){
+//     profissionais.forEach(element => {
+//       let option = new Option(element.nomeProfissional, element.idProfissional);
+//       select.options[select.options.length] = option;
+//     });
+//   }
+async function PreencherOpcoesProfissional(select, idProfissional){
   let profissionais = await ConsultaProfissional()
+  let divProfissionais = document.querySelector('#dadosProfissional');
+  let divProfissionalAdd = document.createElement('div');  
+  let botaoRemover = document.createElement('input');
+
+  botaoRemover.addEventListener('click', (element)=> {
+      let div = element.currentTarget.parentNode;
+      div.remove();
+  });
+
+  botaoRemover.value = 'Remover';
+  // classlist.add('btn');
+  // classList.add('btn-sucess');
+  divProfissionalAdd.appendChild(select); 
+  divProfissionalAdd.appendChild(botaoRemover); 
+  botaoRemover.type = 'button';
   if(profissionais){
     profissionais.forEach(element => {
       let option = new Option(element.nomeProfissional, element.idProfissional);
+      if(element.idProfissional == idProfissional){
+        option.selected = true;
+      }   
       select.options[select.options.length] = option;
     });
   }
+  divProfissionais.appendChild(divProfissionalAdd);
 }
 
 async function ConsultaServico(){      
@@ -180,14 +207,31 @@ async function ConsultaServico(){
       });
   return req;
 }
-async function PreencherOpcoesServico(select){
-  let servicos = await ConsultaServico()
+async function PreencherOpcoesServico(select, idServico){
+  let servicos = await ConsultaServico()    
+  let divservicos = document.querySelector('#dadosServico');
+  let divServicoAdd = document.createElement('div');  
+  let botaoRemover = document.createElement('input');
+
+  botaoRemover.addEventListener('click', (element)=> {
+    let div = element.currentTarget.parentNode;
+    div.remove();
+  });
+
+  botaoRemover.value = 'Remover';
+  divServicoAdd.appendChild(select); 
+  divServicoAdd.appendChild(botaoRemover); 
+  botaoRemover.type = 'button';
   if(servicos){
     servicos.forEach(element => {
       let option = new Option(element.descricaoServico, element.idServico);
+      if(element.idServico == idServico){
+        option.selected = true;
+      }   
       select.options[select.options.length] = option;
     });
   }
+  divservicos.appendChild(divServicoAdd);
 }
 
 async function ConsultaProduto(){      
@@ -205,14 +249,31 @@ async function ConsultaProduto(){
       });
   return req;
 }
-async function PreencherOpcoesProduto(select){
+async function PreencherOpcoesProduto(select, idproduto){
   let produtos = await ConsultaProduto()
+  let divprodutos = document.querySelector('#dadosProduto');
+  let divProdutoAdd = document.createElement('div');  
+  let botaoRemover = document.createElement('input');
+  botaoRemover.value = 'Remover';
+  divProdutoAdd.appendChild(select); 
+  divProdutoAdd.appendChild(botaoRemover); 
+  botaoRemover.type = 'button';
+
+  botaoRemover.addEventListener('click', (element)=> {
+    let div = element.currentTarget.parentNode;
+    div.remove();
+  });
+  
   if(produtos){
     produtos.forEach(element => {
       let option = new Option(element.descricaoPeca, element.idProduto);
+      if(element.idProduto == idproduto){
+        option.selected = true;
+      }   
       select.options[select.options.length] = option;
     });
   }
+  divprodutos.appendChild(divProdutoAdd);
 }
 
     //função para fazer uma request na api;
