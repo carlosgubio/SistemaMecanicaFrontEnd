@@ -1,5 +1,5 @@
 :root{
-    --cor-menuVertical: #14475e;
+    --cor-menuVertical: rgb(12, 13, 39);
     --cor-selecao: rgb(71, 71, 73);
     --cor-fonte: white;
     --cor-telaCentral: rgb(187, 184, 184);
@@ -29,9 +29,9 @@
 text-align: left;
 margin-left: 1em;
 }
-.header .contato{
+.header .suporte{
 text-align: right;
-margin-right: 1em;
+margin-right: 2em;
 }
 body{
     background: var(--cor-fonte);
@@ -131,20 +131,23 @@ ul ul a{
 
 /* salvar */
 .container{
-    width: 5em;
-    height: 2em;
+    width: 50em;
+    height: 10em;
+    text-align:center;
 }
+
 .column-1, .column-3, .column-5, .column-7 {    
-    width: 25%;    
+    width:100%;    
 }
 .column-2, .column-4, .column-6, .column-8  {    
-    width: 75%;    
+    width: 100%;    
 }
 .container .title{
     font-weight: bold;
     color:var(--cor-menuVertical);
     text-align: center;
 }
+
 
 /* Listar */
 table {
