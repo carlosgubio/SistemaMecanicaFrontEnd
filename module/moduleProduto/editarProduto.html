@@ -27,28 +27,30 @@
     <div id="menu" class="wrapper"></div>
     
     <main class="container">  
-        <h1 class="title">Editar Produto</h1>      
-        <div name="formulario-produto" id="form" class="formularios">
+        <h1 class="title">Editar Produto</h1> 
+        <div name="formulario-servico" id="form" class="form-salvar">
+
             <div class="column-1 column label">
-                <label>Descrição da Peça</label>
+                <label>Descrição do Produto</label>
             </div>
 
             <div class="column-2 column input">
-                <input type="text" id="descricaoPeca" value="" />
+                <input type="text" id="descricaoProduto" value=""/>
             </div>
 
             <div class="column-3 column label">
                 <label>Valor</label>
-           
-            <div class="column-4 column input">
-                <input type="number" id="valorPeca" value="" />
             </div>
+
+            <div class="column-4 column input">
+                <input type="number" id="valorProduto" value=""/> 
+            </div>    
         </div>
         <div>
             <br>
-            <input type="button" value="Atualizar" onclick="Atualizar()"class="atualizar"/>
-        </div>
-    </main>   
+            <input type="button" value="Salvar" onclick="SalvarServico()" class="salvar"/> 
+        </div>  
+    </main>  
 </body>
 <script src="../../app/produto/editarProduto.js"></script>
 </html>

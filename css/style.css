@@ -15,8 +15,6 @@
     font-family: Arial, Helvetica, sans-serif;
     list-style: none;
 }
-    
-
 
 /* header e menu vertical */
  .header{
@@ -24,7 +22,7 @@
     justify-content: space-between;
     height: 7em;
     align-items: center;
-    background-color:var(--cor-header);
+  
     text-decoration: none;
     border-top: var(--cor-header);
     list-style: none;
@@ -34,12 +32,13 @@
 }
 .header .logo{
 text-align: left;
-margin-left: 1em;
+margin-left: 3em;
 }
 .header .suporte{
 text-align: right;
 margin-right: 2em;
 }
+
 .faixa{
     height: 0.5em; 
     background-color:var(--cor-header-faixa);
@@ -87,7 +86,7 @@ a:hover, a:focus{
     list-style: none;
     position: absolute;
     height: 100%;
-    box-shadow: 0.2em -0.1em 0.5em var(--cor-header-faixa);
+    box-shadow: 0.2em -0.1em 0.5em black;
     border-radius: 0.1em;
     font-size: 2em;
     background: linear-gradient(to right, var(--cor-menuVertical), rgb(0, 0, 0));
@@ -158,9 +157,27 @@ ul ul a{
     font-size: 2em;
     text-align: center;       
 }
+.container .column-2, .column-4, .column-6, .column-8{
+    background-size:cover;
+    height: auto;
+    padding: 1% 2em;
+    width: 100%;
+    
+    /* flexbox */
+    display: -webkit-flex;
+            display: flex;
+  
+    /* comportamento: em linha com wrap */
+    -webkit-flex-flow: row wrap;
+            flex-flow: row wrap;
+  
+    /* conteúdo justificado no centro */
+    -webkit-justify-content: center;
+             justify-content:center;
+}
 .container .title{
     font-weight: bold;
-    color:var(--cor-menuVertical);
+    color:black;
     text-align: center;
     font-size: 5em;
     display: flex;
