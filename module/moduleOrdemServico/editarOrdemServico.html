@@ -28,30 +28,30 @@
      
     <main class="container">  
         <h1 class="title">Editar Ordem de Serviço</h1> 
-        <input type="hidden" id="idOrdemServico">
-        <label for="clientes">Selecione o Cliente</label>
-        <select name="clientes" id="listagemClientes"></select><br>
-
-        <label for="veiculos">Selecione o Veículo</label>
-        <select name="veiculos" id="listagemVeiculos"></select><br>
+        
+        <div class="column-1 column label">
+            <label for="clientes">Selecione o Cliente</label>
+            <select name="clientes" id="listagemClientes"></select>
+        </div>
+        <div class="column-1 column label">
+            <label for="veiculos">Selecione o Veículo</label>
+            <select name="veiculos" id="listagemVeiculos"></select>        
+        </div> 
         
         <div id="dadosProfissional">
-        </div>
-            <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()"/>  
-            <!-- <input type="button" value="Remover Profissional" onclick="RemoverProfissional()"/> -->
-
+        </div> 
+        <br>    
+        <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()" class="adicionarProfissional"/>
         <div id="dadosServico">
         </div>
-        <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"/>
-        <!-- <input type="button" value="Remover Servico" onclick="RemoverServico()"/> -->
-
-
+        <br>
+        <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()" class="adicionarServico"/>     
         <div id="dadosProduto">
         </div>
-        <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"/>
-        <!-- <input type="button" value="Remover Produto" onclick="RemoverProduto()"/> -->
-        
-        <input type="button" value="Salvar" onclick="SalvarOrdemServico()"/>
+        <br>
+        <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()" class="adicionarProduto"/>
+        <br><br>    
+        <input type="button" value="Salvar" onclick="SalvarOrdemServico()" class="salvarOS"/> 
         <div id="dadosSalvos">                
         </div> 
     </main>

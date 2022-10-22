@@ -11,7 +11,7 @@ async function CarregarTemplate(nome){
 
 async function AdicionarProfissional(){
   let profissionais = document.querySelector('#dadosProfissional');
-  let selectAddProfissional = document.createElement('select');  
+  let selectAddProfissional = document.createElement('select'); 
   selectAddProfissional.classList.add('listagemProfissionais');  
   selectAddProfissional.name = 'profissionais';
   profissionais.appendChild(selectAddProfissional);
@@ -105,6 +105,8 @@ async function ConsultaCliente(){
   }
 async function PreencherOpcoesCliente(){
   let selectCliente = document.querySelector('#listagemClientes')
+  selectCliente.style.fontSize = 40+"px";
+  selectCliente.style.paddingLeft = 30+"px";
   let clientes = await ConsultaCliente()
   if(clientes){
     clientes.forEach(element => {
@@ -131,6 +133,8 @@ async function ConsultaVeiculo(){
 }
 async function PreencherOpcoesVeiculo(){
   let selectVeiculo = document.querySelector('#listagemVeiculos')
+  selectVeiculo.style.fontSize = 40+"px";
+  selectVeiculo.style.paddingLeft = 30+"px";
   let veiculos = await ConsultaVeiculo()
   if(veiculos){
     veiculos.forEach(element => {
@@ -155,18 +159,13 @@ async function ConsultaProfissional(){
       });
   return req;
 }
-// async function PreencherOpcoesProfissional(select){
-//   let profissionais = await ConsultaProfissional()
-//   if(profissionais){
-//     profissionais.forEach(element => {
-//       let option = new Option(element.nomeProfissional, element.idProfissional);
-//       select.options[select.options.length] = option;
-//     });
-//   }
+
 async function PreencherOpcoesProfissional(select, idProfissional){
   let profissionais = await ConsultaProfissional()
   let divProfissionais = document.querySelector('#dadosProfissional');
   let divProfissionalAdd = document.createElement('div');  
+  divProfissionais.style.fontSize = 25+"px";
+  divProfissionais.style.paddingLeft = 450+"px";
   let botaoRemover = document.createElement('input');
 
   botaoRemover.addEventListener('click', (element)=> {
@@ -175,8 +174,13 @@ async function PreencherOpcoesProfissional(select, idProfissional){
   });
 
   botaoRemover.value = 'Remover';
-  // classlist.add('btn');
-  // classList.add('btn-sucess');
+  botaoRemover.style.backgroundColor = 'red';
+  botaoRemover.style.color = 'white'
+  botaoRemover.style.paddingLeft = 25+"px";
+  // botaoRemover.style='textAlign:center';
+  botaoRemover.style.borderRadius = 5+'px';
+  botaoRemover.style.margin = 10+"px";
+
   divProfissionalAdd.appendChild(select); 
   divProfissionalAdd.appendChild(botaoRemover); 
   botaoRemover.type = 'button';
@@ -210,7 +214,9 @@ async function ConsultaServico(){
 async function PreencherOpcoesServico(select, idServico){
   let servicos = await ConsultaServico()    
   let divservicos = document.querySelector('#dadosServico');
-  let divServicoAdd = document.createElement('div');  
+  let divServicoAdd = document.createElement('div');
+  divServicoAdd.style.fontSize = 25+"px";
+  divServicoAdd.style.paddingLeft = 450+"px";  
   let botaoRemover = document.createElement('input');
 
   botaoRemover.addEventListener('click', (element)=> {
@@ -219,6 +225,13 @@ async function PreencherOpcoesServico(select, idServico){
   });
 
   botaoRemover.value = 'Remover';
+  botaoRemover.style.backgroundColor = 'red';
+  botaoRemover.style.color = 'white'
+  botaoRemover.style.paddingLeft = 25+"px";
+  // botaoRemover.style='textAlign:center';
+  botaoRemover.style.borderRadius = 5+'px';
+  botaoRemover.style.margin = 10+"px";
+
   divServicoAdd.appendChild(select); 
   divServicoAdd.appendChild(botaoRemover); 
   botaoRemover.type = 'button';
@@ -252,9 +265,19 @@ async function ConsultaProduto(){
 async function PreencherOpcoesProduto(select, idproduto){
   let produtos = await ConsultaProduto()
   let divprodutos = document.querySelector('#dadosProduto');
-  let divProdutoAdd = document.createElement('div');  
+  let divProdutoAdd = document.createElement('div'); 
+  divProdutoAdd.style.fontSize = 25+"px";
+  divProdutoAdd.style.paddingLeft = 450+"px"; 
   let botaoRemover = document.createElement('input');
+
   botaoRemover.value = 'Remover';
+  botaoRemover.style.backgroundColor = 'red';
+  botaoRemover.style.color = 'white'
+  botaoRemover.style.paddingLeft = 25+"px";
+  // botaoRemover.style='textAlign:center';
+  botaoRemover.style.borderRadius = 5+'px';
+  botaoRemover.style.margin = 10+"px";
+
   divProdutoAdd.appendChild(select); 
   divProdutoAdd.appendChild(botaoRemover); 
   botaoRemover.type = 'button';

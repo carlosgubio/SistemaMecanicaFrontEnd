@@ -32,11 +32,12 @@
 }
 .header .logo{
 text-align: left;
-margin-left: 3em;
+margin-left: 10em;
+
 }
 .header .suporte{
 text-align: right;
-margin-right: 2em;
+margin-right: 10em;
 }
 
 .faixa{
@@ -147,15 +148,19 @@ ul ul a{
     text-align:center;
 } */
 
-.column-1, .column-3, .column-5, .column-7 {    
+.column-1{    
     width:100%;
     font-size: 2em;
-    text-align: center;    
+    text-align: center; 
+    margin-top: 0.5em; 
+    margin-bottom: -0.5em;  
+    margin-left: 1em; 
 }
-.column-2, .column-4, .column-6, .column-8  {    
+.column-2{    
     width: 100%; 
-    font-size: 2em;
-    text-align: center;       
+    font-size: 3em;
+    text-align: center;  
+    margin-left: 1em;     
 }
 .container .column-2, .column-4, .column-6, .column-8{
     background-size:cover;
@@ -163,26 +168,23 @@ ul ul a{
     padding: 1% 2em;
     width: 100%;
     
-    /* flexbox */
-    display: -webkit-flex;
-            display: flex;
-  
-    /* comportamento: em linha com wrap */
-    -webkit-flex-flow: row wrap;
-            flex-flow: row wrap;
-  
-    /* conteúdo justificado no centro */
-    -webkit-justify-content: center;
-             justify-content:center;
+   
 }
 .container .title{
     font-weight: bold;
     color:black;
     text-align: center;
-    font-size: 5em;
+    font-size: 4em;
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-left: 1em;
+    margin-top: 1.5em;
+    margin-bottom: 1em;
+}
+.container label{
+    font-size: 1.5em;
+    margin-left: 1em;
 }
 
 
@@ -221,11 +223,27 @@ td{
     -moz-transition: all 0.84s ease;
     -o-transition: all 0.84s ease;
     transition: all 0.84s ease;   
+    margin-left: 17.5em;
 }
+
 .container .salvar:hover, .atualizar:hover{
     background: linear-gradient(to bottom, #086D0C, #0D4705);
 }
-.container .adicionar{
+.container .salvarOS{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #0C7B35 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em; 
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;   
+    margin-left: 17em;
+}
+.container .adicionarVeiculo{
     text-decoration: none;
     font-size: 2em;
     color: #FFFFFF;
@@ -237,9 +255,57 @@ td{
     -moz-transition: all 0.84s ease;
     -o-transition: all 0.84s ease;
     transition: all 0.84s ease;
+    text-align: center;
+    margin-left: 15em;
+}
+.container .adicionarProfissional{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #080E7B 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em;
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;
+    text-align: center;
+    margin-left: 13.5em;
+}
+.container .adicionarServico{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #080E7B 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em;
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;
+    text-align: center;
+    margin-left: 14.5em;
+}
+.container .adicionarProduto{
+    text-decoration: none;
+    font-size: 2em;
+    color: #FFFFFF;
+    background: linear-gradient(to bottom, #979494, #4A4A4A);
+    border: solid #080E7B 0.1em;
+    border-radius: 0.2em;
+    padding:0.12em;
+    -webkit-transition: all 0.84s ease;
+    -moz-transition: all 0.84s ease;
+    -o-transition: all 0.84s ease;
+    transition: all 0.84s ease;
+    text-align: center;
+    margin-left:  14.5em;
 }
 .container .adicionar:hover{
     background: linear-gradient(to bottom, #08086D, #303069);
+    text-align: center;
 }
 button .botaoRemover{
     text-decoration: none;

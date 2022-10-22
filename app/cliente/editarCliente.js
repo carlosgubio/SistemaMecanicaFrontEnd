@@ -65,8 +65,8 @@ async function PreencherFormularioCliente(json){
     let enderecoCliente = dadosForm.querySelector('#enderecoCliente');
 
     console.log(json);
-    nomeCliente.value = json.nomeCliente;
     idCliente.value = json.idCliente;
+    nomeCliente.value = json.nomeCliente;
     cpfCliente.value = json.cpfCliente;
     telefoneCliente.value = json.telefoneCliente;
     enderecoCliente.value = json.enderecoCliente;

@@ -29,25 +29,31 @@
     <main class="container">  
         <h1 class="title">Cadastro de Ordem de Serviço</h1> 
         <div name="formulario-Ordem-Servico" id="form" class="form-salvar">
+        
+        <div class="column-1 column label">
             <label for="clientes">Selecione o Cliente</label>
-            <select name="clientes" id="listagemClientes"></select><br> 
+            <select name="clientes" id="listagemClientes"></select>
+        </div>
+        <div class="column-1 column label">
             <label for="veiculos">Selecione o Veículo</label>
-            <select name="veiculos" id="listagemVeiculos"></select><br> 
-        </div>    
+            <select name="veiculos" id="listagemVeiculos"></select>        
+        </div> 
+
+
         <div id="dadosProfissional">
         </div> 
         <br>    
-        <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()" class="adicionar"/>
+        <input type="button" value="Adicionar Profissional" onclick="AdicionarProfissional()" class="adicionarProfissional"/>
         <div id="dadosServico">
         </div>
         <br>
-        <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()"class="adicionar"/>     
+        <input type="button" value="Adicionar Serviço" onclick="AdicionarServico()" class="adicionarServico"/>     
         <div id="dadosProduto">
         </div>
         <br>
-        <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()"class="adicionar"/>
+        <input type="button" value="Adicionar Produto" onclick="AdicionarProduto()" class="adicionarProduto"/>
         <br><br>    
-        <input type="button" value="Salvar" onclick="SalvarOrdemServico()" class="salvar"/> 
+        <input type="button" value="Salvar" onclick="SalvarOrdemServico()" class="salvarOS"/> 
         <div id="dadosSalvos">                
         </div> 
     </main>
