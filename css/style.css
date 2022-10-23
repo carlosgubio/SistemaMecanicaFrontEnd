@@ -160,14 +160,7 @@ ul ul a{
     background: var(--cor-menuVertical);
 }
 
-
-/* salvar */
-/* .container{
-    width: 50em;
-    height: 10em;
-    text-align:center;
-} */
-
+/* Input */
 .column-1{    
     width:100%;
     font-size: 2em;
@@ -175,21 +168,36 @@ ul ul a{
     margin-top: 0.5em; 
     margin-bottom: -0.5em;  
     margin-left: 1em; 
-}
-.column-2{    
-    width: 100%; 
-    font-size: 3em;
-    text-align: center;  
-    margin-left: 1em;     
-}
-.container .column-2, .column-4, .column-6, .column-8{
-    background-size:cover;
-    height: auto;
-    padding: 1% 2em;
-    width: 100%;
     
-   
 }
+.column-1 #nomeCliente, #enderecoCliente, #nomeProfissiona, #descricaoServico, #descricaoProduto{
+    width: 30em;
+    margin-left: 23em;
+    
+}
+.column-1 #cpfCliente, #telefoneCliente, #veiculoCliente{
+    width: 10em;
+    margin-left: 23em;
+}
+.column-1 #veiculoCliente{
+    width: 15em;
+    margin-left: 23em;
+}
+.column-1 #cpfCliente, #placaVeiculoCliente, #corVeiculoCliente, #cargoProfissional,#valorServico, #valorPeca{
+    width: 10em;
+    margin-left: 23em;
+}
+.column-1 #listagemClientes{
+    width: 12em;
+    margin-left: 8em;
+    
+}
+.column-1 #listagemVeiculos{
+    width: 12em;
+    margin-left: 8em;
+}
+
+
 .container .title{
     font-weight: bold;
     color:black;

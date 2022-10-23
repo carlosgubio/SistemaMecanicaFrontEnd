@@ -9,9 +9,15 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/style.css">
 
+
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script scr="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.15/jquery.mask.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
     
     <script>
        $(function () {
@@ -19,6 +25,21 @@
         $("#menu").load("../../menu.html");
        });
     </script>
+
+<script>
+    $(document).ready(function(){
+    $(":input").inputmask();   
+    $("#valorServico").inputmask({
+    mask: '',
+    showMaskOnHover: true,
+    showMaskOnFocus: false,
+    onBeforePaste: function (pastedValue, opts) {
+        var processedValue = pastedValue;
+    return processedValue;
+    }
+    });
+    });
+</script>
   
 </head>
 <body>
@@ -28,29 +49,29 @@
     <main class="container">  
         <h1 class="title">Editar Serviço</h1> 
         <div name="formulario-servico" id="form" class="form-salvar">
-            <div class="column-1 column label">
-                <label>Descrição do Serviço</label>
+            
+            <div class="column-1 column input">
+                <form class="form-floating">
+                    <input type="text" class="form-control" id="descricaoServico" value="" placeholder="Descrição do Serviço">
+                </form>
             </div>
-
-            <div class="column-2 column input">
-                <input type="text" id="descricaoServico" value="" />
-            </div>
-
-            <div class="column-1 column label">
-                <label>Valor do Serviço</label>
-            </div>
-
-            <div class="column-2 column input">
-                <input type="number" id="valorServico" value="" /> 
+            <br>
+            <div class="column-1 column input">
+                <form class="form-floating">
+                    <input type="text" class="form-control" id="valorServico" data-inputmask="'alias': 'currency'" style="text-align: right;" value="" placeholder="Valor do Serviço">
+                </form>
             </div>    
         </div>
+        <br> 
         <div>
-            <br>
-            <input class="btn btn-success" type="success" value="Atualizar" onclick="Atualizar()"></input>
-            <!-- <input type="button" value="Atualizar" onclick="Atualizar()"class="atualizar"/> -->
-        </div>  
+            <div id="dadosSalvos"></div>
+            <div class="column-1 column label">
+                <input class="btn btn-success" type="success" value="Atualizar" onclick="Atualizar()"></input>
+            </div>  
     </main>
 </body>
 <script src="../../app/servico/editarServico.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
+
+<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"></script> -->
 </html>

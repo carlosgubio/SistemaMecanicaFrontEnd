@@ -12,12 +12,28 @@
     <script src="https://code.jquery.com/jquery-3.2.1.js"></script>    
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script scr="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script type='text/javascript' src='https://code.jquery.com/jquery-1.11.0.js'></script>
+    <script type='text/javascript' src="https://rawgit.com/RobinHerbots/jquery.inputmask/3.x/dist/jquery.inputmask.bundle.js"></script>
     
     <script>
        $(function () {
         $("#header").load("../../header.html");
           $("#menu").load("../../menu.html");
        });
+    </script>
+    <script>
+        $(document).ready(function(){
+        $(":input").inputmask();   
+        $("#valorPeca").inputmask({
+        mask: '',
+        showMaskOnHover: true,
+        showMaskOnFocus: false,
+        onBeforePaste: function (pastedValue, opts) {
+            var processedValue = pastedValue;
+        return processedValue;
+        }
+        });
+        });
     </script>
   
 </head>
@@ -31,13 +47,13 @@
 
             <div class="column-1 column input">
                 <form class="form-floating">
-                    <input type="text" class="form-control" id="descricaoServico" value="" placeholder="Descrição">
+                    <input type="text" class="form-control" id="descricaoProduto" value="" placeholder="Descrição da Peça">
                 </form>
             </div>
             <br> 
             <div class="column-1 column input">
                 <form class="form-floating">
-                    <input type="text" class="form-control" id="valorServico" value="" placeholder="Valor">
+                    <input type="text" class="form-control" data-inputmask="'alias': 'currency'" style="text-align: right;" id="valorPeca" value="" placeholder="Valor">
                 </form>
             </div>   
         </div>
@@ -48,5 +64,5 @@
     </main>  
 </body>
 <script src="../../app/produto/editarProduto.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 </html>

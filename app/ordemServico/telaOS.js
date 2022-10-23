@@ -51,49 +51,64 @@ async function PreencherTabelaOrdemServico(){
 }
 async function ListarPorCriterio(elemento){
     let texto = elemento.value;
-    let resposta = await ListarPessoasUsandoCriterio(texto);
+    let resposta = await ListarVeiculosUsandoCriterio(texto);
     
 }
-async function ListarPessoasUsandoCriterio(criterio){  
+async function ListarVeiculosUsandoCriterio(criterio){  
     
     const options = {
         method: 'GET',  
         headers:{'content-type': 'application/json'}                     
     };    
-    const req =  await fetch('https://localhost:44349/OS/BuscarPorNome?nome='+criterio, options )
+    const req =  await fetch('https://localhost:44363/ordensServico/ConsultarPorVeiculo?veiculo={veiculo}'+criterio, options )
         .then(response => {
             tabelaCorpoOS2.empty()
                 response.json().then(oss =>{
                     oss.forEach(os => {            
                         const linha = document.createElement('tr')
 
-            const ordemDeServico = document.createElement('td')
-            const valordaObra = document.createElement('td')
-            const descricaoDaObra = document.createElement('td')
+            const ordemServico = document.createElement('td')
             const nomeCliente = document.createElement('td')
-            const nomeFuncionario = document.createElement('td')
-            const dataDeInicio = document.createElement('td')
-            const previsaoDeTermino = document.createElement('td')
+            const veiculoCliente = document.createElement('td')
+            const PlacaVeiculoCliente = document.createElement('td')
+            const corVeiculoCliente = document.createElement('td')
+            const nomeProfissional = document.createElement('td')
+            const descricaoServico = document.createElement('td')
+            const valorServico = document.createElement('td')
+            const Peca = document.createElement('td')
+            const valorPeca = document.createElement('td')
+            const totalGeral = document.createElement('td')
+            
 
-            ordemDeServico.innerHTML = os.ordemDeServico
-            valordaObra.innerHTML = os.valordaObra
-            descricaoDaObra.innerHTML = os.descricaoDaObra
+            ordemServico.innerHTML = os.ordemServico
             nomeCliente.innerHTML = os.nomeCliente
-            nomeFuncionario.innerHTML = os.nomeFuncionario
-            dataDeInicio.innerHTML = os.dataDeInicio
-            previsaoDeTermino.innerHTML = os.previsaoDeTermino
+            veiculoCliente.innerHTML = os.veiculoCliente
+            PlacaVeiculoCliente.innerHTML = os.PlacaVeiculoCliente
+            corVeiculoCliente.innerHTML = os.corVeiculoCliente
+            nomeProfissional.innerHTML = os.nomeProfissional
+            descricaoServico.innerHTML = os.descricaoServico
+            valorServico.innerHTML = os.valorServico
+            Peca.innerHTML = os.Peca
+            valorPeca.innerHTML = os.valorPeca
+            totalGeral.innerHTML = os.totalGeral
             
                         linha.addEventListener('click', ()=> {            
-                            window.location.href = "OsAlterar.html?id=" + os.id;
+                            window.location.href = "EditarOrdemServico.html?id=" + os.id;
                         });
                         // acoes.appendChild(criarBotao(handlerDeleteFuncionario, 'Deletar', funcionario))  
-                        linha.appendChild(ordemDeServico)
-            linha.appendChild(valordaObra)
-            linha.appendChild(descricaoDaObra)
+                        linha.appendChild(ordemServico)
+            linha.appendChild(ordemServico)
             linha.appendChild(nomeCliente)
-            linha.appendChild(nomeFuncionario)
-            linha.appendChild(dataDeInicio)
-            linha.appendChild(previsaoDeTermino)
+            linha.appendChild(veiculoCliente)
+            linha.appendChild(veiculoCliente)
+            linha.appendChild(PlacaVeiculoCliente)
+            linha.appendChild(corVeiculoCliente)
+            linha.appendChild(nomeProfissional)
+            linha.appendChild(descricaoServico)
+            linha.appendChild(valorServico)
+            linha.appendChild(Peca)
+            linha.appendChild(valorPeca)
+            linha.appendChild(totalGeral)
 
             tabelaCorpoOS2.append(linha)                   
                     })
@@ -104,7 +119,6 @@ async function ListarPessoasUsandoCriterio(criterio){
             return erro;
         });
     return req;
-}
 }
 
 async function ListarOrdensServico(){  
