@@ -115,4 +115,6 @@ async function EnviarVeiculoApi(viewmodel){
         return data;
         });
     }); 
+    alert('Cliente Cadastrado!');
+      return;
 }

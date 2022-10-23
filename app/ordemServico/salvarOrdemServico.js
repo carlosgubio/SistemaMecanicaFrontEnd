@@ -107,6 +107,9 @@ async function PreencherOpcoesCliente(){
   let selectCliente = document.querySelector('#listagemClientes')
   selectCliente.style.fontSize = 40+"px";
   selectCliente.style.paddingLeft = 30+"px";
+
+  // selectCliente.classList.add('form-select');
+  selectCliente.classList.add('.form-select-lg');
   let clientes = await ConsultaCliente()
   if(clientes){
     clientes.forEach(element => {
