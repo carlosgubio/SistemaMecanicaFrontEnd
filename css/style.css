@@ -5,7 +5,7 @@
     --cor-fonte: white;
     --cor-fonte-menu:black;
     --cor-telaCentral: rgb(187, 184, 184);
-    --cor-header: rgb(212, 209, 208);
+    --cor-header: rgba(110, 110, 117, 0.411);
     --cor-header-faixa: rgb(221, 10, 10);
 
 }
@@ -40,14 +40,12 @@
  .header{
     display: flex;
     justify-content: space-between;
-    height: 7em;
+    height: 3em;
     align-items: center;
-  
     text-decoration: none;
-    border-top: var(--cor-header);
     list-style: none;
-    color: var(--cor-fonte);
     text-align: right;
+    background: linear-gradient(to right, var(--cor-menuVertical), rgb(0, 0, 0));
     
 }
 .header .logo{
@@ -56,21 +54,15 @@ margin-left: 10em;
 
 }
 .header .suporte{
-text-align: right;
-margin-right: 10em;
+text-align: center;
+margin-right: 200em;
 }
-
 .faixa{
     height: 0.5em; 
     background-color:var(--cor-header-faixa);
 }
 body{
     background: var(--cor-fonte);
-}
-
-h1 .logo{
-    font-size: 1em;
-    font-weight: bold;
 }
 h2{
     color: var(--cor-menuVertical);
@@ -100,7 +92,6 @@ a:hover, a:focus{
 #sidebar{
     min-width: 15em;
     max-width: 15em;
-    /* background:var(--cor-menuVertical); */
     color: var(--cor-header);
     transition: all 0.3s;
     text-decoration: none;
@@ -200,9 +191,10 @@ ul ul a{
 
 .container{
     margin-top:80px;
-        margin-bottom:80px;
-    }    
-    .img-card-user{
+    margin-bottom:80px;
+}
+
+.img-card-user{
     width:220px;
     border-radius:50%;
 }
