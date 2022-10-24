@@ -11,7 +11,7 @@ async function CarregarTemplate(enderecoTela){
 }
 
 async function AdicionarCliente(){
-  let clientes = document.querySelector('#dadosCliente');
+  let clientes = document.querySelector('#column-1 column label');
   let selectAddCliente = document.createElement('select');  
   selectAddCliente.classList.add('listagemClientes');  
   selectAddCliente.name = 'clientes';
@@ -379,6 +379,8 @@ const req =  await fetch('https://localhost:44363/ordensServico/atualizar', opti
       console.log(data);
       return data;
       });
+      alert('Ordem se Serviço Editada!');
+      return;
   }) 
 //caso dê erro, irá retornar o erro e mostrar no console
   .catch(erro => {
@@ -392,3 +394,4 @@ const req =  await fetch('https://localhost:44363/ordensServico/atualizar', opti
 (async() => {
  await getOrdemServico();
 })();
+

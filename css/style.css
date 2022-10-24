@@ -183,7 +183,7 @@ ul ul a{
     width: 15em;
     margin-left: 23em;
 }
-.column-1 #cpfCliente, #placaVeiculoCliente, #corVeiculoCliente, #cargoProfissional,#valorServico, #valorPeca{
+.column-1 #cpfCliente, #placaVeiculoCliente, #corVeiculoCliente, #cargoProfissional, #valorServico, #valorPeca{
     width: 10em;
     margin-left: 23em;
 }
@@ -196,6 +196,30 @@ ul ul a{
     width: 12em;
     margin-left: 8em;
 }
+
+.container{
+    margin-top:80px;
+        margin-bottom:80px;
+    }    
+    .img-card-user{
+    width:220px;
+    border-radius:50%;
+}
+.img-mini-card{
+    width:50px;
+}
+.centered {
+    margin: 0 auto !important;
+    float: none !important;
+}
+
+
+
+
+
+
+
+
 
 
 .container .title{

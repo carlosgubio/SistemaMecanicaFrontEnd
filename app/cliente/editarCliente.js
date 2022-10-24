@@ -143,6 +143,8 @@ async function EnviarApiVeiculo(viewmodel){
             alert(data);
             return data;
         });
+        alert('Cliente Editado!');
+      return;
     }) 
     //caso dê erro, irá retornar o erro e mostrar no console
     .catch(erro => {
@@ -212,5 +214,6 @@ async function Atualizar(){
     console.log(responseCliente);
 }
 
-
 getClienteNome();
+
+

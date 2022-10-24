@@ -323,17 +323,23 @@ async function PreencherOpcoesProduto(select, idproduto){
           console.log(data);
           return data;
           });
-      }) 
+          alert('Ordem se Serviço Cadastrada!');
+          return;
+      })
+       
     //caso dê erro, irá retornar o erro e mostrar no console
       .catch(erro => {
           console.log(erro);
           return erro;
       });
-  
+      
       return req;
+
+      
   }
 
 (async() => {
   await PreencherOpcoesCliente();
   await PreencherOpcoesVeiculo();
 })();
+

@@ -69,3 +69,19 @@ async function ListarOrdensServico(){
 }
 
 PreencherTabelaOrdemServico();
+
+
+let xhr = new XMLHttpRequest();
+xhr.open('GET', 'https://localhost:44363/ordensServico/buscarTodas'+ veiculo + '/json');
+xhr.onreadystatechange = function() {
+	if (xhr.readyState == 4) {
+		if (xhr.status = 200)
+        console.log(xhr.responseText);
+	}
+}
+xhr.send();
+function buscaPorVeiculo() {
+    let inputVeiculo = document.querySelector('input[name=veiculo]');
+    let veiculo = inputVeiculo.value;
+
+}

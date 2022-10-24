@@ -30,24 +30,16 @@
         <h1 class="title">Lista de Cliente</h1>
         <h2 class="Instruction">Clique na linha caso deseje alterar</h2>
         <div id="listagem-clientes">
-        <table>
+        <table class="table"  border="2em">
             <thead>
                 <tr>
-                <th>
-                Nome Cliente
-                </th>
-                <th>
-                CPF Cliente
-                </th>     
-                <th>
-                Telefone Cliente
-                </th>
-                <th>
-                Endereco Cliente
-                </th> 
-            </tr>           
-            
-            </thead> 
+                    <th scope="col">Nome Cliente</th>
+                    <th scope="col">CPF Cliente</th>     
+                    <th scope="col">Telefone Cliente</th>
+                    <th scope="col">Endereco Cliente</th> 
+                </tr>  
+            </thead>
+            <tbody id="tableBody"></tbody>
         </table>    
         </div>
     </main>

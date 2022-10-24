@@ -66,6 +66,8 @@ async function PreencherFormularioServico(json){
             alert(data);
             return data;
         });
+        alert('Serviço Editado!');
+        return;
     }) 
     //caso dê erro, irá retornar o erro e mostrar no console
     .catch(erro => {
@@ -103,3 +105,4 @@ async function Atualizar(){
 
  getServicoNome();
 
+ 

@@ -103,3 +103,5 @@ async function Atualizar(){
 
  getProfissionalNome();
 
+ alert('Profissional Editado!');
+ return;

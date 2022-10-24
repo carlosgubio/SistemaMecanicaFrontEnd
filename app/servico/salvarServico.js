@@ -55,6 +55,8 @@ async function CarregarTemplate(nome){
             console.log(data);
             return data;
             });
+            // alert('Serviço Cadastrado!');
+            // return;
         })  
         
     //caso dê erro, irá retornar o erro e mostrar no console
@@ -65,3 +67,4 @@ async function CarregarTemplate(nome){
   
       return req;
   }
+

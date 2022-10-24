@@ -55,6 +55,8 @@ async function CarregarTemplate(nome){
           console.log(data);
           return data;
           });
+          alert('Profissional Cadastrado!');
+          return;
       }) 
     //caso dê erro, irá retornar o erro e mostrar no console
       .catch(erro => {
@@ -64,4 +66,6 @@ async function CarregarTemplate(nome){
   
       return req;
   }
+
+
 
