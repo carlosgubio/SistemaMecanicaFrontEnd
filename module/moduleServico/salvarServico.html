@@ -29,9 +29,9 @@
 
     <script>
 $(document).ready(function(){
-  $('.form-control-Money').mask('000.000.000.000.000,00', {reverse: true});
+  $('#valorServico').mask('000.000.000.000.000,00', {reverse: true});
 });
-$(".form-control-Money").focusout(function(){
+$("#valorServico").focusout(function(){
   if($(this).val().length <= 2){
     temp = $(this).val()
     var newNum = temp + ",00"
@@ -57,7 +57,7 @@ $(".form-control-Money").focusout(function(){
             <br>
             <div class="column-1 column input">
                 <form class="form-floating">
-                    <input type="text" class="form-control-Money" style="text-align: center;" id="valorServico" value="" placeholder="Valor do Serviço">
+                    <input type="text" class="form-control" id="valorServico" value="" placeholder="Valor do Serviço">
                 </form>
             </div>    
         </div>

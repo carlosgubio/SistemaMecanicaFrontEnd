@@ -23,17 +23,15 @@
     </script>
     <script>
         $(document).ready(function(){
-        $(":input").inputmask();   
-        $("#valorPeca").inputmask({
-        mask: '',
-        showMaskOnHover: true,
-        showMaskOnFocus: false,
-        onBeforePaste: function (pastedValue, opts) {
-            var processedValue = pastedValue;
-        return processedValue;
+        $('#valorPeca').mask('000.000.000.000.000,00', {reverse: true});
+        });
+        $("#valorPeca").focusout(function(){
+        if($(this).val().length <= 2){
+            temp = $(this).val()
+            var newNum = temp + ",00"
+            $(this).val(newNum)
         }
-        });
-        });
+        })
     </script>
   
 </head>
@@ -53,7 +51,7 @@
             <br> 
             <div class="column-1 column input">
                 <form class="form-floating">
-                    <input type="text" class="form-control" data-inputmask="'alias': 'currency'" style="text-align: right;" id="valorPeca" value="" placeholder="Valor">
+                    <input type="text" class="form-control" id="valorPeca" value="" placeholder="Valor da Peça">
                 </form>
             </div>   
         </div>

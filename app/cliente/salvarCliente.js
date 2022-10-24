@@ -115,6 +115,6 @@ async function EnviarVeiculoApi(viewmodel){
         return data;
         });
     }); 
-    alert('Cliente Cadastrado!');
+    alert('Cliente e Veículo Cadastrados com Sucesso!');
       return;
 }

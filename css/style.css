@@ -68,8 +68,8 @@ body{
     background: var(--cor-fonte);
 }
 
-h3{
-    font-size: 2em;
+h1 .logo{
+    font-size: 1em;
     font-weight: bold;
 }
 h2{
@@ -172,20 +172,20 @@ ul ul a{
 }
 .column-1 #nomeCliente, #enderecoCliente, #nomeProfissiona, #descricaoServico, #descricaoProduto{
     width: 30em;
-    margin-left: 23em;
+    margin-left: 20em;
     
 }
 .column-1 #cpfCliente, #telefoneCliente, #veiculoCliente{
     width: 10em;
-    margin-left: 23em;
+    margin-left: 20em;
 }
 .column-1 #veiculoCliente{
     width: 15em;
-    margin-left: 23em;
+    margin-left: 20em;
 }
 .column-1 #cpfCliente, #placaVeiculoCliente, #corVeiculoCliente, #cargoProfissional, #valorServico, #valorPeca{
     width: 10em;
-    margin-left: 23em;
+    margin-left: 20em;
 }
 .column-1 #listagemClientes{
     width: 12em;
@@ -196,6 +196,7 @@ ul ul a{
     width: 12em;
     margin-left: 8em;
 }
+
 
 .container{
     margin-top:80px;
