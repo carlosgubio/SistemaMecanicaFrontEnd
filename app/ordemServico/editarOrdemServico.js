@@ -98,8 +98,10 @@ async function PreencherOpcoesProfissional(select, idProfissional){
   let profissionais = await ConsultaProfissional()
   let divProfissionais = document.querySelector('#dadosProfissional');
   let divProfissionalAdd = document.createElement('div'); 
-  divProfissionais.style.fontSize = 40+"px";
-  divProfissionais.style.paddingLeft = 450+"px"; 
+  divProfissionais.style.fontSize = 35+"px";
+  divProfissionais.style.paddingLeft = 350+"px";
+  divProfissionais.style.maginTop = 50+"px";
+  
   let botaoRemover = document.createElement('input');
 
   botaoRemover.addEventListener('click', (element)=> {
@@ -111,7 +113,7 @@ async function PreencherOpcoesProfissional(select, idProfissional){
   botaoRemover.value = 'Remover';
   botaoRemover.style.backgroundColor = 'red';
   botaoRemover.style.color = 'white'
-  botaoRemover.style.paddingLeft = 25+"px";
+  botaoRemover.style.paddingLeft = 10+"px";
   botaoRemover.style.borderRadius = 5+'px';
   botaoRemover.style.margin = 10+"px";
 
@@ -141,8 +143,10 @@ async function PreencherOpcoesServico(select, idServico){
   let servicos = await ConsultaServico()    
   let divservicos = document.querySelector('#dadosServico');
   let divServicoAdd = document.createElement('div'); 
-  divServicoAdd.style.fontSize = 40+"px";
-  divServicoAdd.style.paddingLeft = 450+"px";  
+  divServicoAdd.style.fontSize = 35+"px";
+  divServicoAdd.style.paddingLeft = 350+"px"; 
+  divServicoAdd.style.maginTop = 20+"px";
+  
   let botaoRemover = document.createElement('input');
 
   botaoRemover.addEventListener('click', (element)=> {
@@ -153,7 +157,7 @@ async function PreencherOpcoesServico(select, idServico){
   botaoRemover.value = 'Remover';
   botaoRemover.style.backgroundColor = 'red';
   botaoRemover.style.color = 'white'
-  botaoRemover.style.paddingLeft = 25+"px";
+  botaoRemover.style.paddingLeft = 10+"px";
   botaoRemover.style.borderRadius = 5+'px';
   botaoRemover.style.margin = 10+"px";
 
@@ -183,16 +187,16 @@ async function PreencherOpcoesProduto(select, idproduto){
   let produtos = await ConsultaProduto()
   let divprodutos = document.querySelector('#dadosProduto');
   let divProdutoAdd = document.createElement('div');  
-  divProdutoAdd.style.fontSize = 40+"px";
+  divProdutoAdd.style.fontSize = 35+"px";
   divProdutoAdd.style.paddingLeft = 350+"px";
+  divProdutoAdd.style.maginTop = 20+"px";
   let botaoRemover = document.createElement('input');
 
   botaoRemover.value = 'Remover';
   botaoRemover.style.backgroundColor = 'red';
   botaoRemover.style.color = 'white'
-  botaoRemover.style.paddingArea = 50+"px";
-
-  botaoRemover.style.borderRadius = 7+'px';
+  botaoRemover.style.paddingArea = 10+"px";
+  botaoRemover.style.borderRadius = 5+'px';
   botaoRemover.style.margin = 10+"px";
 
   divProdutoAdd.appendChild(select); 
