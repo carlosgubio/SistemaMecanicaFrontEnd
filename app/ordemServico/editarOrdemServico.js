@@ -112,7 +112,6 @@ async function PreencherOpcoesProfissional(select, idProfissional){
   botaoRemover.style.backgroundColor = 'red';
   botaoRemover.style.color = 'white'
   botaoRemover.style.paddingLeft = 25+"px";
-  // botaoRemover.style='textAlign:center';
   botaoRemover.style.borderRadius = 5+'px';
   botaoRemover.style.margin = 10+"px";
 
@@ -155,7 +154,6 @@ async function PreencherOpcoesServico(select, idServico){
   botaoRemover.style.backgroundColor = 'red';
   botaoRemover.style.color = 'white'
   botaoRemover.style.paddingLeft = 25+"px";
-  // botaoRemover.style='textAlign:center';
   botaoRemover.style.borderRadius = 5+'px';
   botaoRemover.style.margin = 10+"px";
 
@@ -186,22 +184,20 @@ async function PreencherOpcoesProduto(select, idproduto){
   let divprodutos = document.querySelector('#dadosProduto');
   let divProdutoAdd = document.createElement('div');  
   divProdutoAdd.style.fontSize = 40+"px";
-  divProdutoAdd.style.paddingLeft = 450+"px";
+  divProdutoAdd.style.paddingLeft = 350+"px";
   let botaoRemover = document.createElement('input');
 
   botaoRemover.value = 'Remover';
-  botaoRemover.value = 'Remover';
   botaoRemover.style.backgroundColor = 'red';
   botaoRemover.style.color = 'white'
-  botaoRemover.style.paddingLeft = 25+"px";
-  // botaoRemover.style='textAlign:center';
-  botaoRemover.style.borderRadius = 5+'px';
+  botaoRemover.style.paddingArea = 50+"px";
+
+  botaoRemover.style.borderRadius = 7+'px';
   botaoRemover.style.margin = 10+"px";
 
   divProdutoAdd.appendChild(select); 
   divProdutoAdd.appendChild(botaoRemover); 
   botaoRemover.type = 'button';
-
   botaoRemover.addEventListener('click', (element)=> {
     let div = element.currentTarget.parentNode;
     div.remove();
@@ -269,7 +265,8 @@ async function ConsultaProduto(){
 
 async function SalvarOrdemServico(){
 
-  let idOrdemServico = parseInt(document.querySelector('#idOrdemServico').value);   
+  let idOrdemServico = parseInt(document.querySelector('#idOrdemServico').value);
+  console.log(idOrdemServico)   
   let idCliente = parseInt(document.querySelector('#listagemClientes').value);  
   console.log(idCliente);
   let idVeiculo = parseInt(document.querySelector('#listagemVeiculos').value);  
@@ -379,7 +376,7 @@ const req =  await fetch('https://localhost:44363/ordensServico/atualizar', opti
       console.log(data);
       return data;
       });
-      alert('Ordem se Serviço Editada!');
+      alert('Ordem de Serviço Editada com sucesso!');
       return;
   }) 
 //caso dê erro, irá retornar o erro e mostrar no console

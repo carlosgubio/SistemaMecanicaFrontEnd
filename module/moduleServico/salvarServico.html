@@ -28,16 +28,16 @@
     </script>
 
     <script>
-$(document).ready(function(){
-  $('#valorServico').mask('000.000.000.000.000,00', {reverse: true});
-});
-$("#valorServico").focusout(function(){
-  if($(this).val().length <= 2){
-    temp = $(this).val()
-    var newNum = temp + ",00"
-    $(this).val(newNum)
-  }
-})
+        $(document).ready(function(){
+        $('#valorServico').mask('000.000.000.000.000,00', {reverse: true});
+        });
+        $("#valorServico").focusout(function(){
+        if($(this).val().length <= 2){
+            temp = $(this).val()
+            var newNum = temp + ",00"
+            $(this).val(newNum)
+        }
+        })
     </script>
   
 </head>

@@ -15,12 +15,12 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"></script>
 
     
-        <script>
-            $(function () {
-             $("#header").load("../../header.html");
-               $("#menu").load("../../menu.html");
-            });
-         </script>
+    <script>
+        $(function () {
+            $("#header").load("../../header.html");
+            $("#menu").load("../../menu.html");
+        });
+    </script>
   
 </head>
 <body>
@@ -30,7 +30,7 @@
     <main class="container">  
         <h1 class="title">Editar Profissional</h1>        
         <div name="formulario-profissional" id="form" class="form-salvar">
-            
+            <input type="hidden" id="idProfissional"/>
             <div class="column-1 column input">
                 <form class="form-floating">
                     <input type="text" class="form-control" id="nomeProfissional" value="" placeholder="Nome Completo">

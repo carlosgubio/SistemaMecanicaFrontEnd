@@ -70,6 +70,3 @@ async function CarregarTemplate(nome){
   
       return req;
   }
-
-  alert('Veículo Cadastrado!');
-  return;

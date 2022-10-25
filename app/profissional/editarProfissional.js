@@ -37,7 +37,7 @@ async function ConsultaProfissional(id){
 }
 async function PreencherFormularioProfissional(json){
     let dadosForm = document.querySelector('#form');
-    let idProfissional = dadosForm.querySelector('#id-profissional');
+    let idProfissional = dadosForm.querySelector('#idProfissional');
     let nomeProfissional = dadosForm.querySelector('#nomeProfissional');
     let cargoProfissional = dadosForm.querySelector('#cargoProfissional');
  
@@ -66,6 +66,7 @@ async function EnviarApi(viewmodel){
             alert(data);
             return data;
         });
+ return;
     }) 
     //caso dê erro, irá retornar o erro e mostrar no console
     .catch(erro => {
@@ -78,7 +79,7 @@ async function EnviarApi(viewmodel){
 
 async function Atualizar(){
     
-    let idProfissional = parseInt(document.querySelector('#id-profissional').value);    
+    let idProfissional = parseInt(document.querySelector('#idProfissional').value);    
         console.log(idProfissional);
         let nomeProfissional = document.querySelector('#nomeProfissional').value;  
         console.log(nomeProfissional);
@@ -102,6 +103,3 @@ async function Atualizar(){
  }
 
  getProfissionalNome();
-
- alert('Profissional Editado!');
- return;

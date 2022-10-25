@@ -23,53 +23,77 @@
 <body>
     <div id="header"></div>
     <div id="menu" class="wrapper"></div>
-     
-    <div id="TelaOS">
-        <p><label>Buscar por Veículo</label>
-            <input type="text" class="w3-input w-border" oninput="ListarPorCriterio(this)"></p>
+
+    <div id="BuscarVeiculo"><br>
+        <br>  
+        <div class="column-1 column label">
+            <input class="btn btn-primary" type="submit" value="Buscar Veículo" onclick="ListarVeiculosUsandoCriterio()">
+        </div>
     </div>
-    <br>
-    <main class="container">  
+
+
+
+    <div id="botaoBuscar">
+        <a href="/SistemaMecanicaFrontEnd/module/moduleOrdemServico/listarOrdemServico.html"><input type="button" class="button botao-espaco" value="Buscar OS" onclick="ListarVeiculosUsandoCriterio()" /></a> <br>
+    </div>
+    <div id="botaoBuscar">
+        <p><label>Buscar por Veículo</label>
+            <input type="text" class="w3-input w3-border" oninput="ListarVeiculosUsandoCriterio(this)"></p>
+    </div>
+    <h1 class="title">Ordem de Serviço</h1> 
+    <div id="tela-ordensServico">
+        <table id="telaOS" class="mostar" border="2em">
+            <br>
+            <thead>
+            <th>
+                <th scope="col">Nome do Cliente</th>
+                <th scope="col">Veiculo</th>     
+                <th scope="col">Placa </th>
+                <th scope="col">Cor </th>         
+                <th scope="col">Profissional</th>
+                <th scope="col">Descrição do Serviço</th> 
+                <th scope="col">Valor do Serviço </th> 
+                <th scope="col">Descrição da Peça</th> 
+                <th scope="col">Valor da Peça</th>
+                <th scope="col">Total Geral</th>    
+            </th> 
+            </thead>
+            <tbody id="tabela-os"       
+        </table>    
+        </div>
+
+
+
+
+
+
+    <!-- <main class="container">  
         <h1 class="title">Ordem de Serviço</h1> 
         <div id="tela-ordensServico">
-            <table id="telaOS" class="mostar" border="0.5em">
+            <table id="telaOS" class="mostar" border="2em">
+                <div id="TelaOS">
+                    <p><label>Buscar por Veículo</label>
+                        <input type="text" class="w3-input w3-border" oninput="ListarVeiculosUsandoCriterio(this)"></p>
+                </div>
+                <br>
                 <thead>
                 <th>
-                    <th>
-                        Nome do Cliente
-                    </th>
-                    <th>
-                        Veiculo
-                    </th>     
-                    <th>
-                        Placa
-                    </th>
-                    <th>
-                        Cor
-                    </th>         
-                    <th>
-                        Profissional
-                    </th>
-                    <th>
-                        Descrição do Serviço
-                    </td> 
-                    <th>
-                        Valor do Serviço
-                    </td> 
-                    <th>
-                        Peça
-                    </td> 
-                    <th>
-                        Valor da Peça
-                    </td> 
-                    <th>
-                        Total Geral
-                    </td>    
-            </th> 
-                </thead>       
+                    <th scope="col">Nome do Cliente</th>
+                    <th scope="col">Veiculo</th>     
+                    <th scope="col">Placa </th>
+                    <th scope="col">Cor </th>         
+                    <th scope="col">Profissional</th>
+                    <th scope="col">Descrição do Serviço</th> 
+                    <th scope="col">Valor do Serviço </th> 
+                    <th scope="col">Descrição da Peça</th> 
+                    <th scope="col">Valor da Peça</th>
+                    <th scope="col">Total Geral</th>    
+                </th> 
+                </thead>
+                <tbody id="tabela-os"       
             </table>    
             </div>
-    </main>
+    </main> -->
 </body>
 <script src="../../app/ordemServico/listarOrdemServico.js" class="listarOrdemServico"></script>
 </html>

@@ -37,7 +37,7 @@ async function ConsultaServico(id){
 }
 async function PreencherFormularioServico(json){
     let dadosForm = document.querySelector('#form');
-    let idServico = dadosForm.querySelector('#id-servico');
+    let idServico = dadosForm.querySelector('#idServico');
     let descricaoServico = dadosForm.querySelector('#descricaoServico');
     let valorServico = dadosForm.querySelector('#valorServico');
  
@@ -66,7 +66,6 @@ async function PreencherFormularioServico(json){
             alert(data);
             return data;
         });
-        alert('Serviço Editado!');
         return;
     }) 
     //caso dê erro, irá retornar o erro e mostrar no console
@@ -80,7 +79,7 @@ async function PreencherFormularioServico(json){
 
 async function Atualizar(){
     
-    let idservico = parseInt(document.querySelector('#id-servico').value);    
+    let idservico = parseInt(document.querySelector('#idServico').value);    
         console.log(idservico);
         let descricaoServico = document.querySelector('#descricaoServico').value;  
         console.log(descricaoServico);

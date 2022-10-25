@@ -1,59 +1,10 @@
-async function PreencherTabelaOrdemServico(){
-    
-    let tabela = document.querySelector('#listagem-ordensServico');    
-    
-    console.log(tabela);
+const tabela = $('#tabela-os')
 
-    let ordensServico = await ListarOrdensServico();  
-    
-    console.log(ordensServico);
-
-    ordensServico.forEach(function(e) {
-        let linha = document.createElement('tr');
-        linha.addEventListener('click', ()=> {            
-            window.location.href = "../../module/moduleOrdemServico/editarOrdemServico.html?id="+e.idOrdemServico;
-        });
-        
-        let idOrdemServicoTd = document.createElement('input'); 
-        idOrdemServicoTd.type='hidden';
-        idOrdemServicoTd.classList.add('row-IdOrdemServico-OrdemServico'); 
-        let nomeClienteTd = document.createElement('td');        
-        nomeClienteTd.classList.add('row-nomeCliente-cliente');        
-        let veiculoClienteTd = document.createElement('td');
-        veiculoClienteTd.classList.add('row-veiculoCliente-veiculo');
-        let nomeProfissionalTd = document.createElement('td');
-        nomeProfissionalTd.classList.add('row-nomeProfissional-profissional');
-        // let descricaoServicoTd = document.createElement('td');
-        // descricaoServicoTd.classList.add('row-descricaoServico-servico');
-        // let descricaoPecaTd = document.createElement('td');
-        // descricaoPecaTd.classList.add('row-descricaoPeca-produto');
-        // let totalGeralTd = document.createElement('td');
-        // totalGeralTd.classList.add('row-totalGeral-total');
-        
-        idOrdemServicoTd.value = e.idOrdemServico;
-        nomeClienteTd.innerHTML = e.nomeCliente;
-        veiculoClienteTd.innerHTML = e.veiculoCliente;
-        nomeProfissionalTd.innerHTML = e.nomeProfissional;
-        // descricaoServicoTd.innerHTML = e.descricaoServico;
-        // descricaoPecaTd.innerHTML = e.descricaoPeca;
-        // totalGeralTd.innerHTML = e.totalGeral;
-
-        linha.appendChild(idOrdemServicoTd);
-        linha.appendChild(nomeClienteTd);
-        linha.appendChild(veiculoClienteTd);
-        linha.appendChild(nomeProfissionalTd);
-        // linha.appendChild(descricaoServicoTd);
-        // linha.appendChild(descricaoPecaTd);
-        // linha.appendChild(totalGeralTd);
-
-        tabela.appendChild(linha);
-    });
-}
 async function ListarPorCriterio(elemento){
     let texto = elemento.value;
-    let resposta = await ListarVeiculosUsandoCriterio(texto);
-    
+    let resposta = await ListarVeiculosUsandoCriterio(texto); 
 }
+
 async function ListarVeiculosUsandoCriterio(criterio){  
     
     const options = {
@@ -92,11 +43,11 @@ async function ListarVeiculosUsandoCriterio(criterio){
             valorPeca.innerHTML = os.valorPeca
             totalGeral.innerHTML = os.totalGeral
             
-                        linha.addEventListener('click', ()=> {            
-                            window.location.href = "EditarOrdemServico.html?id=" + os.id;
-                        });
-                        // acoes.appendChild(criarBotao(handlerDeleteFuncionario, 'Deletar', funcionario))  
-                        linha.appendChild(ordemServico)
+            linha.addEventListener('click', ()=> {            
+                window.location.href = "EditarOrdemServico.html?id=" + os.ordensServico;
+            });
+
+            linha.appendChild(ordemServico)
             linha.appendChild(ordemServico)
             linha.appendChild(nomeCliente)
             linha.appendChild(veiculoCliente)
@@ -121,6 +72,77 @@ async function ListarVeiculosUsandoCriterio(criterio){
     return req;
 }
 
+async function PreencherTabelaOrdemServico(){
+    
+    let tabela = document.querySelector('#tela-ordensServico');    
+    
+    console.log(tabela);
+
+    let ordensServico = await ListarOrdensServico();  
+    
+    console.log(ordensServico);
+
+    ordensServico.forEach(function(e) {
+        let linha = document.createElement('tr');
+        linha.addEventListener('click', ()=> {            
+            window.location.href = "../module/moduleOrdemServico/editarOrdemServico.html?id="+e.idOrdemServico;
+        });
+        
+        let idOrdemServicoTd = document.createElement('input'); 
+        idOrdemServicoTd.type='hidden';
+        idOrdemServicoTd.classList.add('row-IdOrdemServico-OrdemServico'); 
+        let nomeClienteTd = document.createElement('td');        
+        nomeClienteTd.classList.add('row-nomeCliente-cliente');        
+        let veiculoClienteTd = document.createElement('td');
+        veiculoClienteTd.classList.add('row-veiculoCliente-veiculo');
+        let placaVeiculoClienteTd = document.createElement('td');
+        placaVeiculoClienteTd.classList.add('row-placaVeiculoCliente-veiculo');
+        let corVeiculoClienteTd = document.createElement('td');
+        corVeiculoClienteTd.classList.add('row-corVeiculoCliente-veiculo');
+        let nomeProfissionalTd = document.createElement('td');
+        nomeProfissionalTd.classList.add('row-nomeProfissional-profissional');
+        let descricaoServicoTd = document.createElement('td');
+        descricaoServicoTd.classList.add('row-descricaoServico-servico');
+        let valorServicoTd = document.createElement('td');
+        valorServicoTd.classList.add('row-valorServico-servico');
+        let descricaoPecaTd = document.createElement('td');
+        descricaoPecaTd.classList.add('row-descricaoPeca-produto');
+        let valorPecaTd = document.createElement('td');
+        valorPecaTd.classList.add('row-valorPeca-produto');
+        let totalGeralTd = document.createElement('td');
+        totalGeralTd.classList.add('row-totalGeral-OrdemServico');
+        
+        idOrdemServicoTd.value = e.idOrdemServico;
+        nomeClienteTd.innerHTML = e.nomeCliente;
+        veiculoClienteTd.innerHTML = e.veiculoCliente;
+        placaVeiculoClienteTd.innerHTML = e.placaVeiculoCliente;
+        corVeiculoClienteTd.innerHTML = e.corVeiculoCliente;
+        nomeProfissionalTd.innerHTML = e.nomeProfissional;
+        descricaoServicoTd.innerHTML = e.descricaoServico;
+        valorServicoTd.innerHTML = e.valorServico;
+        descricaoPecaTd.innerHTML = e.descricaoPeca;
+        valorPecaTd.innerHTML = e.valorPeca;
+        totalGeralTd.innerHTML = e.totalGeral;
+
+        linha.appendChild(idOrdemServicoTd);
+        linha.appendChild(nomeClienteTd);
+        linha.appendChild(veiculoClienteTd);
+        linha.appendChild(placaVeiculoClienteTd);
+        linha.appendChild(corVeiculoClienteTd);
+        linha.appendChild(nomeProfissionalTd);
+        linha.appendChild(descricaoServicoTd);
+        linha.appendChild(valorServicoTd);
+        linha.appendChild(descricaoPecaTd);
+        linha.appendChild(valorPecaTd);
+        linha.appendChild(totalGeralTd);
+
+        tabela.appendChild(linha);
+    });
+}
+PreencherTabelaOrdemServico();
+
+
+
 async function ListarOrdensServico(){  
     
     const options = {
@@ -139,4 +161,4 @@ async function ListarOrdensServico(){
     return req;
 }
 
-PreencherTabelaOrdemServico();
+

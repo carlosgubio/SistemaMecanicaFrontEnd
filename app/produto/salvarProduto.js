@@ -55,7 +55,7 @@ async function CarregarTemplate(nome){
             console.log(data);
             return data;
             });
-            alert('Produto Cadastrado!');
+            alert('Produto Cadastrado com sucesso!');
             return;
         })  
         

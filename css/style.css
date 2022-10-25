@@ -161,7 +161,7 @@ ul ul a{
     margin-left: 1em; 
     
 }
-.column-1 #nomeCliente, #enderecoCliente, #nomeProfissiona, #descricaoServico, #descricaoProduto{
+.column-1 #nomeCliente, #enderecoCliente, #nomeProfissional, #descricaoServico, #descricaoPeca{
     width: 30em;
     margin-left: 20em;
     
@@ -175,7 +175,7 @@ ul ul a{
     margin-left: 20em;
 }
 .column-1 #cpfCliente, #placaVeiculoCliente, #corVeiculoCliente, #cargoProfissional, #valorServico, #valorPeca{
-    width: 10em;
+    width: 12em;
     margin-left: 20em;
 }
 .column-1 #listagemClientes{
@@ -206,7 +206,13 @@ ul ul a{
     float: none !important;
 }
 
-
+#botaoBuscar {
+    
+    margin-top: 0.4%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
 
 

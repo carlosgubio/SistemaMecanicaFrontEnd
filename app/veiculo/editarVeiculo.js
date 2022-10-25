@@ -112,5 +112,3 @@ async function Atualizar(){
 
 getVeiculoNome();
 
-alert('Veículo Editado!');
-      return;

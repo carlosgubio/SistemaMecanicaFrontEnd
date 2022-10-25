@@ -43,7 +43,7 @@ async function salvarCliente(){
 
   if(!divVeiculo)
   {
-      alert('Veículo não preenchido');
+      alert('É obrigatório o preenchimento do Veículo');
       return;
   }
 

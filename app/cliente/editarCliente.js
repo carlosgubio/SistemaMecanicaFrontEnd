@@ -9,7 +9,7 @@ async function CarregarTemplate(enderecoTela){
 }
 async function AdicionarVeiculo(){  
     let veiculo =  document.querySelector('#dadosVeiculo');    
-    let templateVeiculo = await CarregarTemplate('../../module/moduleCliente/veiculo.html');    
+    let templateVeiculo = await CarregarTemplate('../../module/moduleCliente/veiculo.html');   
     veiculo.innerHTML = templateVeiculo;
 }
 
@@ -58,7 +58,7 @@ async function ConsultaVeiculo(id){
 
 async function PreencherFormularioCliente(json){
     let dadosForm = document.querySelector('#form');    
-    let idCliente = dadosForm.querySelector('#id-cliente');
+    let idCliente = dadosForm.querySelector('#idCliente');
     let nomeCliente = dadosForm.querySelector('#nomeCliente');
     let cpfCliente = dadosForm.querySelector('#cpfCliente');
     let telefoneCliente = dadosForm.querySelector('#telefoneCliente');
@@ -80,7 +80,7 @@ async function PreencherFormularioVeiculo(json){
 
     console.log(templateVeiculo);
 
-    let idVeiculoInput = templateVeiculo.querySelector('#id-veiculo');
+    let idVeiculoInput = templateVeiculo.querySelector('#idVeiculo');
     let veiculoClienteInput = templateVeiculo.querySelector('#veiculoCliente');    
     let placaVeiculoClienteInput= templateVeiculo.querySelector('#placaVeiculoCliente');
     let corVeiculoClienteInput = templateVeiculo.querySelector('#corVeiculoCliente');
@@ -143,7 +143,6 @@ async function EnviarApiVeiculo(viewmodel){
             alert(data);
             return data;
         });
-        alert('Cliente Editado!');
       return;
     }) 
     //caso dê erro, irá retornar o erro e mostrar no console
@@ -161,11 +160,11 @@ async function Atualizar(){
 
     if(!divVeiculo)
     {
-        alert("Veículo não preenchido");  
+        alert("É obrigatório o preenchimento do Veículo");  
         return;
     }
 
-    let idVeiculo = divVeiculo.querySelector('#id-veiculo').value;
+    let idVeiculo = divVeiculo.querySelector('#idVeiculo').value;
     console.log(idVeiculo);
     let veiculoCliente = divVeiculo.querySelector('#veiculoCliente').value;
     console.log(veiculoCliente);
@@ -181,7 +180,7 @@ async function Atualizar(){
         corVeiculoCliente        
     };
 
-    let idCliente = parseInt(document.querySelector('#id-cliente').value);    
+    let idCliente = parseInt(document.querySelector('#idCliente').value);    
     console.log(idCliente);
     let nomeCliente = document.querySelector('#nomeCliente').value;  
     console.log(nomeCliente);

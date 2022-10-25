@@ -55,8 +55,8 @@ async function CarregarTemplate(nome){
             console.log(data);
             return data;
             });
-            // alert('Serviço Cadastrado!');
-            // return;
+            alert('Serviço Cadastrado com sucesso!');
+            return;
         })  
         
     //caso dê erro, irá retornar o erro e mostrar no console

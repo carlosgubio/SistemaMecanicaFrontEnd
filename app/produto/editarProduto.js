@@ -1,3 +1,4 @@
+
 async function CarregarTemplate(enderecoTela){    
     const template = await fetch(enderecoTela)
     .then(response=> { 
@@ -37,7 +38,7 @@ async function ConsultaProduto(id){
 }
 async function PreencherFormularioProduto(json){
     let dadosForm = document.querySelector('#form');
-    let idProduto = dadosForm.querySelector('#id-produto');
+    let idProduto = dadosForm.querySelector('#idProduto');
     let descricaoPeca = dadosForm.querySelector('#descricaoPeca');
     let valorPeca = dadosForm.querySelector('#valorPeca');
  
@@ -78,7 +79,7 @@ async function EnviarApi(viewmodel){
 
 async function Atualizar(){
     
-    let idProduto = parseInt(document.querySelector('#id-produto').value);    
+    let idProduto = parseInt(document.querySelector('#idProduto').value);    
         console.log(idProduto);
         let descricaoPeca = document.querySelector('#descricaoPeca').value;  
         console.log(descricaoPeca);
@@ -102,6 +103,3 @@ async function Atualizar(){
  }
 
  getProdutoNome();
-
- alert('Produto Editado!');
-      return;
