@@ -20,10 +20,12 @@
           $("#menu").load("../../menu.html");
        });
     </script>
+</head>
 <body>
     <div id="header"></div>
     <div id="menu" class="wrapper"></div>
 
+    <!-- Botão azul -->
     <div id="BuscarVeiculo"><br>
         <br>  
         <div class="column-1 column label">
@@ -31,15 +33,18 @@
         </div>
     </div>
 
-
-
-    <div id="botaoBuscar">
+<!-- Botão buscar os -->
+    <!-- <div id="botaoBuscar">
         <a href="/SistemaMecanicaFrontEnd/module/moduleOrdemServico/listarOrdemServico.html"><input type="button" class="button botao-espaco" value="Buscar OS" onclick="ListarVeiculosUsandoCriterio()" /></a> <br>
-    </div>
+    </div> -->
+
+<!-- Campo para preencher   -->
     <div id="botaoBuscar">
         <p><label>Buscar por Veículo</label>
-            <input type="text" class="w3-input w3-border" oninput="ListarVeiculosUsandoCriterio(this)"></p>
+        <input type="text" class="w3-input w3-border" oninput="ListarVeiculosUsandoCriterio(this)"></p>
     </div>
+
+
     <h1 class="title">Ordem de Serviço</h1> 
     <div id="tela-ordensServico">
         <table id="telaOS" class="mostar" border="2em">
@@ -58,42 +63,9 @@
                 <th scope="col">Total Geral</th>    
             </th> 
             </thead>
-            <tbody id="tabela-os"       
+            <tbody id="tabela-os" ></tbody>      
         </table>    
-        </div>
-
-
-
-
-
-
-    <!-- <main class="container">  
-        <h1 class="title">Ordem de Serviço</h1> 
-        <div id="tela-ordensServico">
-            <table id="telaOS" class="mostar" border="2em">
-                <div id="TelaOS">
-                    <p><label>Buscar por Veículo</label>
-                        <input type="text" class="w3-input w3-border" oninput="ListarVeiculosUsandoCriterio(this)"></p>
-                </div>
-                <br>
-                <thead>
-                <th>
-                    <th scope="col">Nome do Cliente</th>
-                    <th scope="col">Veiculo</th>     
-                    <th scope="col">Placa </th>
-                    <th scope="col">Cor </th>         
-                    <th scope="col">Profissional</th>
-                    <th scope="col">Descrição do Serviço</th> 
-                    <th scope="col">Valor do Serviço </th> 
-                    <th scope="col">Descrição da Peça</th> 
-                    <th scope="col">Valor da Peça</th>
-                    <th scope="col">Total Geral</th>    
-                </th> 
-                </thead>
-                <tbody id="tabela-os"       
-            </table>    
-            </div>
-    </main> -->
+    </div>
 </body>
-<script src="../../app/ordemServico/listarOrdemServico.js" class="listarOrdemServico"></script>
+<script src="../../app/ordemServico/telaOS.js" class="listarOrdemServico"></script>
 </html>

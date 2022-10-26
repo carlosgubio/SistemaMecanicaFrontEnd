@@ -23,28 +23,17 @@ async function PreencherTabelaOrdemServico(){
         veiculoClienteTd.classList.add('row-veiculoCliente-veiculo');
         let nomeProfissionalTd = document.createElement('td');
         nomeProfissionalTd.classList.add('row-nomeProfissional-profissional');
-        // let descricaoServicoTd = document.createElement('td');
-        // descricaoServicoTd.classList.add('row-descricaoServico-servico');
-        // let descricaoPecaTd = document.createElement('td');
-        // descricaoPecaTd.classList.add('row-descricaoPeca-produto');
-        // let totalGeralTd = document.createElement('td');
-        // totalGeralTd.classList.add('row-totalGeral-total');
+
         
         idOrdemServicoTd.value = e.idOrdemServico;
         nomeClienteTd.innerHTML = e.nomeCliente;
         veiculoClienteTd.innerHTML = e.veiculoCliente;
         nomeProfissionalTd.innerHTML = e.nomeProfissional;
-        // descricaoServicoTd.innerHTML = e.descricaoServico;
-        // descricaoPecaTd.innerHTML = e.descricaoPeca;
-        // totalGeralTd.innerHTML = e.totalGeral;
 
         linha.appendChild(idOrdemServicoTd);
         linha.appendChild(nomeClienteTd);
         linha.appendChild(veiculoClienteTd);
         linha.appendChild(nomeProfissionalTd);
-        // linha.appendChild(descricaoServicoTd);
-        // linha.appendChild(descricaoPecaTd);
-        // linha.appendChild(totalGeralTd);
 
         tabela.appendChild(linha);
     });
@@ -71,17 +60,17 @@ async function ListarOrdensServico(){
 PreencherTabelaOrdemServico();
 
 
-let xhr = new XMLHttpRequest();
-xhr.open('GET', 'https://localhost:44363/ordensServico/buscarTodas'+ veiculo + '/json');
-xhr.onreadystatechange = function() {
-	if (xhr.readyState == 4) {
-		if (xhr.status = 200)
-        console.log(xhr.responseText);
-	}
-}
-xhr.send();
-function buscaPorVeiculo() {
-    let inputVeiculo = document.querySelector('input[name=veiculo]');
-    let veiculo = inputVeiculo.value;
+// let xhr = new XMLHttpRequest();
+// xhr.open('GET', 'https://localhost:44363/ordensServico/buscarTodas'+ veiculo + '/json');
+// xhr.onreadystatechange = function() {
+// 	if (xhr.readyState == 4) {
+// 		if (xhr.status = 200)
+//         console.log(xhr.responseText);
+// 	}
+// }
+// xhr.send();
+// function buscaPorVeiculo() {
+//     let inputVeiculo = document.querySelector('input[name=veiculo]');
+//     let veiculo = inputVeiculo.value;
 
-}
+// }
