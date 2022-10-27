@@ -20,7 +20,7 @@
           $("#menu").load("../../menu.html");
        });
     </script>
-  
+
 </head>
 <body>
     <div id="header"></div>
@@ -30,22 +30,23 @@
         <h1 class="title">Lista de Ordem de Serviço</h1> 
         <h2 class="Instruction">Clique na linha caso deseje alterar</h2>
         <div id="listagem-ordensServico">
+            
             <table border="1">
                 <thead>
                 <th>
-                    <td>
+                    <td id="nome">
                     Nome Cliente
                     </td>
-                    <td>
+                    <td id="veiculo">
                     Veiculo Cliente
                     </td>
-                    <td>
+                    <td id="profissional">
                     Nome Profissional
                     </td>    
                 </th> 
                 </thead>       
             </table>    
-            </div>
+        </div>
     </main>
 </body>
 <script src="../../app/ordemServico/listarOrdemServico.js" class="listarOrdemServico"></script>

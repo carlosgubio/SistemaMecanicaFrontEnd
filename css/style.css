@@ -188,6 +188,19 @@ ul ul a{
     margin-left: 8em;
 }
 
+/* Buscar Veículo */
+input[type="search"]:focus{
+    border-color: #ced4da;
+    box-shadow: 0 0 0 0;
+    outline: 0;
+}
+input[type="search"]:focus{
+    border-color: #ffffff;
+    box-shadow: 0 0 0 0.2rem rgb(8, 4, 65);}
+
+
+
+
 
 .container{
     margin-top:80px;

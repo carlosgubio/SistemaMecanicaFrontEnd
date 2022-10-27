@@ -14,6 +14,14 @@
     
     <script src="app\index.js"></script>
     
+    <style type="text/css">
+    #section{
+        background-color: rgb(211, 208, 207);
+        min-height: 116em;
+        margin-left: 2em;
+    }
+
+    </style>
     <script>
        $(function () {
           $("#header").load("header.html");
@@ -21,7 +29,19 @@
        });
     </script>
 </head>
-<body>
-    <div id="header"></div>
-    <div id="menu" class="wrapper"></div>
+    <body class="container-fluid">
+        <div class="row">
+            <div id="header" class="col-sm-12 col-xs-12"></div>
+        </div>
+
+        <div class="row">
+            <div id="menu" class="col-sm-2 d-none d-sm-block"></div>
+            <div id="section" class="col-sm-9">
+                <h1 class="title">Ordem de Serviço</h1>
+        </div>
+    </body>
+
+
+
+    
 </html>
